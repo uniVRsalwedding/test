@@ -37,9 +37,18 @@
           scale="0.05 0.05 0.05"
           class="clickable"
           gesture-handler
+          visible="false" <!-- Inicia invisible -->
         >
         </a-entity>
       <a-entity camera></a-entity>
     </a-scene>
+        <script>
+      // Simular la detección del objeto al cargar la escena
+      document.querySelector('a-scene').addEventListener('loaded', function () {
+        const model = document.getElementById('bowser-model');
+        model.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        model.emit('markerFound'); // Emitir evento de marcador encontrado
+      });
+    </script>
   </body>
 </html>
