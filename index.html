@@ -52,7 +52,7 @@
         >
         </a-entity>
               <a-entity
-          id="kevin"
+          id="kevin-model"
           gltf-model="#kevin"
           position="-1 0 0"
           scale="1 1 1"
@@ -62,7 +62,7 @@
         >
         </a-entity>
               <a-entity
-          id="minion2"
+          id="minion2-model"
           gltf-model="#minion2"
           position="1 0 0"
           scale="1 1 1"
@@ -77,8 +77,8 @@
       // Simular la detección del objeto al cargar la escena
       document.querySelector('a-scene').addEventListener('loaded', function () {
         const model = document.getElementById('bowser-model');
-        const model2 = document.getElementById('kevin');
-        const model3 = document.getElementById('minion2');
+        const model2 = document.getElementById('kevin-model');
+        const model3 = document.getElementById('minion2-model');
         model.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model3.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
