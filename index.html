@@ -28,20 +28,17 @@
           src="minion.gltf"
         >
         </a-asset-item>
-      </a-assets>
-      <a-assets>
         <a-asset-item
           id="kevin"
           src="kevin.gltf"
         >
         </a-asset-item>
-      </a-assets>
-      <a-assets>
         <a-asset-item
           id="minion2"
           src="minion2.gltf"
         >
         </a-asset-item>
+        <audio id="helloAudio" src="/audio/hello.mp3"></audio>
       </a-assets>
 
 
@@ -77,11 +74,21 @@
         </a-entity>
       <a-entity camera look-controls position="0 1.6 5"></a-entity>
     </a-scene>
-        <script>
+
+
+    <script>
+      // Obtener el modelo y el audio
+      const model2 = document.getElementById('kevin-model');
+      const helloAudio = document.getElementById("helloAudio");
+
+      // Reproducir audio al hacer clic en el modelo
+      model2.addEventListener("click", () => {
+        helloAudio.play();  // Reproducir el audio
+      });
+
       // Simular la detección del objeto al cargar la escena
       document.querySelector('a-scene').addEventListener('loaded', function () {
         const model = document.getElementById('bowser-model');
-        const model2 = document.getElementById('kevin-model');
         const model3 = document.getElementById('minion2-model');
         model.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
