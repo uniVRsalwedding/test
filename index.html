@@ -28,6 +28,16 @@
           src="minion.gltf"
         >
         </a-asset-item>
+        <a-asset-item
+          id="kevin"
+          src="kevin.gltf"
+        >
+        </a-asset-item>
+        <a-asset-item
+          id="minion2"
+          src="minion2.gltf"
+        >
+        </a-asset-item>
       </a-assets>
 
 
@@ -35,7 +45,27 @@
           id="bowser-model"
           gltf-model="#bowser"
           position="0 0 0"
-          scale="0.05 0.05 0.05"
+          scale="1 1 1"
+          class="clickable"
+          gesture-handler
+          visible="false" <!-- Inicia invisible -->
+        >
+        </a-entity>
+              <a-entity
+          id="kevin"
+          gltf-model="#kevin"
+          position="-1 0 0"
+          scale="1 1 1"
+          class="clickable"
+          gesture-handler
+          visible="false" <!-- Inicia invisible -->
+        >
+        </a-entity>
+              <a-entity
+          id="minion2"
+          gltf-model="#minion2"
+          position="1 0 0"
+          scale="1 1 1"
           class="clickable"
           gesture-handler
           visible="false" <!-- Inicia invisible -->
@@ -47,7 +77,11 @@
       // Simular la detección del objeto al cargar la escena
       document.querySelector('a-scene').addEventListener('loaded', function () {
         const model = document.getElementById('bowser-model');
+        const model2 = document.getElementById('kevin');
+        const model3 = document.getElementById('minion2');
         model.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        model2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        model3.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model.emit('markerFound'); // Emitir evento de marcador encontrado
       });
     </script>
