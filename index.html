@@ -98,12 +98,10 @@
       model2.addEventListener("click", () => {
          if (audioUnlocked) helloAudio.play(); // Solo reproducir si el audio ya está desbloqueado
       });
-      });
 
       // Reproducir audio al hacer clic en el modelo
       model2.addEventListener("touchstart", () => {
         if (audioUnlocked) helloAudio.play(); // Solo reproducir si el audio ya está desbloqueado
-      });
       });
 
       // Simular la detección del objeto al cargar la escena
@@ -114,11 +112,13 @@
         model2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model3.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model.emit('markerFound'); // Emitir evento de marcador encontrado
-      });
 
+        
       // Desbloquear audio al tocar cualquier parte de la pantalla la primera vez      
       document.body.addEventListener("click", unlockAudio, { once: true });
       document.body.addEventListener("touchstart", unlockAudio, { once: true });
+      });
+
     </script>
   </body>
 </html>
