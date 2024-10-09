@@ -49,6 +49,7 @@
           scale="0.35 0.35 0.35"
           class="clickable"
           gesture-handler
+          visible="false"
         >
         </a-entity>
               <a-entity
@@ -58,6 +59,7 @@
           scale="0.009 0.009 0.009"
           class="clickable"
           gesture-handler
+          visible="false"
         >
         </a-entity>
               <a-entity
@@ -67,8 +69,12 @@
           scale="0.007 0.007 0.007"
           class="clickable"
           gesture-handler
+          visible="false"
         >
         </a-entity>
+      <a-plane position="0 1 0" material="color: yellow" visible="false" id="plano" width="2" height="1.5">
+        <a-text value="Apunta con el cursor a Kevin!" align="center"></a-text>
+      </a-plane>
       
 
       <a-entity camera look-controls position="0 1.6 5">
@@ -79,8 +85,11 @@
 
     <script>
       // Obtener el modelo y el audio
+      const model = document.getElementById('bowser-model');
+      const model3 = document.getElementById('minion2-model');
       const model2 = document.getElementById('kevin-model');
       const helloAudio = document.getElementById("helloAudio");
+      const plano = document.getElementById("plano");
 
       // Reproducir audio al hacer clic en el modelo
       model2.addEventListener("click", () => {
@@ -91,16 +100,15 @@
       model2.addEventListener("touchstart", () => {
            helloAudio.play(); // Solo reproducir si el audio ya está desbloqueado
       });
-/*
+
       // Simular la detección del objeto al cargar la escena
       document.querySelector('a-scene').addEventListener('loaded', function () {
-        const model = document.getElementById('bowser-model');
-        const model3 = document.getElementById('minion2-model');
+
         model.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model3.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        model.emit('markerFound'); // Emitir evento de marcador encontrado
-      });*/
+        plano.setAttribute('visible', 'true');
+      });
 
     </script>
   </body>
