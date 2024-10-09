@@ -80,9 +80,7 @@
         width="0.5" height="0.2" depth="0.1" 
         color="blue" 
         class="clickable"
-        event-set__mouseenter="material.color: red" 
-        event-set__mouseleave="material.color: blue"
-        event-set__click="scale: 1.2 1.2 1.2"
+        id="caja"
         >
       </a-box>
       
@@ -95,12 +93,17 @@
 
 
     <script>
+      const caja = document.getElementById('caja');
+
+      caja.addEventListener("touchstart", () => {
+        caja.setAttribute('scale': '1.2 1.2 1.2')
+      });
       // Obtener el modelo y el audio
       const model2 = document.getElementById('kevin-model');
       const helloAudio = document.getElementById("helloAudio");
 
       // Reproducir audio al hacer clic en el modelo
-      model2.addEventListener("click", () => {
+      model2.addEventListener("touchstart", () => {
         helloAudio.play();  // Reproducir el audio
       });
 
