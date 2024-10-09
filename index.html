@@ -38,7 +38,7 @@
           src="minion2.gltf"
         >
         </a-asset-item>
-        <audio id="helloAudio" src="audio/hello.mp3"></audio>
+        <audio id="helloAudio" src="audio/hello.mp3" preload="auto"></audio>
       </a-assets>
 
 
@@ -83,6 +83,18 @@
       const model2 = document.getElementById('kevin-model');
       const helloAudio = document.getElementById("helloAudio");
 
+      // Asegurarse de que el audio esté disponible tras interacción del usuario
+      function enableAudioPlayback() {
+        helloAudio.play().catch((error) => {
+          console.log("La reproducción automática fue bloqueada. Esperando interacción del usuario.");
+        });
+      }
+
+      // Reproducir audio al hacer clic en el modelo
+      model2.addEventListener("click", () => {
+        helloAudio.play();  // Reproducir el audio
+      });
+
       // Reproducir audio al hacer clic en el modelo
       model2.addEventListener("touchstart", () => {
         helloAudio.play();  // Reproducir el audio
@@ -96,8 +108,13 @@
         model2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model3.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         model.emit('markerFound'); // Emitir evento de marcador encontrado
-        helloAudio.play();
+        // Intentar reproducir el audio en cuanto la escena esté lista
+        enableAudioPlayback();
       });
+
+      // Agregar evento de interacción global para desbloquear el audio si fue bloqueado
+      document.body.addEventListener("click", enableAudioPlayback);
+      document.body.addEventListener("touchstart", enableAudioPlayback);
     </script>
   </body>
 </html>
