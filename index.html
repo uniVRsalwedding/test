@@ -73,31 +73,12 @@
         >
         </a-entity>
       
-      <a-entity position="0 2 0">
-      <!-- Botón en forma de caja -->
-      <a-box 
-        position="0 0 0" 
-        width="0.5" height="0.2" depth="0.1" 
-        color="blue" 
-        class="clickable"
-        id="caja"
-        >
-      </a-box>
-      
-      <!-- Texto sobre el botón -->
-      <a-text value="Click me" position="0 0.15 0.1" align="center"></a-text>
-    </a-entity>
 
       <a-entity camera look-controls position="0 1.6 5"></a-entity>
     </a-scene>
 
 
     <script>
-      const caja = document.getElementById('caja');
-
-      caja.addEventListener("touchstart", () => {
-        caja.setAttribute('scale': '1.2 1.2 1.2')
-      });
       // Obtener el modelo y el audio
       const model2 = document.getElementById('kevin-model');
       const helloAudio = document.getElementById("helloAudio");
