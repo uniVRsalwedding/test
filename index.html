@@ -82,22 +82,28 @@
       // Obtener el modelo y el audio
       const model2 = document.getElementById('kevin-model');
       const helloAudio = document.getElementById("helloAudio");
+      let audioUnlocked = false; //Flag para verificar si el audio está desbloqueado
 
-      // Asegurarse de que el audio esté disponible tras interacción del usuario
-      function enableAudioPlayback() {
+      // Desbloquear la reproducción de audio tras la primera interacción
+      function unlockAudio() {
         helloAudio.play().catch((error) => {
-          console.log("La reproducción automática fue bloqueada. Esperando interacción del usuario.");
+          console.log("Reproducción automática bloqueada. Esperando interacción.");
         });
+        audioUnlocked = true; // Marcar como desbloqueado
+        document.body.removeEventListener('click', unlockAudio); // Quitar el listener global
+        document.body.removeEventListener('touchstart', unlockAudio); // Quitar el listener global
       }
 
       // Reproducir audio al hacer clic en el modelo
       model2.addEventListener("click", () => {
-        helloAudio.play();  // Reproducir el audio
+         if (audioUnlocked) helloAudio.play(); // Solo reproducir si el audio ya está desbloqueado
+      });
       });
 
       // Reproducir audio al hacer clic en el modelo
       model2.addEventListener("touchstart", () => {
-        helloAudio.play();  // Reproducir el audio
+        if (audioUnlocked) helloAudio.play(); // Solo reproducir si el audio ya está desbloqueado
+      });
       });
 
       // Simular la detección del objeto al cargar la escena
@@ -112,9 +118,9 @@
         enableAudioPlayback();
       });
 
-      // Agregar evento de interacción global para desbloquear el audio si fue bloqueado
-      document.body.addEventListener("click", enableAudioPlayback);
-      document.body.addEventListener("touchstart", enableAudioPlayback);
+      // Desbloquear audio al tocar cualquier parte de la pantalla la primera vez      
+      document.body.addEventListener("click", unlockAudio, { once: true });
+      document.body.addEventListener("touchstart", unlockAudio, { once: true });
     </script>
   </body>
 </html>
