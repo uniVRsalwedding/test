@@ -94,7 +94,7 @@ AFRAME.registerComponent("gesture-handler", {
 
           // Crear el mesh (rectángulo con el texto)
           const mesh = new THREE.Mesh(geometry, material);
-          mesh.position.set(1, 1, 0); // Ajusta la posición del plano
+          mesh.position.set(0, 1, 0); // Ajusta la posición del plano
           scene.add(mesh);
         },
       });
