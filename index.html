@@ -72,11 +72,10 @@
           visible="false"
         >
         </a-entity>
-      <!-- Plano -->
-<a-plane id="plano" position="0 1.5 -2" material="color: yellow; opacity: 0.8" width="1.5" height="1" visible="true"></a-plane>
+<a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity: 0.8" width="1.5" height="1" visible="false">
+  <a-text value="Apunta a los minions para saber como funciona el cursor" position="0 0 0.01" align="center" width="1.4" color="blue" font="https://cdn.aframe.io/fonts/mozillavr.fnt" material="shader: flat; opacity: 5;"></a-text>
+</a-plane>
 
-<!-- Texto independiente, separado del plano -->
-<a-text value="Apunta a los minions para saber como funciona el cursor" position="0 1.5 -1.95" align="center" width="1.4" color="blue" material="shader: flat; opacity: 1;"></a-text>
 
 
       
