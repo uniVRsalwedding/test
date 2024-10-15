@@ -65,3 +65,36 @@ AFRAME.registerComponent("gesture-handler", {
    // }
   },
 });
+
+
+// Componente 1: Panel de texto
+      AFRAME.registerComponent('text-panel', {
+        init: function () {
+          let scene = this.el.object3D;
+
+          // Crear un rectángulo (plano)
+          const geometry = new THREE.PlaneGeometry(2, 1);
+          
+          // Crear un lienzo para el texto
+          const canvas = document.createElement('canvas');
+          canvas.width = 512;
+          canvas.height = 256;
+          const context = canvas.getContext('2d');
+
+          // Configurar el texto en el lienzo
+          context.fillStyle = ' #fffb00';  // Color de fondo
+          context.fillRect(0, 0, canvas.width, canvas.height);
+          context.font = '40px Arial';
+          context.fillStyle = ' #0017ff';  // Texto
+          context.fillText('¡Apunta a los minions para que veas como funciona el cursor!', 50, 100);
+
+          // Usar el lienzo como textura
+          const texture = new THREE.CanvasTexture(canvas);
+          const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+
+          // Crear el mesh (rectángulo con el texto)
+          const mesh = new THREE.Mesh(geometry, material);
+          mesh.position.set(1, 1, 0); // Ajusta la posición del plano
+          scene.add(mesh);
+        },
+      });
