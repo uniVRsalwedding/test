@@ -1,3 +1,57 @@
+
+      let clickedMinion1 = false;
+      let clickedKevin = false;
+      let clickedMinion2 = false;
+      
+      // Obtener el modelo y el audio
+      const minion1 = document.getElementById('bowser-model');
+      const model3 = document.getElementById('minion2-model');
+      const kevin = document.getElementById('kevin-model');
+      const helloAudio = document.getElementById("helloAudio");
+      const ahhAudio = document.getElementById("ahhAudio");
+      const yeehAudio = document.getElementById("yeehAudio");
+      const plano = document.getElementById("plano");
+      const planoText = document.getElementById("plano-text");
+
+      // Función para verificar si todos los modelos han sido clicados
+      function checkAllClicked() {
+        if (clickedMinion1 && clickedKevin && clickedMinion2) {
+          planoText.setAttribute('value', '¡Felicidades, has clicado en todos los modelos!');
+        }
+      }
+
+      // Reproducir audio y actualizar estado al hacer clic en Bowser
+      minion1.addEventListener('click', () => {
+        ahhAudio.play();
+        clickedMinion1 = true;
+        checkAllClicked(); // Verificar si todos los modelos han sido clicados
+      });
+
+      // Reproducir audio y actualizar estado al hacer clic en Kevin
+      kevin.addEventListener('click', () => {
+        helloAudio.play();
+        clickedKevin = true;
+        checkAllClicked(); // Verificar si todos los modelos han sido clicados
+      });
+
+      // Reproducir audio y actualizar estado al hacer clic en Minion2
+      model.addEventListener('click', () => {
+        yeehAudio.play();
+        clickedMinion2 = true;
+        checkAllClicked(); // Verificar si todos los modelos han sido clicados
+      });
+      
+
+      // Simular la detección del objeto al cargar la escena
+      document.querySelector('a-scene').addEventListener('loaded', function () {
+
+        model.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        model2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        model3.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        plano.setAttribute('visible', 'true');
+      });
+
+
 /* global AFRAME, THREE */
 
 AFRAME.registerComponent("gesture-handler", {
