@@ -4,7 +4,7 @@
       
       // Obtener el modelo y el audio
       const minion1 = document.getElementById('minion1-model');
-      const model3 = document.getElementById('minion2-model');
+      const minion2 = document.getElementById('minion2-model');
       const kevin = document.getElementById('kevin-model');
       const helloAudio = document.getElementById("helloAudio");
       const ahhAudio = document.getElementById("ahhAudio");
@@ -34,7 +34,7 @@
       });
 
       // Reproducir audio y actualizar estado al hacer clic en Minion2
-      model.addEventListener('click', () => {
+      minion2.addEventListener('click', () => {
         yeehAudio.play();
         clickedMinion2 = true;
         checkAllClicked(); // Verificar si todos los modelos han sido clicados
@@ -44,9 +44,9 @@
       // Simular la detección del objeto al cargar la escena
       document.querySelector('a-scene').addEventListener('loaded', function () {
 
-        model.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        model2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        model3.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        minion1.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        minion2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         plano.setAttribute('visible', 'true');
       });
 
