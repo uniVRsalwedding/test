@@ -39,6 +39,8 @@
         >
         </a-asset-item>
         <audio id="helloAudio" src="audio/hello.mp3" preload="auto"></audio>
+        <audio id="ahhAudio" src="audio/ahh.mp3" preload="auto"></audio>
+        <audio id="yeehAudio" src="audio/yeeh.mp3" preload="auto"></audio>
       </a-assets>
 
 
@@ -72,13 +74,9 @@
           visible="false"
         >
         </a-entity>
-<a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity: 0.5" width="1.5" height="1" visible="false">
-  <a-text value="¡Activa el audio y apunta a los minions con el cursor para saber como funciona!" position="0 0 0.05" align="center" width="1" color="black" scale="1.5 1.5 1.5"></a-text>
+<a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity: 0.8" width="1.5" height="1" visible="false" class="clickable" gesture-handler>
+  <a-text id="plano-text" value="Activa el audio y apunta a los minions con el cursor para saber como funciona" position="0 0 0.05" align="center" width="1" color="black" scale="1.5 1.5 1.5"></a-text>
 </a-plane>
-
-
-
-      
 
       <a-entity camera look-controls position="0 1.6 5">
         <a-cursor></a-cursor>
@@ -88,21 +86,43 @@
 
     <script>
       // Obtener el modelo y el audio
-      const model = document.getElementById('bowser-model');
+      const minion1 = document.getElementById('bowser-model');
       const model3 = document.getElementById('minion2-model');
-      const model2 = document.getElementById('kevin-model');
+      const kevin = document.getElementById('kevin-model');
       const helloAudio = document.getElementById("helloAudio");
+      const ahhAudio = document.getElementById("ahhAudio");
+      const yeehAudio = document.getElementById("yeehAudio");
       const plano = document.getElementById("plano");
+      const planoText = document.getElementById("plano-text");
 
-      // Reproducir audio al hacer clic en el modelo
-      model2.addEventListener("click", () => {
-           helloAudio.play(); // Solo reproducir si el audio ya está desbloqueado
+      // Función para verificar si todos los modelos han sido clicados
+      function checkAllClicked() {
+        if (clickedMinion1 && clickedKevin && clickedMinion2) {
+          planoText.setAttribute('value', '¡Felicidades, has clicado en todos los modelos!');
+        }
+      }
+
+      // Reproducir audio y actualizar estado al hacer clic en Bowser
+      minion1.addEventListener('click', () => {
+        ahhAudio.play();
+        clickedMinion1 = true;
+        checkAllClicked(); // Verificar si todos los modelos han sido clicados
+      });
+
+      // Reproducir audio y actualizar estado al hacer clic en Kevin
+      kevin.addEventListener('click', () => {
+        helloAudio.play();
+        clickedKevin = true;
+        checkAllClicked(); // Verificar si todos los modelos han sido clicados
+      });
+
+      // Reproducir audio y actualizar estado al hacer clic en Minion2
+      model.addEventListener('click', () => {
+        yeehAudio.play();
+        clickedMinion2 = true;
+        checkAllClicked(); // Verificar si todos los modelos han sido clicados
       });
       
-      // Reproducir audio al hacer clic en el modelo
-      model2.addEventListener("touchstart", () => {
-           helloAudio.play(); // Solo reproducir si el audio ya está desbloqueado
-      });
 
       // Simular la detección del objeto al cargar la escena
       document.querySelector('a-scene').addEventListener('loaded', function () {
