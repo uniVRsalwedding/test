@@ -1,3 +1,4 @@
+window.onload = function () {
       let clickedMinion1 = false;
       let clickedKevin = false;
       let clickedMinion2 = false;
@@ -49,6 +50,7 @@
         kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         plano.setAttribute('visible', 'true');
       });
+};
 
 
 /* global AFRAME, THREE */
