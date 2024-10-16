@@ -1,10 +1,9 @@
-
       let clickedMinion1 = false;
       let clickedKevin = false;
       let clickedMinion2 = false;
       
       // Obtener el modelo y el audio
-      const minion1 = document.getElementById('bowser-model');
+      const minion1 = document.getElementById('minion1-model');
       const model3 = document.getElementById('minion2-model');
       const kevin = document.getElementById('kevin-model');
       const helloAudio = document.getElementById("helloAudio");
