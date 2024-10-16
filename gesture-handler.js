@@ -12,13 +12,22 @@ window.onload = function () {
       const yeehAudio = document.getElementById("yeehAudio");
       const plano = document.getElementById("plano");
       const planoText = document.getElementById("plano-text");
+      const nextLevelButton = document.getElementById("next-level-button");
 
       // Función para verificar si todos los modelos han sido clicados
       function checkAllClicked() {
         if (clickedMinion1 && clickedKevin && clickedMinion2) {
-          planoText.setAttribute('value', '¡Felicidades, has clicado en todos los modelos!');
+            planoText.setAttribute('value', '¡Bien, has clicado en todos los minions! Ahora que ya sabes como funciona, ¿pasamos al siguiente nivel o quieres seguir practicando?');
+            nextLevelButton.setAttribute('visible', 'true');
         }
       }
+      
+      // Agregar el evento de clic al botón
+      nextLevelButton.addEventListener('click', () => {
+        // Aquí defines lo que debe pasar al hacer clic en "Siguiente Nivel"
+        console.log("Siguiente nivel activado");
+        // Puedes añadir aquí la lógica para avanzar al siguiente nivel, como cargar una nueva escena o cambiar de estado.
+      });
 
       // Reproducir audio y actualizar estado al hacer clic en Bowser
       minion1.addEventListener('click', () => {
