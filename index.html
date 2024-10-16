@@ -16,7 +16,7 @@
   <body>
     <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene">
       <a-assets>
-        <a-asset-item id="bowser" src="minion.gltf"></a-asset-item>
+        <a-asset-item id="minion1" src="minion.gltf"></a-asset-item>
         <a-asset-item id="kevin" src="kevin.gltf"></a-asset-item>
         <a-asset-item id="minion2" src="minion2.gltf"></a-asset-item>
         <audio id="helloAudio" src="audio/hello.mp3" preload="auto"></audio>
@@ -24,7 +24,7 @@
         <audio id="yeehAudio" src="audio/yeeh.mp3" preload="auto"></audio>
       </a-assets>
 
-        <a-entity id="bowser-model" gltf-model="#bowser" position="0.5 0 0" scale="0.35 0.35 0.35" class="clickable" gesture-handler visible="false"></a-entity>
+        <a-entity id="minion1-model" gltf-model="#minion1" position="0.5 0 0" scale="0.35 0.35 0.35" class="clickable" gesture-handler visible="false"></a-entity>
         <a-entity id="kevin-model" gltf-model="#kevin" position="0 0 0" scale="0.009 0.009 0.009" class="clickable" gesture-handler visible="false"></a-entity>
         <a-entity id="minion2-model" gltf-model="#minion2" position="-0.5 0 0" scale="0.007 0.007 0.007" class="clickable" gesture-handler visible="false"></a-entity>
       
