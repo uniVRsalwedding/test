@@ -31,6 +31,11 @@
         <a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity:0.7;" width="1.5" height="1" visible="false" gesture-handler>
           <a-text id="plano-text" value="Activa el audio y apunta a los minions con el cursor para saber como funciona" position="0 0 0.05" align="center" width="1" color="black" scale="1.5 1.5 1.5"></a-text>
         </a-plane>
+      
+      <a-entity id="next-level-button" visible="false" position="0 1 -2" geometry="primitive: plane; width: 1; height: 0.5" material="color: green; opacity: 0.8" class="clickable">
+        <a-text value="Siguiente Nivel" align="center" color="white" width="1.5" position="0 0 0.01"></a-text>
+      </a-entity>
+
 
       <a-entity camera look-controls position="0 1.6 5">
         <a-cursor raycaster="objects: [data-raycastable]"></a-cursor>
