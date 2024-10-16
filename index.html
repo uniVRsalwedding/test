@@ -14,125 +14,28 @@
   </head>
 
   <body>
-    <a-scene
-      arjs
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
-      vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
-    >
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene">
       <a-assets>
-        <a-asset-item
-          id="bowser"
-          src="minion.gltf"
-        >
-        </a-asset-item>
-        <a-asset-item
-          id="kevin"
-          src="kevin.gltf"
-        >
-        </a-asset-item>
-        <a-asset-item
-          id="minion2"
-          src="minion2.gltf"
-        >
-        </a-asset-item>
+        <a-asset-item id="bowser" src="minion.gltf"></a-asset-item>
+        <a-asset-item id="kevin" src="kevin.gltf"></a-asset-item>
+        <a-asset-item id="minion2" src="minion2.gltf"></a-asset-item>
         <audio id="helloAudio" src="audio/hello.mp3" preload="auto"></audio>
         <audio id="ahhAudio" src="audio/ahh.mp3" preload="auto"></audio>
         <audio id="yeehAudio" src="audio/yeeh.mp3" preload="auto"></audio>
       </a-assets>
 
-
-        <a-entity
-          id="bowser-model"
-          gltf-model="#bowser"
-          position="0.5 0 0"
-          scale="0.35 0.35 0.35"
-          class="clickable"
-          gesture-handler
-          visible="false"
-        >
-        </a-entity>
-              <a-entity
-          id="kevin-model"
-          gltf-model="#kevin"
-          position="0 0 0"
-          scale="0.009 0.009 0.009"
-          class="clickable"
-          gesture-handler
-          visible="false"
-        >
-        </a-entity>
-              <a-entity
-          id="minion2-model"
-          gltf-model="#minion2"
-          position="-0.5 0 0"
-          scale="0.007 0.007 0.007"
-          class="clickable"
-          gesture-handler
-          visible="false"
-        >
-        </a-entity>
-<a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity: 0.8" width="1.5" height="1" visible="false" class="clickable" gesture-handler>
-  <a-text id="plano-text" value="Activa el audio y apunta a los minions con el cursor para saber como funciona" position="0 0 0.05" align="center" width="1" color="black" scale="1.5 1.5 1.5"></a-text>
-</a-plane>
+        <a-entity id="bowser-model" gltf-model="#bowser" position="0.5 0 0" scale="0.35 0.35 0.35" class="clickable" gesture-handler visible="false"></a-entity>
+        <a-entity id="kevin-model" gltf-model="#kevin" position="0 0 0" scale="0.009 0.009 0.009" class="clickable" gesture-handler visible="false"></a-entity>
+        <a-entity id="minion2-model" gltf-model="#minion2" position="-0.5 0 0" scale="0.007 0.007 0.007" class="clickable" gesture-handler visible="false"></a-entity>
+      
+        <a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity: 0.8" width="1.5" height="1" visible="false" gesture-handler>
+          <a-text id="plano-text" value="Activa el audio y apunta a los minions con el cursor para saber como funciona" position="0 0 0.05" align="center" width="1" color="black" scale="1.5 1.5 1.5"></a-text>
+        </a-plane>
 
       <a-entity camera look-controls position="0 1.6 5">
         <a-cursor></a-cursor>
       </a-entity>
     </a-scene>
 
-
-    <script>
-      // Obtener el modelo y el audio
-      const minion1 = document.getElementById('bowser-model');
-      const model3 = document.getElementById('minion2-model');
-      const kevin = document.getElementById('kevin-model');
-      const helloAudio = document.getElementById("helloAudio");
-      const ahhAudio = document.getElementById("ahhAudio");
-      const yeehAudio = document.getElementById("yeehAudio");
-      const plano = document.getElementById("plano");
-      const planoText = document.getElementById("plano-text");
-
-      // Función para verificar si todos los modelos han sido clicados
-      function checkAllClicked() {
-        if (clickedMinion1 && clickedKevin && clickedMinion2) {
-          planoText.setAttribute('value', '¡Felicidades, has clicado en todos los modelos!');
-        }
-      }
-
-      // Reproducir audio y actualizar estado al hacer clic en Bowser
-      minion1.addEventListener('click', () => {
-        ahhAudio.play();
-        clickedMinion1 = true;
-        checkAllClicked(); // Verificar si todos los modelos han sido clicados
-      });
-
-      // Reproducir audio y actualizar estado al hacer clic en Kevin
-      kevin.addEventListener('click', () => {
-        helloAudio.play();
-        clickedKevin = true;
-        checkAllClicked(); // Verificar si todos los modelos han sido clicados
-      });
-
-      // Reproducir audio y actualizar estado al hacer clic en Minion2
-      model.addEventListener('click', () => {
-        yeehAudio.play();
-        clickedMinion2 = true;
-        checkAllClicked(); // Verificar si todos los modelos han sido clicados
-      });
-      
-
-      // Simular la detección del objeto al cargar la escena
-      document.querySelector('a-scene').addEventListener('loaded', function () {
-
-        model.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        model2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        model3.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        plano.setAttribute('visible', 'true');
-      });
-
-    </script>
   </body>
 </html>
