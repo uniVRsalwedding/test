@@ -24,16 +24,16 @@
         <audio id="yeehAudio" src="audio/yeeh.mp3" preload="auto"></audio>
       </a-assets>
 
-        <a-entity id="minion1-model" gltf-model="#minion1" position="0.5 0 0" scale="0.35 0.35 0.35" class="clickable" gesture-handler visible="false"></a-entity>
-        <a-entity id="kevin-model" gltf-model="#kevin" position="0 0 0" scale="0.009 0.009 0.009" class="clickable" gesture-handler visible="false"></a-entity>
-        <a-entity id="minion2-model" gltf-model="#minion2" position="-0.5 0 0" scale="0.007 0.007 0.007" class="clickable" gesture-handler visible="false"></a-entity>
+        <a-entity id="minion1-model" data-raycastable gltf-model="#minion1" position="0.5 0 0" scale="0.35 0.35 0.35" class="clickable" gesture-handler visible="false"></a-entity>
+        <a-entity id="kevin-model" data-raycastable gltf-model="#kevin" position="0 0 0" scale="0.009 0.009 0.009" class="clickable" gesture-handler visible="false"></a-entity>
+        <a-entity id="minion2-model" data-raycastable gltf-model="#minion2" position="-0.5 0 0" scale="0.007 0.007 0.007" class="clickable" gesture-handler visible="false"></a-entity>
       
-        <a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity: 0.8" width="1.5" height="1" visible="false" gesture-handler>
+        <a-plane id="plano" position="0 1.5 -2" material="color: white; transparent: true;" width="1.5" height="1" visible="false" gesture-handler>
           <a-text id="plano-text" value="Activa el audio y apunta a los minions con el cursor para saber como funciona" position="0 0 0.05" align="center" width="1" color="black" scale="1.5 1.5 1.5"></a-text>
         </a-plane>
 
       <a-entity camera look-controls position="0 1.6 5">
-        <a-cursor></a-cursor>
+        <a-cursor raycaster="objects: [data-raycastable]"></a-cursor>
       </a-entity>
     </a-scene>
 
