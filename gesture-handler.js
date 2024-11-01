@@ -11,7 +11,7 @@ window.onload = function () {
       const ahhAudio = document.getElementById("ahhAudio");
       const yeehAudio = document.getElementById("yeehAudio");
       const textoInicial = document.getElementById("texto_inicial");
-      const textoAvanzar = document.getElementById("texto_avanzar");*/
+      const textoAvanzar = document.getElementById("texto_avanzar");
       const nextLevelButton = document.getElementById("next-level-button");
 
       // Función para verificar si todos los modelos han sido clicados
