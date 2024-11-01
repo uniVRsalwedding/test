@@ -10,14 +10,15 @@ window.onload = function () {
       const helloAudio = document.getElementById("helloAudio");
       const ahhAudio = document.getElementById("ahhAudio");
       const yeehAudio = document.getElementById("yeehAudio");
-      const plano = document.getElementById("plano");
-      const planoText = document.getElementById("plano-text");
+      const textoInicial = document.getElementById("texto_inicial");
+      const textoAvanzar = document.getElementById("texto_avanzar");*/
       const nextLevelButton = document.getElementById("next-level-button");
 
       // Función para verificar si todos los modelos han sido clicados
       function checkAllClicked() {
         if (clickedMinion1 && clickedKevin && clickedMinion2) {
-            planoText.setAttribute('value', '¡Bien, has clicado en todos los minions! Ahora que ya sabes como funciona, ¿pasamos al siguiente nivel o quieres seguir practicando?');
+            textoInicial.setAttribute('visible', 'false');
+            textoAvanzar.setAttribute('visible', 'true');
             nextLevelButton.setAttribute('visible', 'true');
         }
       }
@@ -57,7 +58,7 @@ window.onload = function () {
         minion1.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         minion2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        plano.setAttribute('visible', 'true');
+        //plano.setAttribute('visible', 'true');
       });
 };
 
