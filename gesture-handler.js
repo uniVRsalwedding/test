@@ -131,7 +131,7 @@ AFRAME.registerComponent("gesture-handler", {
   },
 });
 
-
+/*
 // Componente 1: Panel de texto
       AFRAME.registerComponent('text-panel', {
         init: function () {
@@ -163,3 +163,4 @@ AFRAME.registerComponent("gesture-handler", {
           scene.add(mesh);
         },
       });
+*/
