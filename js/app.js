@@ -23,7 +23,7 @@ function initScene() {
 
             minion = document.createElement('a-entity')
             minion.setAttribute('gltf-model', '#minion' )
-            minion.setAttribute('scale', 0.35 0.35 0.35)
+            minion.setAttribute('scale', '0.35 0.35 0.35')
 
             minion.setAttribute('class', 'minion')
             minion.object3D.position.set(pos.x, pos.y, pos.z)
