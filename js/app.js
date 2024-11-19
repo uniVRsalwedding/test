@@ -22,8 +22,9 @@ function initScene() {
         minions.forEach(pos => {
 
             minion = document.createElement('a-entity')
-            minion.setAttribute('geometry', { primitive: 'sphere', radius: Math.random() * 3 + 0.5 })
-            minion.setAttribute('material', { shader: 'flat', src: '#minion' })
+            minion.setAttribute('gltf-model', '#minion' )
+            minion.setAttribute('scale', 0.35 0.35 0.35)
+
             minion.setAttribute('class', 'minion')
             minion.object3D.position.set(pos.x, pos.y, pos.z)
 
