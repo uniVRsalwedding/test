@@ -43,6 +43,9 @@ function initScene() {
     minionWinner.object3D.position.set(randomX, 0, randomZ)
 
     minionWinner.setAttribute('shootableWinner', '')
+    minionWinner.setAttribute('animation', 'property: rotation; to: 0 360 360; loop: true; dur: 40000; easing: linear');
+        // Añadir la entidad a la escena
+    document.querySelector('a-scene').appendChild(minionWinner);
 }
 
 AFRAME.registerComponent('shootable', {
