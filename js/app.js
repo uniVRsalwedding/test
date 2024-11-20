@@ -37,12 +37,12 @@ function initScene() {
 
     minionWinner = document.createElement('a-entity')
     minionWinner.setAttribute('gltf-model', '#minion_banana' )
-    minionWinner.setAttribute('scale', '0.35 0.35 0.35')
+    minionWinner.setAttribute('scale', '0.05 0.05 0.05')
 
     minionWinner.setAttribute('class', 'minion')
     minionWinner.object3D.position.set(randomX, 0, randomZ)
 
-    minionWinner.setAttribute('shootableWinner', '')
+    minionWinner.setAttribute('shootablewinner', '')
     minionWinner.setAttribute('animation', 'property: rotation; to: 0 360 360; loop: true; dur: 40000; easing: linear');
         // Añadir la entidad a la escena
     document.querySelector('a-scene').appendChild(minionWinner);
@@ -57,7 +57,7 @@ AFRAME.registerComponent('shootable', {
     }
 })
 
-AFRAME.registerComponent('shootableWinner', {
+AFRAME.registerComponent('shootablewinner', {
     init: function () {
         this.el.addEventListener('click', () => {
             /* Seleccionar todas las entidades de las clases .orbit y .minion
