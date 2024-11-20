@@ -23,7 +23,7 @@ function initScene() {
 
             minion = document.createElement('a-entity')
             minion.setAttribute('gltf-model', '#minion' )
-            minion.setAttribute('scale', '2.5 2.5 2.5')
+            minion.setAttribute('scale', '3 3 3')
 
             minion.setAttribute('class', 'minion')
             minion.object3D.position.set(pos.x, pos.y, pos.z)
@@ -39,7 +39,7 @@ AFRAME.registerComponent('shootable', {
     init: function () {
         this.el.addEventListener('click', () => {
             this.el.parentNode.removeChild(this.el)
-            document.querySelector('[text]').setAttribute('value', `${++score} minionitos cazados`)
+            document.getElementById("audio_lengua").play();
         })
     }
 })
