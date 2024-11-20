@@ -11,7 +11,8 @@ const minions = [
     { x: -20, y: 0, z: 20 }
 ]
 
-let minion, score = 0
+const randomX = Math.floor(Math.random() * 61) - 30;
+const randomZ = Math.floor(Math.random() * 61) - 30;
 
 function initScene() {
 
@@ -33,6 +34,15 @@ function initScene() {
             orbit.appendChild(minion)
         })
     })
+
+    minionWinner = document.createElement('a-entity')
+    minionWinner.setAttribute('gltf-model', '#minion_banana' )
+    minionWinner.setAttribute('scale', '3 3 3')
+
+    minionWinner.setAttribute('class', 'minion')
+    minionWinner.object3D.position.set(randomX, 0, randomZ)
+
+    minionWinner.setAttribute('shootableWinner', '')
 }
 
 AFRAME.registerComponent('shootable', {
@@ -43,3 +53,15 @@ AFRAME.registerComponent('shootable', {
         })
     }
 })
+
+AFRAME.registerComponent('shootableWinner', {
+    init: function () {
+        this.el.addEventListener('click', () => {
+            // Seleccionar todas las entidades de las clases .orbit y .minion
+            document.querySelectorAll('.orbit, .minion').forEach(entity => {
+                entity.parentNode.removeChild(entity);
+            });
+            document.getElementById("audio_banana").play();
+        });
+    }
+});
