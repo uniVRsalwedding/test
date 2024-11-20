@@ -13,6 +13,12 @@ const minions = [
 
 const randomX = Math.floor(Math.random() * 61) - 30;
 const randomZ = Math.floor(Math.random() * 61) - 30;
+const possibleValues = [360, 0, -360]
+const possibleValuesY = [360, -360]
+
+const toX = possibleValues[Math.floor(Math.random() * possibleValues.length)];
+const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
+const toY = possibleValuesY[Math.floor(Math.random() * possibleValues.length)];
 
 function initScene() {
 
@@ -35,17 +41,17 @@ function initScene() {
         })
     })
 
-    minionWinner = document.createElement('a-entity')
-    minionWinner.setAttribute('gltf-model', '#minion_banana' )
-    minionWinner.setAttribute('scale', '0.05 0.05 0.05')
+    minion_winner = document.createElement('a-entity')
+    minion_winner.setAttribute('gltf-model', '#minion_banana' )
+    minion_winner.setAttribute('scale', '0.05 0.05 0.05')
 
-    minionWinner.setAttribute('class', 'minion')
-    minionWinner.object3D.position.set(randomX, 0, randomZ)
+    minion_winner.setAttribute('class', 'minion')
+    minion_winner.object3D.position.set(randomX, 0, randomZ)
 
-    minionWinner.setAttribute('shootablewinner', '')
-    minionWinner.setAttribute('animation', 'property: rotation; to: 0 360 360; loop: true; dur: 40000; easing: linear');
+    minion_winner.setAttribute('shootablewinner', '')
+    minion_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 40000; easing: linear');
         // Añadir la entidad a la escena
-    document.querySelector('a-scene').appendChild(minionWinner);
+    document.querySelector('a-scene').appendChild(minion_winner);
 }
 
 AFRAME.registerComponent('shootable', {
