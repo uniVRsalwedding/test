@@ -37,7 +37,7 @@ function initScene() {
 
     minionWinner = document.createElement('a-entity')
     minionWinner.setAttribute('gltf-model', '#minion_banana' )
-    minionWinner.setAttribute('scale', '3 3 3')
+    minionWinner.setAttribute('scale', '0.5 0.5 0.5')
 
     minionWinner.setAttribute('class', 'minion')
     minionWinner.object3D.position.set(randomX, 0, randomZ)
@@ -60,10 +60,10 @@ AFRAME.registerComponent('shootable', {
 AFRAME.registerComponent('shootableWinner', {
     init: function () {
         this.el.addEventListener('click', () => {
-            // Seleccionar todas las entidades de las clases .orbit y .minion
+            /* Seleccionar todas las entidades de las clases .orbit y .minion
             document.querySelectorAll('.orbit, .minion').forEach(entity => {
                 entity.parentNode.removeChild(entity);
-            });
+            });*/
             document.getElementById("audio_banana").play();
         });
     }
