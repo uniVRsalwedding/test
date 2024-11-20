@@ -49,7 +49,7 @@ function initScene() {
     minion_winner.object3D.position.set(randomX, 0, randomZ)
 
     minion_winner.setAttribute('shootablewinner', '')
-    minion_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 40000; easing: linear');
+    minion_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 20000; easing: linear');
         // Añadir la entidad a la escena
     document.querySelector('a-scene').appendChild(minion_winner);
 }
@@ -66,11 +66,10 @@ AFRAME.registerComponent('shootable', {
 AFRAME.registerComponent('shootablewinner', {
     init: function () {
         this.el.addEventListener('click', () => {
-            /* Seleccionar todas las entidades de las clases .orbit y .minion
+            // Seleccionar todas las entidades de las clases .orbit y .minion
             document.querySelectorAll('.orbit, .minion').forEach(entity => {
                 entity.parentNode.removeChild(entity);
-            });*/
-            this.el.parentNode.removeChild(this.el)
+            });
             document.getElementById("audio_banana").play();
         });
     }
