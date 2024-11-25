@@ -43,7 +43,7 @@ function initScene() {
 
     minion_winner = document.createElement('a-entity')
     minion_winner.setAttribute('gltf-model', '#minion_banana' )
-    minion_winner.setAttribute('scale', '0.05 0.05 0.05')
+    minion_winner.setAttribute('scale', '1.5 1.5 1.5')
 
     minion_winner.setAttribute('class', 'minion')
     minion_winner.object3D.position.set(randomX, 0, randomZ)
