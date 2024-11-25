@@ -43,13 +43,13 @@ function initScene() {
 
     minion_winner = document.createElement('a-entity')
     minion_winner.setAttribute('gltf-model', '#minion_banana' )
-    minion_winner.setAttribute('scale', '1.5 1.5 1.5')
+    minion_winner.setAttribute('scale', '1 1 1')
 
     minion_winner.setAttribute('class', 'minion')
     minion_winner.object3D.position.set(randomX, 0, randomZ)
 
     minion_winner.setAttribute('shootablewinner', '')
-    minion_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 20000; easing: linear');
+    minion_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 10000; easing: linear');
         // Añadir la entidad a la escena
     document.querySelector('a-scene').appendChild(minion_winner);
 }
