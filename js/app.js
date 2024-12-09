@@ -1,3 +1,15 @@
+import * as THREE from 'three'; // Asegúrate de que THREE.js esté importado
+import { KTX2Loader } from 'three/examples/jsm/loaders/KTX2Loader'; // Importa el KTX2Loader
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'; // Importa el GLTFLoader
+
+// Configuración del cargador de KTX2
+const ktx2Loader = new KTX2Loader();
+ktx2Loader.setTranscoderPath('C:/Program Files/KTX-Software/bin/'); // Ruta al transcodificador KTX2
+
+// Registra el cargador KTX2
+THREE.DefaultLoadingManager.addHandler(/\.ktx2$/i, ktx2Loader);
+
+
 window.addEventListener('load', initScene)
 
 const minions = [
