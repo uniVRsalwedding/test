@@ -29,8 +29,8 @@ function initScene() {
         minions.forEach(pos => {
 
             minion = document.createElement('a-entity')
-            minion.setAttribute('gltf-model', '#minion' )
-            minion.setAttribute('scale', '20 20 20')
+            minion.setAttribute('gltf-model', '#minion')
+            minion.setAttribute('scale', '200 200 200')
 
             minion.setAttribute('class', 'minion')
             minion.object3D.position.set(pos.x, pos.y, pos.z)
@@ -42,7 +42,7 @@ function initScene() {
     })
 
     minion_winner = document.createElement('a-entity')
-    minion_winner.setAttribute('gltf-model', '#minion_banana' )
+    minion_winner.setAttribute('gltf-model', '#minion_banana')
     minion_winner.setAttribute('scale', '1 1 1')
 
     minion_winner.setAttribute('class', 'minion')
