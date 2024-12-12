@@ -31,7 +31,7 @@ function initScene() {
 
             minion = document.createElement('a-entity')
             minion.setAttribute('gltf-model', '#minion')
-            minion.setAttribute('scale', '10 10 10')
+            minion.setAttribute('scale', '2 2 2')
 
             minion.setAttribute('class', 'minion')
             minion.object3D.position.set(pos.x, pos.y, pos.z)
@@ -42,17 +42,24 @@ function initScene() {
         })
     })
 
-    minion_winner = document.createElement('a-entity')
-    minion_winner.setAttribute('gltf-model', '#minion_banana')
-    minion_winner.setAttribute('scale', '1 1 1')
+		
+	orbita_winner = document.createElement('a-entity');
+	orbita_winner.setAttribute('position', '0 3 0');
+	orbita_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 10000; easing: linear');
+	
+    minion_winner = document.createElement('a-entity');
+    minion_winner.setAttribute('gltf-model', '#minion_banana');
+    minion_winner.setAttribute('scale', '1 1 1');
 
     minion_winner.setAttribute('class', 'minion')
     minion_winner.object3D.position.set(randomX, randomY, randomZ)
 
     minion_winner.setAttribute('shootablewinner', '')
-    minion_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 10000; easing: linear');
+	
+	orbita_winner.appenChild(minion_winner);
+    //minion_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 10000; easing: linear');
         // Añadir la entidad a la escena
-    document.querySelector('a-scene').appendChild(minion_winner);
+    document.querySelector('a-scene').appendChild(orbita_winner);
 }
 
 AFRAME.registerComponent('shootable', {
