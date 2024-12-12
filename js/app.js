@@ -80,6 +80,14 @@ AFRAME.registerComponent('shootablewinner', {
     }
 });
 
+AFRAME.registerComponent('shootablePhone', {
+    init: function () {
+        this.el.addEventListener('click', () => {
+			sound.pause();
+        });
+    }
+});
+
 function llamar_telefono() {
 	phone = document.createElement('a-entity')
 	phone.setAttribute('gltf-model', '#phone')
@@ -88,6 +96,14 @@ function llamar_telefono() {
 
 	phone.setAttribute('class', 'phone')
 	phone.object3D.position.set(0, 1, 0)
+	
+	phone.setAttribute('sound', {
+		src: '#audio_phone',
+		autoplay: true,
+		loop: true
+	});
 
-	phone.setAttribute('shootable', '')
+	phone.setAttribute('shootablePhone', '')
+	
+    document.querySelector('a-scene').appendChild(phone);
 }
