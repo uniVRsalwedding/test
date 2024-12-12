@@ -12,9 +12,10 @@ const minions = [
 ]
 
 const randomX = Math.floor(Math.random() * 61) - 30;
+const randomY = Math.floor(Math.random() * 61) - 30;
 const randomZ = Math.floor(Math.random() * 61) - 30;
 const possibleValues = [360, 0, -360]
-const possibleValuesY = [360, -360]
+const possibleValuesY = [360, 0, -360]
 
 const toX = possibleValues[Math.floor(Math.random() * possibleValues.length)];
 const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
@@ -30,7 +31,7 @@ function initScene() {
 
             minion = document.createElement('a-entity')
             minion.setAttribute('gltf-model', '#minion')
-            minion.setAttribute('scale', '1 1 1')
+            minion.setAttribute('scale', '10 10 10')
 
             minion.setAttribute('class', 'minion')
             minion.object3D.position.set(pos.x, pos.y, pos.z)
@@ -46,7 +47,7 @@ function initScene() {
     minion_winner.setAttribute('scale', '1 1 1')
 
     minion_winner.setAttribute('class', 'minion')
-    minion_winner.object3D.position.set(randomX, 0, randomZ)
+    minion_winner.object3D.position.set(randomX, randomY, randomZ)
 
     minion_winner.setAttribute('shootablewinner', '')
     minion_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 10000; easing: linear');
