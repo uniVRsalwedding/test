@@ -36,7 +36,7 @@ function initScene() {
             console.log('Setting position:', pos)
             console.log('Attempting to set scale')
 			
-            minion.setAttribute('scale', '10 10 10')
+            minion.setAttribute('scale', '3 3 3')
 
             minion.setAttribute('class', 'minion')
             minion.object3D.position.set(pos.x, pos.y, pos.z)
