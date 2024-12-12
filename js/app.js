@@ -31,11 +31,7 @@ function initScene() {
 
             minion = document.createElement('a-entity')
             minion.setAttribute('gltf-model', '#minion')
-			
-			// Add logging to understand scaling
-            console.log('Setting position:', pos)
-            console.log('Attempting to set scale')
-			
+					
             minion.setAttribute('scale', '3 3 3')
 
             minion.setAttribute('class', 'minion')
@@ -51,7 +47,7 @@ function initScene() {
 	
     minion_winner = document.createElement('a-entity');
     minion_winner.setAttribute('gltf-model', '#minion_banana');
-
+	minion_winner.setAttribute('scale', '2 2 2')
     minion_winner.setAttribute('class', 'minion')
     minion_winner.object3D.position.set(randomX, randomY, randomZ)
 
@@ -78,6 +74,20 @@ AFRAME.registerComponent('shootablewinner', {
                 entity.parentNode.removeChild(entity);
             });
             document.getElementById("audio_banana").play();
+			
+			llamar_telefono();
         });
     }
 });
+
+function llamar_telefono() {
+	phone = document.createElement('a-entity')
+	phone.setAttribute('gltf-model', '#phone')
+			
+	phone.setAttribute('scale', '3 3 3')
+
+	phone.setAttribute('class', 'phone')
+	phone.object3D.position.set(0, 1, 0)
+
+	phone.setAttribute('shootable', '')
+}
