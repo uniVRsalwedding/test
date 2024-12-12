@@ -30,7 +30,7 @@ function initScene() {
         minions.forEach(pos => {
 
             minion = document.createElement('a-entity')
-            minion.setAttribute('gltf-model', '#minion')
+            minion.setAttribute('gltf-model', '#evil_minion')
 					
             minion.setAttribute('scale', '3 3 3')
 
@@ -80,7 +80,7 @@ AFRAME.registerComponent('shootablewinner', {
     }
 });
 
-AFRAME.registerComponent('shootablePhone', {
+AFRAME.registerComponent('shootablephone', {
     init: function () {
         this.el.addEventListener('click', () => {
 			sound.pause();
@@ -90,7 +90,7 @@ AFRAME.registerComponent('shootablePhone', {
 
 function llamar_telefono() {
 	phone = document.createElement('a-entity')
-	phone.setAttribute('gltf-model', '#phone')
+	phone.setAttribute('gltf-model', '#evil_minion')
 			
 	phone.setAttribute('scale', '3 3 3')
 
@@ -103,7 +103,7 @@ function llamar_telefono() {
 		loop: true
 	});
 
-	phone.setAttribute('shootablePhone', '')
+	phone.setAttribute('shootablephone', '')
 	
     document.querySelector('a-scene').appendChild(phone);
 }
