@@ -31,7 +31,12 @@ function initScene() {
 
             minion = document.createElement('a-entity')
             minion.setAttribute('gltf-model', '#minion')
-            minion.object3D.scale.set('10 10 10')
+			
+			// Add logging to understand scaling
+            console.log('Setting position:', pos)
+            console.log('Attempting to set scale')
+			
+            minion.setAttribute('scale', '10 10 10')
 
             minion.setAttribute('class', 'minion')
             minion.object3D.position.set(pos.x, pos.y, pos.z)
