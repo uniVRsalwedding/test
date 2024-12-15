@@ -68,7 +68,6 @@ function llamar_telefono() {
 	
 
 	phone.setAttribute('shootablephone', '')
-	phone.setAttribute('gesture-handler','')
 
 	document.querySelector('a-scene').appendChild(phone);
 	
