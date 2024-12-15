@@ -83,14 +83,14 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablephone', {
     init: function () {
         this.el.addEventListener('click', () => {
-			sound.pause();
+			this.pause();
         });
     }
 });
 
 function llamar_telefono() {
 	phone = document.createElement('a-entity')
-	phone.setAttribute('gltf-model', '#evil_minion')
+	phone.setAttribute('gltf-model', '#phone')
 			
 	phone.setAttribute('scale', '3 3 3')
 
