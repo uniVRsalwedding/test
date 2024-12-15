@@ -105,6 +105,6 @@ AFRAME.registerComponent('shootablephone', {
     init: function () {
         this.el.addEventListener('click', () => {
 			document.getElementById("audio_phone").pause();
-		}
-    });
+		});
+      }
 });
