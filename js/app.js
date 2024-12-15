@@ -57,6 +57,26 @@ function initScene() {
     document.querySelector('a-scene').appendChild(minion_winner);
 }
 
+function llamar_telefono() {
+	phone = document.createElement('a-entity')
+	phone.setAttribute('gltf-model', '#phone')
+			
+	phone.setAttribute('scale', '2 2 2')
+
+	phone.setAttribute('class', 'phone')
+	phone.object3D.position.set(90, 0, 180)
+	
+
+	phone.setAttribute('shootablephone', '')
+	phone.setAttribute('gesture-handler','')
+
+	document.querySelector('a-scene').appendChild(phone);
+		
+	document.getElementById("audio_phone").play();
+
+}
+
+
 AFRAME.registerComponent('shootable', {
     init: function () {
         this.el.addEventListener('click', () => {
@@ -81,29 +101,10 @@ AFRAME.registerComponent('shootablewinner', {
 });
 
 
-function llamar_telefono() {
-	phone = document.createElement('a-entity')
-	phone.setAttribute('gltf-model', '#phone')
-			
-	phone.setAttribute('scale', '2 2 2')
-
-	phone.setAttribute('class', 'phone')
-	phone.object3D.position.set(90, 0, 180)
-	
-
-	phone.setAttribute('shootablephone', '')
-	phone.setAttribute('gesture-handler','')
-	
-	document.getElementById("audio_phone").play();
-	document.querySelector('a-scene').appendChild(phone);
-
-}
-
 AFRAME.registerComponent('shootablephone', {
     init: function () {
         this.el.addEventListener('click', () => {
 			document.getElementById("audio_phone").pause();
-			}
-        });
-    }
+		}
+    });
 });
