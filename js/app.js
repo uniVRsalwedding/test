@@ -59,7 +59,7 @@ function initScene() {
 
 function llamar_telefono() {
 	phone = document.createElement('a-entity')
-	phone.setAttribute('gltf-model', '#phone')
+	phone.setAttribute('gltf-model', '#evil_minion')
 			
 	phone.setAttribute('scale', '2 2 2')
 
@@ -71,7 +71,8 @@ function llamar_telefono() {
 	phone.setAttribute('gesture-handler','')
 
 	document.querySelector('a-scene').appendChild(phone);
-		
+	
+	document.getElementById("audio_phone").loop = true;
 	document.getElementById("audio_phone").play();
 
 }
