@@ -90,27 +90,19 @@ function llamar_telefono() {
 	phone.setAttribute('class', 'phone')
 	phone.object3D.position.set(90, 0, 180)
 	
-	phone.setAttribute('sound', {
-		src: '#audio_phone',
-		autoplay: true,
-		loop: true
-	});
 
 	phone.setAttribute('shootablephone', '')
 	phone.setAttribute('gesture-handler','')
 	
-	phone.addEventListener('sound-loaded', () => {
-		document.querySelector('a-scene').appendChild(phone);
-	});
+	document.getElementById("audio_phone").play();
+	document.querySelector('a-scene').appendChild(phone);
+
 }
 
 AFRAME.registerComponent('shootablephone', {
     init: function () {
         this.el.addEventListener('click', () => {
-			let soundComponent = this.el.components.sound;
-			
-			if (soundComponent && soundComponent.sound) {
-			soundComponent.stopSound();
+			document.getElementById("audio_phone").pause();
 			}
         });
     }
