@@ -62,11 +62,11 @@ function llamar_telefono() {
 	
     phone.setAttribute('gltf-model', '#phone')
 			
-	phone.setAttribute('scale', '0.5 0.5 0.5')
-	console.log('4')
+	phone.setAttribute('scale', '5 5 5')
+	console.log('5')
 	phone.object3D.position.set(0, 0, 0)
 	
-	phone.setAttribute('rotation', '90 90 0')
+	//phone.setAttribute('rotation', '90 -90 0')
 	phone.setAttribute('shootablephone', '')
 
 	
