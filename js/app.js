@@ -64,7 +64,7 @@ function llamar_telefono() {
 			
 	phone.setAttribute('scale', '350 350 350')
 
-	phone.object3D.position.set(0, 0, 180)
+	phone.object3D.position.set(0, 0, 45)
 	
 
 	phone.setAttribute('shootablephone', '')
