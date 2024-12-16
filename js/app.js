@@ -62,10 +62,9 @@ function llamar_telefono() {
     // Try alternative method of setting model
     phone.setAttribute('gltf-model', '#phone')
 			
-	phone.setAttribute('scale', '300 300 300')
+	phone.setAttribute('scale', '350 350 350')
 
-	phone.setAttribute('class', 'phone')
-	phone.object3D.position.set(90, 0, 90)
+	phone.object3D.position.set(180, 0, 180)
 	
 
 	phone.setAttribute('shootablephone', '')
@@ -106,9 +105,11 @@ AFRAME.registerComponent('shootablewinner', {
 
 AFRAME.registerComponent('shootablephone', {
     init: function () {
-        this.el.addEventListener('click', () => {
-			console.log('Pausando el telefono')
-			document.getElementById("audio_phone").pause();
-		});
-      }
+        this.el.addEventListener('model-loaded', () => {
+            this.el.addEventListener('click', () => {
+                console.log('Pausando el telefono');
+                document.getElementById("audio_phone").pause();
+            });
+        });
+    }
 });
