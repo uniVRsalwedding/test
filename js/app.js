@@ -66,7 +66,7 @@ function llamar_telefono() {
 	console.log('4')
 	phone.object3D.position.set(0, 0, 0)
 	
-	phone.setAttribute('rotation', '-270 0 180')
+	phone.setAttribute('rotation', '90 90 0')
 	phone.setAttribute('shootablephone', '')
 
 	
