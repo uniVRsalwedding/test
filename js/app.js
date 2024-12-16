@@ -65,7 +65,7 @@ function llamar_telefono() {
     // Try alternative method of setting model
     phone.setAttribute('gltf-model', '#evil_minion')
 			
-	phone.setAttribute('scale', '3 3 3')
+	phone.setAttribute('scale', '10 10 10')
 
 	phone.setAttribute('class', 'phone')
 	phone.object3D.position.set(90, 0, 0)
