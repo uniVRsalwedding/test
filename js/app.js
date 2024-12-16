@@ -64,10 +64,15 @@ function llamar_telefono() {
 	phone.setAttribute('scale', '3 3 3')
 
 	phone.setAttribute('class', 'phone')
-	phone.setAttribute('position', '90 0 180')
+	phone.object3D.position.set(90, 0, 180)
 	
 
 	phone.setAttribute('shootablephone', '')
+
+    // Add console logs for debugging
+    console.log('Creating phone entity')
+    console.log('Model attribute:', phone.getAttribute('gltf-model'))
+	
 
 	document.querySelector('a-scene').appendChild(phone);
 	
