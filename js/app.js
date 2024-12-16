@@ -60,13 +60,13 @@ function initScene() {
 function llamar_telefono() {	
 	phone = document.createElement('a-entity')
 	
-    phone.setAttribute('gltf-model', '#evil_minion')
+    phone.setAttribute('gltf-model', '#phone')
 			
-	phone.setAttribute('scale', '300 300 300')
+	phone.setAttribute('scale', '250 250 250')
 
 	phone.object3D.position.set(0, 0, 0)
 	
-	phone.setAttribute('rotation', '90 0 180')
+	phone.setAttribute('rotation', '0 90 0')
 	phone.setAttribute('shootablephone', '')
 
 	
