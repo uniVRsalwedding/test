@@ -62,10 +62,10 @@ function llamar_telefono() {
     // Try alternative method of setting model
     phone.setAttribute('gltf-model', '#phone')
 			
-	phone.setAttribute('scale', '30 30 30')
+	phone.setAttribute('scale', '100 100 100')
 
 	phone.setAttribute('class', 'phone')
-	phone.object3D.position.set(90, 0, 0)
+	phone.object3D.position.set(90, 0, 180)
 	
 
 	phone.setAttribute('shootablephone', '')
