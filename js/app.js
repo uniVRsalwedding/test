@@ -58,8 +58,12 @@ function initScene() {
 }
 
 function llamar_telefono() {
+	// Log assets to check if it's loaded
+    console.log('Available assets:', document.querySelector('a-assets').children);
+	
 	phone = document.createElement('a-entity')
-	phone.setAttribute('gltf-model', '#evil_minion')
+    // Try alternative method of setting model
+    phone.setAttribute('gltf-model', 'src: #evil_minion');
 			
 	phone.setAttribute('scale', '3 3 3')
 
@@ -69,9 +73,10 @@ function llamar_telefono() {
 
 	phone.setAttribute('shootablephone', '')
 
-    // Add console logs for debugging
+    // More detailed logging
     console.log('Creating phone entity')
     console.log('Model attribute:', phone.getAttribute('gltf-model'))
+    console.log('Model src:', phone.getAttribute('src'))
 	
 
 	document.querySelector('a-scene').appendChild(phone);
