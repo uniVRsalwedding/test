@@ -63,12 +63,12 @@ function llamar_telefono() {
 	
 	phone = document.createElement('a-entity')
     // Try alternative method of setting model
-    phone.setAttribute('gltf-model', 'src: #evil_minion');
+    phone.setAttribute('gltf-model', '#evil_minion')
 			
 	phone.setAttribute('scale', '3 3 3')
 
 	phone.setAttribute('class', 'phone')
-	phone.object3D.position.set(90, 0, 180)
+	phone.object3D.position.set(90, 0, 0)
 	
 
 	phone.setAttribute('shootablephone', '')
@@ -76,7 +76,6 @@ function llamar_telefono() {
     // More detailed logging
     console.log('Creating phone entity')
     console.log('Model attribute:', phone.getAttribute('gltf-model'))
-    console.log('Model src:', phone.getAttribute('src'))
 	
 
 	document.querySelector('a-scene').appendChild(phone);
