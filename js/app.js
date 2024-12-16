@@ -57,15 +57,12 @@ function initScene() {
     document.querySelector('a-scene').appendChild(minion_winner);
 }
 
-function llamar_telefono() {
-	// Log assets to check if it's loaded
-    console.log('Available assets:', document.querySelector('a-assets').children);
-	
+function llamar_telefono() {	
 	phone = document.createElement('a-entity')
     // Try alternative method of setting model
-    phone.setAttribute('gltf-model', '#evil_minion')
+    phone.setAttribute('gltf-model', '#phone')
 			
-	phone.setAttribute('scale', '10 10 10')
+	phone.setAttribute('scale', '30 30 30')
 
 	phone.setAttribute('class', 'phone')
 	phone.object3D.position.set(90, 0, 0)
@@ -73,9 +70,6 @@ function llamar_telefono() {
 
 	phone.setAttribute('shootablephone', '')
 
-    // More detailed logging
-    console.log('Creating phone entity')
-    console.log('Model attribute:', phone.getAttribute('gltf-model'))
 	
 
 	document.querySelector('a-scene').appendChild(phone);
@@ -113,6 +107,7 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablephone', {
     init: function () {
         this.el.addEventListener('click', () => {
+			console.log('Pausando el telefono')
 			document.getElementById("audio_phone").pause();
 		});
       }
