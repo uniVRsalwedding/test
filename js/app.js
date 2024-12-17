@@ -62,8 +62,8 @@ function llamar_telefono() {
 	
     phone.setAttribute('gltf-model', '#phone')
 			
-	phone.setAttribute('scale', '0.005 0.005 0.005')
-	console.log('7')
+	phone.setAttribute('scale', '1 1 1')
+	console.log('1')
 	phone.object3D.position.set(0, 0, 0)
 	
 	phone.setAttribute('rotation', '0 180 0')
