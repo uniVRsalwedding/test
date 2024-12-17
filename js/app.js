@@ -97,7 +97,9 @@ AFRAME.registerComponent('shootablewinner', {
             });
             document.getElementById("audio_banana").play();
 			
-			document.querySelector('a-sky').remove();
+			const sky = document.querySelector('a-sky');
+			
+			sky.setAttribute('src' ,'#sky-london')
 			
 			//Separado de función
 			
