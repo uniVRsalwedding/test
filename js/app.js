@@ -105,6 +105,9 @@ AFRAME.registerComponent('shootablewinner', {
 					
 			phone.setAttribute('scale', '2.5 2.5 2.5')
 			phone.object3D.position.set(0, 0, 1)
+			phone.setAttribute('material', 'emissive: #ffffff; emissiveIntensity: 1.5; color:#ff0000');
+
+
 			
 			phone.setAttribute('rotation', '0 180 0')
 			phone.setAttribute('gesture-handler', '')
