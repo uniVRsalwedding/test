@@ -105,7 +105,7 @@ AFRAME.registerComponent('shootablewinner', {
 					
 			phone.setAttribute('scale', '1 1 1')
 			console.log('No entró a la función')
-			phone.object3D.position.set(0, 0, 10)
+			phone.object3D.position.set(0, 0, 5)
 			
 			//phone.setAttribute('rotation', '0 180 0')
 			phone.setAttribute('shootablephone', '')
