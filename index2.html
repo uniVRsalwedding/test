@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garaje Code Pills | Aframe</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-	
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="gesture-detector.js"></script><!--
     <script src="gesture-handler.js"></script>
 	-->
@@ -16,7 +16,7 @@
 
 <body>
 
-    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector> 
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene"> 
 
         <a-assets>
             <img src="textures/campo.jpeg" id="sky">
