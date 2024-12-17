@@ -97,6 +97,8 @@ AFRAME.registerComponent('shootablewinner', {
             });
             document.getElementById("audio_banana").play();
 			
+			document.getElementById("sky").remove();
+			
 			//Separado de función
 			
 			phone = document.createElement('a-entity')
@@ -104,6 +106,7 @@ AFRAME.registerComponent('shootablewinner', {
 			phone.setAttribute('gltf-model', '#phone')
 					
 			phone.setAttribute('scale', '2.5 2.5 2.5')
+			phone.setAttribute('shadow', 'cast: false; receive: false')
 			phone.object3D.position.set(0, 0, 1)
 
 			
