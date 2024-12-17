@@ -97,7 +97,7 @@ AFRAME.registerComponent('shootablewinner', {
             });
             document.getElementById("audio_banana").play();
 			
-			document.getElementById("sky").remove();
+			document.querySelector('a-sky').remove();
 			
 			//Separado de función
 			
