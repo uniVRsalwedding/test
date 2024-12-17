@@ -103,8 +103,8 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			phone.setAttribute('gltf-model', '#phone')
 					
-			phone.setAttribute('scale', '3 3 3')
-			//phone.object3D.position.set(0, 5, 0)
+			phone.setAttribute('scale', '1 1 1')
+			phone.object3D.position.set(0, 0, 3)
 			
 			//phone.setAttribute('rotation', '0 180 0')
 			phone.setAttribute('shootablephone', '')
