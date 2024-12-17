@@ -112,8 +112,9 @@ AFRAME.registerComponent('shootablewinner', {
 
 			
 			phone.setAttribute('rotation', '0 180 0')
-			phone.setAttribute('gesture-handler', '')
+			phone.setAttribute('class', 'minion')
 			phone.setAttribute('shootablephone','')
+			
 
 			
 
