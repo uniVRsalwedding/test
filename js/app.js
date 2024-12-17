@@ -97,7 +97,25 @@ AFRAME.registerComponent('shootablewinner', {
             });
             document.getElementById("audio_banana").play();
 			
-			llamar_telefono();
+			//Separado de función
+			
+			phone = document.createElement('a-entity')
+			
+			phone.setAttribute('gltf-model', '#phone')
+					
+			phone.setAttribute('scale', '1 1 1')
+			console.log('d')
+			phone.object3D.position.set(0, 0, 0)
+			
+			//phone.setAttribute('rotation', '0 180 0')
+			phone.setAttribute('shootablephone', '')
+
+			
+
+			document.querySelector('a-scene').appendChild(phone);
+			
+			document.getElementById("audio_phone").loop = true;
+			document.getElementById("audio_phone").play();
         });
     }
 });
