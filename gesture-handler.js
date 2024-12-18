@@ -65,6 +65,17 @@ window.onload = function () {
 
 /* global AFRAME, THREE */
 
+AFRAME.registerComponent('url-navigation', {
+    schema: {
+        destination: {type: 'string', default: ''}
+    },
+    init: function() {
+        this.el.addEventListener('click', () => {
+            window.location.href = this.data.destination;
+        });
+    }
+});
+
 AFRAME.registerComponent("gesture-handler", {
   schema: {
     enabled: { default: true },
