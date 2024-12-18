@@ -26,7 +26,7 @@ window.onload = function () {
       // Agregar el evento de clic al botón
       nextLevelButton.addEventListener('click', () => {
         // Aquí defines lo que debe pasar al hacer clic en "Siguiente Nivel"
-        console.log("Siguiente nivel activado");
+        window.location.href = 'index2.html';
         // Puedes añadir aquí la lógica para avanzar al siguiente nivel, como cargar una nueva escena o cambiar de estado.
       });
 
