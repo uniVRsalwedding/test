@@ -19,6 +19,7 @@
         <a-asset-item id="minion1" src="minion_one_eye.glb"></a-asset-item>
         <a-asset-item id="kevin" src="kevin.glb"></a-asset-item>
         <a-asset-item id="minion2" src="donny.glb"></a-asset-item>
+		<a-asset-item id="button" src="next_button.glb"></a-asset-item>
         <audio id="helloAudio" src="audio/hello.mp3" preload="auto"></audio>
         <audio id="ahhAudio" src="audio/ahh.mp3" preload="auto"></audio>
         <audio id="yeehAudio" src="audio/yeeh.mp3" preload="auto"></audio>
@@ -33,8 +34,8 @@
         </a-image>
         <a-image src="avanzar.png" position="0 2 1" rotation="0 0 0" id="texto_avanzar" visible="false">
         </a-image>
-		<a-image src="boton.jpg" position="0 1.5 -2" rotation="0 0 0" id="next-level-button" visible="false">
-        </a-image>
+        <a-entity id="next-level-button" data-raycastable gltf-model="#button" position="0 1.5 0" scale="0.5 0.5 0.5" class="clickable" gesture-handler visible="false"></a-entity>
+
 		
       <!--
         <a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity:0.7;" width="1.5" height="1" visible="false" gesture-handler>
