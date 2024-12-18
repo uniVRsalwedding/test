@@ -33,21 +33,9 @@
         </a-image>
         <a-image src="avanzar.png" position="0 2 0" rotation="0 0 0" id="texto_avanzar" visible="false">
         </a-image>
+		<a-image src="boton.jpg" position="0 1 -2" rotation="0 0 0" id="next-level-button" visible="false">
+        </a-image>
 		
-		<a-entity id="next-level-button" 
-    position="0 2 -2" 
-    geometry="primitive: plane; width: 1; height: 0.5" 
-    material="color: blue; opacity: 0.8; transparent: true"
-    class="clickable"
-    url-navigation="destination: index2.html" visible="false">
-    <a-text 
-        value="Avanzar" 
-        align="center" 
-        color="white" 
-        width="1" 
-        position="0 0 0.1">
-    </a-text>
-</a-entity>
       <!--
         <a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity:0.7;" width="1.5" height="1" visible="false" gesture-handler>
           <a-text id="plano-text" value="Activa el audio y apunta a los minions con el cursor para saber como funciona" position="0 0 0.05" align="center" width="1" color="black" scale="1.5 1.5 1.5"></a-text>
