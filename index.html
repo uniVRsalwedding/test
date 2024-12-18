@@ -28,11 +28,14 @@
         <a-entity id="kevin-model" data-raycastable gltf-model="#kevin" position="0 0 0" scale="0.02 0.02 0.02" class="clickable" gesture-handler visible="false"></a-entity>
         <a-entity id="minion2-model" data-raycastable gltf-model="#minion2" position="-0.5 0 0" scale="0.007 0.007 0.007" class="clickable" gesture-handler visible="false"></a-entity>
 
-        <a-image src="texto.png" position="0 2 0" rotation="0 0 0" id="texto_inicial">
+		<a-entity id="texto_inicial" position="0 2 0" geometry="primitive: plane; width: 1.5; height: 1" material="color: yellow; opacity: 0.7" text="value: Do you want to start?; align: center; color: blue; width: 1.5" class="clickable"></a-entity>
+		<a-entity id="texto_avanzar" position="0 2 0" geometry="primitive: plane; width: 1.5; height: 1" material="color: yellow; opacity: 0.7" text="value: Continue to next level?; align: center; color: blue; width: 1.5" class="clickable" visible="false"></a-entity>
+        <!--
+		<a-image src="texto.png" position="0 2 0" rotation="0 0 0" id="texto_inicial">
         </a-image>
         <a-image src="avanzar.png" position="0 2 0" rotation="0 0 0" id="texto_avanzar" visible="false">
         </a-image>
-      <!--
+      
         <a-plane id="plano" position="0 1.5 -2" material="color: yellow; transparent: true; opacity:0.7;" width="1.5" height="1" visible="false" gesture-handler>
           <a-text id="plano-text" value="Activa el audio y apunta a los minions con el cursor para saber como funciona" position="0 0 0.05" align="center" width="1" color="black" scale="1.5 1.5 1.5"></a-text>
         </a-plane>
