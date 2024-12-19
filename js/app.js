@@ -130,8 +130,10 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablephone', {
     init: function () {
         this.el.addEventListener('click', () => {
-			console.log('Pausando el telefono')
 			document.getElementById("audio_phone").pause();
+			const sky2 = document.querySelector('a-sky');
+			
+			sky2.setAttribute('src' ,'#sky-beach')
 		});
       }
 });
