@@ -121,7 +121,7 @@ AFRAME.registerComponent('shootablephone', {
 			sky2.setAttribute('src' ,'#sky-beach')
 			
 			vid = document.createElement('a-plane')
-			vid.setAttribute('material','shader:video; src:#video')
+			vid.setAttribute('material','shader:flat; src:#video')
 			vid.setAttribute('position', '0 1 3')
 			vid.setAttribute('width','2.5')
 			vid.setAttribute('height','4')
