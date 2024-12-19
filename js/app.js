@@ -60,15 +60,18 @@ function initScene() {
 function llamar_telefono() {	
 	phone = document.createElement('a-entity')
 	
-    phone.setAttribute('gltf-model', '#phone')
+	phone.setAttribute('gltf-model', '#phone')
 			
-	//phone.setAttribute('scale', '1 1 1')
-	console.log('3')
-	//phone.object3D.position.set(0, 0, 0)
+	phone.setAttribute('scale', '1 1 1')
+	phone.object3D.position.set(0, -5, 5)
+
 	
-	//phone.setAttribute('rotation', '0 180 0')
-	phone.setAttribute('shootablephone', '')
+	phone.setAttribute('rotation', '0 180 0')
+	phone.setAttribute('class', 'minion')
+	phone.setAttribute('shootablephone','')
 	phone.setAttribute('id','cabina')
+	
+
 	
 
 	document.querySelector('a-scene').appendChild(phone);
@@ -101,27 +104,9 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			sky.setAttribute('src' ,'#sky-london')
 			
-			//Separado de función
-			
-			phone = document.createElement('a-entity')
-			
-			phone.setAttribute('gltf-model', '#phone')
-					
-			phone.setAttribute('scale', '1 1 1')
-			phone.object3D.position.set(0, -5, 5)
-
-			
-			phone.setAttribute('rotation', '0 180 0')
-			phone.setAttribute('class', 'minion')
-			phone.setAttribute('shootablephone','')
+			llamar_telefono();
 			
 
-			
-
-			document.querySelector('a-scene').appendChild(phone);
-			
-			document.getElementById("audio_phone").loop = true;
-			document.getElementById("audio_phone").play();
         });
     }
 });
