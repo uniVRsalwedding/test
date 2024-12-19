@@ -119,7 +119,29 @@ AFRAME.registerComponent('shootablephone', {
 			const sky2 = document.querySelector('a-sky');
 		    document.getElementById('cabina').remove();
 			sky2.setAttribute('src' ,'#sky-beach')
+			
+			vid = document.createElement('a-plane')
+			vid.setAttribute('material','shader:video; src:#video')
+			vid.setAttribute('position', '0 1 0')
+			vid.setAttribute('width','2.5')
+			vid.setAttribute('height','4')
+			vid.setAttribute('shootablevideo','')
+		});
+      }
+});
 
+
+AFRAME.registerComponent('shootablevideo', {
+    init: function () {
+        this.el.addEventListener('click', () => {
+			const video = document.querySelector("video");
+			
+			if (video.paused) {
+				video.play();
+			} else {
+				video.pause();
+			}	
+			
 		});
       }
 });
