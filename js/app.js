@@ -120,12 +120,13 @@ AFRAME.registerComponent('shootablephone', {
 		    document.getElementById('cabina').remove();
 			sky2.setAttribute('src' ,'#sky-beach')
 			
-			vid = document.createElement('a-video')
-			vid.setAttribute('src','#video')
-			vid.setAttribute('width', '7');
-            vid.setAttribute('height', '10');
-            vid.setAttribute('position', '0 1 5');  
-			vid.setAttribute('shootablevideo','')
+			vid = document.createElement('a-video');
+			vid.setAttribute('src','#video');
+			vid.setAttribute('width', '5');
+            vid.setAttribute('height', '7');
+            vid.setAttribute('position', '0 1 6');  
+			vid.setAttribute('shootablevideo','');
+			vid.setAttribute('class','minion');
 			
 			document.querySelector('a-scene').appendChild(vid);
 			// Start playing the video
