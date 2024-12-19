@@ -120,14 +120,16 @@ AFRAME.registerComponent('shootablephone', {
 		    document.getElementById('cabina').remove();
 			sky2.setAttribute('src' ,'#sky-beach')
 			
-			vid = document.createElement('a-plane')
-			vid.setAttribute('material','shader:flat; src:#video')
-			vid.setAttribute('position', '0 1 3')
+			vid = document.createElement('a-video')
+			vid.setAttribute('src','#video')
 			vid.setAttribute('width','2.5')
 			vid.setAttribute('height','4')
 			vid.setAttribute('shootablevideo','')
 			
 			document.querySelector('a-scene').appendChild(vid);
+			// Start playing the video
+            const videoEl = document.querySelector('#video');
+            videoEl.play();
 		});
       }
 });
@@ -135,13 +137,13 @@ AFRAME.registerComponent('shootablephone', {
 
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
-        this.el.addEventListener('click', () => {
-			const video = document.querySelector("video");
-			
-			if (video.paused) {
-				video.play();
+		const videoEl = document.querySelector('#video');
+		
+        this.el.addEventListener('click', () => {			
+			if (videoEl.paused) {
+				videoEl.play();
 			} else {
-				video.pause();
+				videoEl.pause();
 			}	
 			
 		});
