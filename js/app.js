@@ -122,8 +122,6 @@ AFRAME.registerComponent('shootablephone', {
 			
 			vid = document.createElement('a-video')
 			vid.setAttribute('src','#video')
-			vid.setAttribute('width','2.5')
-			vid.setAttribute('height','4')
 			vid.setAttribute('shootablevideo','')
 			
 			document.querySelector('a-scene').appendChild(vid);
