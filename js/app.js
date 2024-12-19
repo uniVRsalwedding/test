@@ -68,7 +68,7 @@ function llamar_telefono() {
 	
 	//phone.setAttribute('rotation', '0 180 0')
 	phone.setAttribute('shootablephone', '')
-
+	phone.setAttribute('id','cabina')
 	
 
 	document.querySelector('a-scene').appendChild(phone);
@@ -132,7 +132,7 @@ AFRAME.registerComponent('shootablephone', {
         this.el.addEventListener('click', () => {
 			document.getElementById("audio_phone").pause();
 			const sky2 = document.querySelector('a-sky');
-		    document.getElementById('phone').remove();
+		    document.getElementById('cabina').remove();
 			sky2.setAttribute('src' ,'#sky-beach')
 
 		});
