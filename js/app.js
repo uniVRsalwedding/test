@@ -122,15 +122,14 @@ AFRAME.registerComponent('shootablephone', {
 			
 			vid = document.createElement('a-video')
 			vid.setAttribute('src','#video')
-			vid.setAttribute('width', '20');
-            vid.setAttribute('height', '40');
-            vid.setAttribute('position', '0 1 -3');  
+			vid.setAttribute('width', '7');
+            vid.setAttribute('height', '10');
+            vid.setAttribute('position', '0 1 5');  
 			vid.setAttribute('shootablevideo','')
 			
 			document.querySelector('a-scene').appendChild(vid);
 			// Start playing the video
             const videoEl = document.querySelector('#video');
-            videoEl.play();
 		});
       }
 });
