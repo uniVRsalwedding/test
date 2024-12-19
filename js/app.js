@@ -124,7 +124,7 @@ AFRAME.registerComponent('shootablephone', {
 			vid.setAttribute('src','#video');
 			vid.setAttribute('width', '4');
             vid.setAttribute('height', '6');
-            vid.setAttribute('position', '0 1 20');  
+            vid.setAttribute('position', '0 1 13');  
 			vid.setAttribute('shootablevideo','');
 			vid.setAttribute('class','minion');
 			
