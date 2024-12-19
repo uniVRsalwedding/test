@@ -122,7 +122,7 @@ AFRAME.registerComponent('shootablephone', {
 			
 			vid = document.createElement('a-plane')
 			vid.setAttribute('material','shader:video; src:#video')
-			vid.setAttribute('position', '0 1 0')
+			vid.setAttribute('position', '0 1 3')
 			vid.setAttribute('width','2.5')
 			vid.setAttribute('height','4')
 			vid.setAttribute('shootablevideo','')
