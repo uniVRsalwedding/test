@@ -96,26 +96,32 @@ function parar_telefono() {
     // Wait for the recording to end before showing buttons
     grabacion.addEventListener('ended', () => {
         // Create Next Level button
-        const nextLevelBtn = document.createElement('a-text');
+        const nextLevelBtn = document.createElement('a-entity');
         nextLevelBtn.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 0.5');
         nextLevelBtn.setAttribute('material', 'color: #4CAF50');
         nextLevelBtn.setAttribute('position', '1 1 -2');
-        nextLevelBtn.setAttribute('value', 'Next level');
-		nextLevelBtn.setAttribute('align', 'center');
-		nextLevelBtn.setAttribute('color','#fff');
+        nextLevelBtn.setAttribute('text', {
+            value: 'Next Level',
+            align: 'center',
+            width: 4,
+            color: 'white'
+        });
         nextLevelBtn.setAttribute('class', 'minion');
         nextLevelBtn.addEventListener('click', () => {
             window.location.href = 'index2.html';
         });
         
         // Create Replay button
-        const replayBtn = document.createElement('a-text');
+        const replayBtn = document.createElement('a-entity');
         replayBtn.setAttribute('geometry', 'primitive: plane; width: 1.5; height: 0.5');
         replayBtn.setAttribute('material', 'color: #2196F3');
         replayBtn.setAttribute('position', '-1 1 -2');
-		replayBtn.setAttribute('value', 'Play again');
-		replayBtn.setAttribute('align', 'center');
-		replayBtn.setAttribute('color','#fff'););
+        replayBtn.setAttribute('text', {
+            value: 'Play Again',
+            align: 'center',
+            width: 4,
+            color: 'white'
+        });
         replayBtn.setAttribute('class', 'minion');
         replayBtn.addEventListener('click', () => {
 			grabacion.currentTime = 0;
