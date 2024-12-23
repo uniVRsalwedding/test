@@ -44,6 +44,7 @@ window.onload = function () {
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
 		sky.setAttribute('src' ,'#sky-london')
+		sky.setAttribute('scale', '0.8 0.8 0.8')
 
 		
 		document.querySelector('a-scene').appendChild(sky);
@@ -55,7 +56,6 @@ window.onload = function () {
 		phone.object3D.position.set(0, -5, 5)
 		phone.setAttribute('rotation', '0 180 0')
 		phone.setAttribute('class', 'minion')
-		phone.setAttribute('shootablephone','')
 		phone.setAttribute('id','cabina')
 		
 
@@ -65,7 +65,14 @@ window.onload = function () {
 
 		document.getElementById("audio_phone").loop = true;
 		document.getElementById("audio_phone").play();
+		
+		phone.addEventListener('click', parar_telefono);
 
+
+}
+
+function parar_telefono() {
+	document.getElementById("audio_phone").pause();
 }
 
       // Reproducir audio y actualizar estado al hacer clic en Bowser
@@ -203,11 +210,3 @@ AFRAME.registerComponent("gesture-handler", {
       });
 */
 
-
-AFRAME.registerComponent('shootablephone', {
-    init: function () {
-        this.el.addEventListener('click', () => {
-			document.getElementById("audio_phone").pause();
-		});
-      }
-});
