@@ -44,7 +44,7 @@ window.onload = function () {
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
 		sky.setAttribute('src' ,'#sky-london')
-		sky.setAttribute('position','0 0 15')
+		sky.setAttribute('position','0 0 -400')
 
 		
 		document.querySelector('a-scene').appendChild(sky);
@@ -55,9 +55,7 @@ window.onload = function () {
 		phone.setAttribute('scale', '1 1 1')
 		phone.object3D.position.set(0, -5, 5)
 		phone.setAttribute('rotation', '0 180 0')
-		phone.setAttribute('class', 'clickable')
 		phone.setAttribute('id','cabina')
-		phone.setAttribute('gesture-handler','')
 		
 
 		
