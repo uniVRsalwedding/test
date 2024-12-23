@@ -71,6 +71,7 @@ window.onload = function () {
 }
 
 function parar_telefono() {
+	console.log("Ha entrado en parar telefono");
 	document.getElementById("audio_phone").pause();
 }
 
