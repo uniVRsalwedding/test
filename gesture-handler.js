@@ -27,10 +27,11 @@ window.onload = function () {
 			nextButton.setAttribute('rotation','0 -90 0');
 			nextButton.setAttribute('class','clickable');
 			nextButton.setAttribute('gesture-handler','');
-			nextButton.setAttribute('onclick','llamar_telefono();')
 			//nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
 
 		    document.querySelector('a-scene').appendChild(nextButton);
+			
+			nextButton.addEventListener('click', llamar_telefono);
         }
       }
       
