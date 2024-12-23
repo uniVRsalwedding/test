@@ -44,11 +44,14 @@ window.onload = function () {
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
 		sky.setAttribute('src' ,'#sky-london')
-		sky.setAttribute('position','0 0 -400')
-
+		sky.setAttribute('position', '0 0 0')
 		
 		document.querySelector('a-scene').appendChild(sky);
 		
+		 // Update camera position to match index2.html
+		const camera = document.querySelector('[camera]');
+		camera.setAttribute('position', '0 0 0');
+			
 		phone = document.createElement('a-entity')
 		
 		phone.setAttribute('gltf-model', '#phone')		
