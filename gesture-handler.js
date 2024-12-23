@@ -41,6 +41,25 @@ window.onload = function () {
                 entity.parentNode.removeChild(entity);
         });
 		
+		    // Remove existing camera
+			const oldCamera = document.querySelector('[camera]');
+			oldCamera.parentNode.removeChild(oldCamera);
+			
+			// Create new camera with exact same setup as index2.html
+			const newCamera = document.createElement('a-entity');
+			newCamera.setAttribute('camera', '');
+			newCamera.setAttribute('look-controls', '');
+			
+			const cursor = document.createElement('a-entity');
+			cursor.setAttribute('cursor', 'fuse: true; fuseTimeout: 100');
+			cursor.setAttribute('position', '0 0 -1');
+			cursor.setAttribute('raycaster', 'objects: .minion');
+			cursor.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
+			cursor.setAttribute('material', 'shader: flat');
+			
+			newCamera.appendChild(cursor);
+			document.querySelector('a-scene').appendChild(newCamera);
+	
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
 		sky.setAttribute('src' ,'#sky-london')
@@ -48,9 +67,6 @@ window.onload = function () {
 		
 		document.querySelector('a-scene').appendChild(sky);
 		
-		 // Update camera position to match index2.html
-		const camera = document.querySelector('[camera]');
-		camera.setAttribute('position', '0 0 0');
 			
 		phone = document.createElement('a-entity')
 		
@@ -59,9 +75,7 @@ window.onload = function () {
 		phone.object3D.position.set(0, -5, 5)
 		phone.setAttribute('rotation', '0 180 0')
 		phone.setAttribute('id','cabina')
-		
-
-		
+		phone.setAttribute('class','minion')		
 
 		document.querySelector('a-scene').appendChild(phone);
 
