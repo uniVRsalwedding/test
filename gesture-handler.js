@@ -44,7 +44,7 @@ window.onload = function () {
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
 		sky.setAttribute('src' ,'#sky-london')
-		sky.setAttribute('position','0 0 -500')
+		sky.setAttribute('position','0 0 -400')
 
 		
 		document.querySelector('a-scene').appendChild(sky);
