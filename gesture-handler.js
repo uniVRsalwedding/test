@@ -27,19 +27,12 @@ window.onload = function () {
 			nextButton.setAttribute('rotation','0 -90 0');
 			nextButton.setAttribute('class','clickable');
 			nextButton.setAttribute('gesture-handler','');
+			nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
 
 		    document.querySelector('a-scene').appendChild(nextButton);
         }
       }
       
-      // Agregar el evento de clic al botón
-	  if (document.getElementById('next-level-button')) {
-		  document.getElementById('next-level-button').addEventListener('click', () => {
-			// Aquí defines lo que debe pasar al hacer clic en "Siguiente Nivel"
-			window.location.href = 'index2.html';
-			// Puedes añadir aquí la lógica para avanzar al siguiente nivel, como cargar una nueva escena o cambiar de estado.
-		  });
-	  }
 
       // Reproducir audio y actualizar estado al hacer clic en Bowser
       minion1.addEventListener('click', () => {
