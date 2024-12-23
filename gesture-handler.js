@@ -25,7 +25,7 @@ window.onload = function () {
 			nextButton.setAttribute('position','0 1.3 2');
 			nextButton.setAttribute('scale','0.1 0.1 0.1');
 			nextButton.setAttribute('rotation','0 -90 0');
-			nextButton.setAttribute('class','clickable');
+			nextButton.setAttribute('class','remove');
 			nextButton.setAttribute('gesture-handler','');
 			//nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
 
@@ -35,8 +35,12 @@ window.onload = function () {
         }
       }
       
-	function llamar_telefono() {	
-				
+	function llamar_telefono() {
+//Eliminar objetos		
+		document.querySelectorAll('.remove').forEach(entity => {
+                entity.parentNode.removeChild(entity);
+        });
+		
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
 		sky.setAttribute('src' ,'#sky-london')
