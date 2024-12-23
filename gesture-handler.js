@@ -38,6 +38,8 @@ window.onload = function () {
 				
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
+		sky.setAttribute('src' ,'#sky-london')
+
 		
 		document.querySelector('a-scene').appendChild(sky);
 		
