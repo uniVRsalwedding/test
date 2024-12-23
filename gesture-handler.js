@@ -27,12 +27,39 @@ window.onload = function () {
 			nextButton.setAttribute('rotation','0 -90 0');
 			nextButton.setAttribute('class','clickable');
 			nextButton.setAttribute('gesture-handler','');
-			nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
+			nextButton.setAttribute('onclick','llamar_telefono();')
+			//nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
 
 		    document.querySelector('a-scene').appendChild(nextButton);
         }
       }
       
+	function llamar_telefono() {	
+				
+		sky = document.createElement('a-sky')
+		sky.setAttribute('rotation', '0 30 0')
+		
+		document.querySelector('a-scene').appendChild(sky);
+		
+		phone = document.createElement('a-entity')
+		
+		phone.setAttribute('gltf-model', '#phone')		
+		phone.setAttribute('scale', '1 1 1')
+		phone.object3D.position.set(0, -5, 5)
+		phone.setAttribute('rotation', '0 180 0')
+		phone.setAttribute('class', 'minion')
+		phone.setAttribute('shootablephone','')
+		phone.setAttribute('id','cabina')
+		
+
+		
+
+		document.querySelector('a-scene').appendChild(phone);
+
+		document.getElementById("audio_phone").loop = true;
+		document.getElementById("audio_phone").play();
+
+}
 
       // Reproducir audio y actualizar estado al hacer clic en Bowser
       minion1.addEventListener('click', () => {
@@ -168,3 +195,12 @@ AFRAME.registerComponent("gesture-handler", {
         },
       });
 */
+
+
+AFRAME.registerComponent('shootablephone', {
+    init: function () {
+        this.el.addEventListener('click', () => {
+			document.getElementById("audio_phone").pause();
+		});
+      }
+});
