@@ -12,14 +12,23 @@ window.onload = function () {
       const yeehAudio = document.getElementById("yeehAudio");
       const textoInicial = document.getElementById("texto_inicial");
       const textoAvanzar = document.getElementById("texto_avanzar");
-      const nextLevelButton = document.getElementById("next-level-button");
 
       // Función para verificar si todos los modelos han sido clicados
       function checkAllClicked() {
         if (clickedMinion1 && clickedKevin && clickedMinion2) {
             textoInicial.setAttribute('visible', 'false');
             textoAvanzar.setAttribute('visible', 'true');
-            nextLevelButton.setAttribute('visible', 'true');
+			nextButton = createElement('a-entity');
+			nextButton.setAttribute('id','next-level-button');
+			nextButton.setAttribute('data-raycastable','');
+			nextButton.setAttribute('gltf-model','#button');
+			nextButton.setAttribute('position','0 1.3 2');
+			nextButton.setAttribute('scale','0.1 0.1 0.1');
+			nextButton.setAttribute('rotation','0 -90 0');
+			nextButton.setAttribute('class','clickable');
+			nextButton.setAttribute('gesture-handler','');
+
+		    document.querySelector('a-scene').appendChild(nextButton);
         }
       }
       
