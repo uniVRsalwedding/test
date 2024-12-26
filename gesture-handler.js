@@ -96,27 +96,35 @@ function parar_telefono() {
     // Wait for the recording to end before showing buttons
     grabacion.addEventListener('ended', () => {
         // Create Next Level button
-        const nextLevelBtn = document.createElement('a-entity');
-        nextLevelBtn.setAttribute('geometry', 'primitive: plane; width: 0; height: 0');
-        nextLevelBtn.setAttribute('material', 'color: #4CAF50');
-        nextLevelBtn.setAttribute('position', '1 -3 5');
-        nextLevelBtn.setAttribute('text', 'width: 0.5; height: 0.3; value: Next Level');
-        nextLevelBtn.setAttribute('class', 'minion');
+		nextLevelBtn = document.createElement('a-entity');
+		nextLevelBtn.setAttribute('id','next-level-button');
+		nextLevelBtn.setAttribute('data-raycastable','');
+		nextLevelBtn.setAttribute('gltf-model','#button');
+		nextLevelBtn.setAttribute('position','1 -3 5');
+		nextLevelBtn.setAttribute('scale','0.1 0.1 0.1');
+		nextLevelBtn.setAttribute('rotation','0 -90 0');
+		nextLevelBtn.setAttribute('class','clickable remove');
+		nextLevelBtn.setAttribute('gesture-handler','');
         nextLevelBtn.addEventListener('click', () => {
             window.location.href = 'index2.html';
         });
+
         
         // Create Replay button
-        const replayBtn = document.createElement('a-entity');
-        replayBtn.setAttribute('geometry', 'primitive: plane; width: 0; height: 0');
-        replayBtn.setAttribute('material', 'color: #2196F3');
-        replayBtn.setAttribute('position', '-1 -3 5');
-        replayBtn.setAttribute('text', 'width: 0.5; height: 0.3; value: Play Again');
-        replayBtn.setAttribute('class', 'minion');
+		replayBtn = document.createElement('a-entity');
+		replayBtn.setAttribute('id','next-level-button');
+		replayBtn.setAttribute('data-raycastable','');
+		replayBtn.setAttribute('gltf-model','#replay_button');
+		replayBtn.setAttribute('position','-1 -3 5');
+		replayBtn.setAttribute('scale','0.1 0.1 0.1');
+		replayBtn.setAttribute('rotation','0 -90 0');
+		replayBtn.setAttribute('class','clickable remove');
+		replayBtn.setAttribute('gesture-handler','');
         replayBtn.addEventListener('click', () => {
 			grabacion.currentTime = 0;
             grabacion.play();
         });
+
         
         document.querySelector('a-scene').appendChild(nextLevelBtn);
         document.querySelector('a-scene').appendChild(replayBtn);
