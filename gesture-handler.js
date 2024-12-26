@@ -100,9 +100,8 @@ function parar_telefono() {
 		nextLevelBtn.setAttribute('id','next-level-button');
 		nextLevelBtn.setAttribute('data-raycastable','');
 		nextLevelBtn.setAttribute('gltf-model','#button');
-		nextLevelBtn.setAttribute('position','1 -3 5');
-		nextLevelBtn.setAttribute('scale','0.1 0.1 0.1');
-		nextLevelBtn.setAttribute('rotation','0 -90 0');
+		nextLevelBtn.setAttribute('position','0.5 1 5');
+		nextLevelBtn.setAttribute('scale','0.2 0.2 0.2');
 		nextLevelBtn.setAttribute('class','clickable remove');
 		nextLevelBtn.setAttribute('gesture-handler','');
         nextLevelBtn.addEventListener('click', () => {
@@ -115,9 +114,8 @@ function parar_telefono() {
 		replayBtn.setAttribute('id','next-level-button');
 		replayBtn.setAttribute('data-raycastable','');
 		replayBtn.setAttribute('gltf-model','#replay_button');
-		replayBtn.setAttribute('position','-1 -3 5');
-		replayBtn.setAttribute('scale','0.1 0.1 0.1');
-		replayBtn.setAttribute('rotation','0 -90 0');
+		replayBtn.setAttribute('position','-0.5 1 5');
+		replayBtn.setAttribute('scale','0.2 0.2 0.2');
 		replayBtn.setAttribute('class','clickable remove');
 		replayBtn.setAttribute('gesture-handler','');
         replayBtn.addEventListener('click', () => {
