@@ -99,8 +99,8 @@ function parar_telefono() {
         const nextLevelBtn = document.createElement('a-entity');
         nextLevelBtn.setAttribute('geometry', 'primitive: plane; width: 0; height: 0');
         nextLevelBtn.setAttribute('material', 'color: #4CAF50');
-        nextLevelBtn.setAttribute('position', '1 -5 -2');
-        nextLevelBtn.setAttribute('text', 'width: 0.7; value: Next Level');
+        nextLevelBtn.setAttribute('position', '1 -3 5');
+        nextLevelBtn.setAttribute('text', 'width: 0.5; height: 0.3; value: Next Level');
         nextLevelBtn.setAttribute('class', 'minion');
         nextLevelBtn.addEventListener('click', () => {
             window.location.href = 'index2.html';
@@ -110,8 +110,8 @@ function parar_telefono() {
         const replayBtn = document.createElement('a-entity');
         replayBtn.setAttribute('geometry', 'primitive: plane; width: 0; height: 0');
         replayBtn.setAttribute('material', 'color: #2196F3');
-        replayBtn.setAttribute('position', '-1 -5 -2');
-        replayBtn.setAttribute('text', 'width: 0.7; value: Play Again');
+        replayBtn.setAttribute('position', '-1 -3 5');
+        replayBtn.setAttribute('text', 'width: 0.5; height: 0.3; value: Play Again');
         replayBtn.setAttribute('class', 'minion');
         replayBtn.addEventListener('click', () => {
 			grabacion.currentTime = 0;
