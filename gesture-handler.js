@@ -100,7 +100,7 @@ function parar_telefono() {
 		nextLevelBtn.setAttribute('id','next-button');
 		nextLevelBtn.setAttribute('data-raycastable','');
 		nextLevelBtn.setAttribute('gltf-model','#button');
-		nextLevelBtn.setAttribute('position','0.5 -1 5');
+		nextLevelBtn.setAttribute('position','-1 -1 5');
 		nextLevelBtn.setAttribute('scale','0.2 0.2 0.2');
 		nextLevelBtn.setAttribute('rotation','0 90 0');
 		nextLevelBtn.setAttribute('class','clickable remove minion');
