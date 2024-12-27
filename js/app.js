@@ -80,17 +80,6 @@ AFRAME.registerComponent('shootablewinner', {
 			
             sky.remove();
 			
-			const scriptt = document.createElement('script');
-			scriptt.setAttribute('src','https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js');
-			document.querySelector('head').appendChild(scriptt);
-			
-			escena = document.getElementById('scene2');
-			escena.setAttribute('arjs','');
-			escena.setAttribute('embedded','');
-			escena.setAttribute('renderer','logarithmicDepthBuffer: true;');
-			escena.setAttribute('vr-mode-ui','enabled: false');
-			escena.setAttribute('gesture-detector','');
-			
 			vid = document.createElement('a-video');
 			vid.setAttribute('src','#video');
 			vid.setAttribute('width', '4');
