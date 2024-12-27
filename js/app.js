@@ -80,9 +80,9 @@ AFRAME.registerComponent('shootablewinner', {
 			
             sky.remove();
 			
-			const script = document.createElement('script');
-			script.setAttribute('src','https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js');
-			document.querySelector('head').appendChild(script);
+			const scriptt = document.createElement('script');
+			scriptt.setAttribute('src','https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js');
+			document.querySelector('head').appendChild(scriptt);
 			
 			escena = document.getElementById('scene2');
 			escena.setAttribute('arjs','');
