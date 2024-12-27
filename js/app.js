@@ -57,30 +57,6 @@ function initScene() {
     document.querySelector('a-scene').appendChild(minion_winner);
 }
 
-function llamar_telefono() {	
-	phone = document.createElement('a-entity')
-	
-	phone.setAttribute('gltf-model', '#phone')
-			
-	phone.setAttribute('scale', '1 1 1')
-	phone.object3D.position.set(0, -5, 5)
-
-	
-	phone.setAttribute('rotation', '0 180 0')
-	phone.setAttribute('class', 'minion')
-	phone.setAttribute('shootablephone','')
-	phone.setAttribute('id','cabina')
-	
-
-	
-
-	document.querySelector('a-scene').appendChild(phone);
-	
-	document.getElementById("audio_phone").loop = true;
-	document.getElementById("audio_phone").play();
-
-}
-
 
 AFRAME.registerComponent('shootable', {
     init: function () {
@@ -102,23 +78,7 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			const sky = document.querySelector('a-sky');
 			
-			sky.setAttribute('src' ,'#sky-london')
-			
-			llamar_telefono();
-			
-
-        });
-    }
-});
-
-
-AFRAME.registerComponent('shootablephone', {
-    init: function () {
-        this.el.addEventListener('click', () => {
-			document.getElementById("audio_phone").pause();
-			const sky2 = document.querySelector('a-sky');
-		    document.getElementById('cabina').remove();
-			sky2.setAttribute('src' ,'#sky-beach')
+            sky.remove();
 			
 			vid = document.createElement('a-video');
 			vid.setAttribute('src','#video');
@@ -131,9 +91,12 @@ AFRAME.registerComponent('shootablephone', {
 			document.querySelector('a-scene').appendChild(vid);
 			// Start playing the video
             const videoEl = document.querySelector('#video');
-		});
-      }
+			
+
+        });
+    }
 });
+
 
 
 AFRAME.registerComponent('shootablevideo', {
