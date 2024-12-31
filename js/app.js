@@ -123,9 +123,9 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			document.querySelector('a-scene').appendChild(vid);
 			document.querySelector('a-scene').appendChild(web);
-			// Start playing the video
-            const videoEl = document.querySelector('#video');
-			
+			document.querySelector('a-scene').appendChild(vid2);
+			document.querySelector('a-scene').appendChild(web2);
+		
 
         });
     }
