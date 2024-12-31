@@ -84,7 +84,7 @@ AFRAME.registerComponent('shootablewinner', {
 			vid.setAttribute('src','#video');
 			vid.setAttribute('width', '4');
             vid.setAttribute('height', '6');
-            vid.setAttribute('position', '15 3 10');  
+            vid.setAttribute('position', '-5 3 10');  
 			vid.setAttribute('shootablevideo','');
 			vid.setAttribute('class','minion');
 			
@@ -92,11 +92,32 @@ AFRAME.registerComponent('shootablewinner', {
 			web.setAttribute('id','web_button');
 			web.setAttribute('data-raycastable','');
 			web.setAttribute('gltf-model','#web');
-			web.setAttribute('position','15 -3 10');
+			web.setAttribute('position','-5 -3 10');
 			web.setAttribute('scale','0.5 0.5 0.5');
 			web.setAttribute('rotation','0 90 0');
 			web.setAttribute('class','clickable remove minion');
 			web.addEventListener('click', () => {
+				window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
+			});
+			
+			
+			vid2 = document.createElement('a-video');
+			vid2.setAttribute('src','#video');
+			vid2.setAttribute('width', '4');
+            vid2.setAttribute('height', '6');
+            vid2.setAttribute('position', '-15 3 10');  
+			vid2.setAttribute('shootablevideo','');
+			vid2.setAttribute('class','minion');
+			
+			web2 = document.createElement('a-entity');
+			web2.setAttribute('id','web_button');
+			web2.setAttribute('data-raycastable','');
+			web2.setAttribute('gltf-model','#web');
+			web2.setAttribute('position','-15 -3 10');
+			web2.setAttribute('scale','0.5 0.5 0.5');
+			web2.setAttribute('rotation','0 90 0');
+			web2.setAttribute('class','clickable remove minion');
+			web2.addEventListener('click', () => {
 				window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
 			});
 			
