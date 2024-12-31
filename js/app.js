@@ -78,7 +78,8 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			const sky = document.querySelector('a-sky');
 			
-            sky.remove();
+            sky.setAttribute('src','#sky2');
+			sky.setAttribute('rotation','0 0 0');
 			
 			vid = document.createElement('a-video');
 			vid.setAttribute('src','#video');
