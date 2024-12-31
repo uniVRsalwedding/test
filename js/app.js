@@ -89,7 +89,6 @@ AFRAME.registerComponent('shootablewinner', {
 			vid.setAttribute('class','minion');
 			
 			web = document.createElement('a-entity');
-			web.setAttribute('id','web_button');
 			web.setAttribute('data-raycastable','');
 			web.setAttribute('gltf-model','#web');
 			web.setAttribute('position','-5 -3 10');
@@ -110,7 +109,6 @@ AFRAME.registerComponent('shootablewinner', {
 			vid2.setAttribute('class','minion');
 			
 			web2 = document.createElement('a-entity');
-			web2.setAttribute('id','web_button');
 			web2.setAttribute('data-raycastable','');
 			web2.setAttribute('gltf-model','#web');
 			web2.setAttribute('position','-15 -3 10');
