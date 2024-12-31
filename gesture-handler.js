@@ -101,7 +101,7 @@ function parar_telefono() {
 		nextLevelBtn.setAttribute('data-raycastable','');
 		nextLevelBtn.setAttribute('gltf-model','#button');
 		nextLevelBtn.setAttribute('position','-1 -1 5');
-		nextLevelBtn.setAttribute('scale','0.2 0.2 0.2');
+		nextLevelBtn.setAttribute('scale','0.3 0.3 0.3');
 		nextLevelBtn.setAttribute('rotation','0 90 0');
 		nextLevelBtn.setAttribute('class','clickable remove minion');
         nextLevelBtn.addEventListener('click', () => {
@@ -115,7 +115,7 @@ function parar_telefono() {
 		replayBtn.setAttribute('data-raycastable','');
 		replayBtn.setAttribute('gltf-model','#replay_button');
 		replayBtn.setAttribute('position','0 -1 5');
-		replayBtn.setAttribute('scale','0.2 0.2 0.2');
+		replayBtn.setAttribute('scale','0.3 0.3 0.3');
 		replayBtn.setAttribute('rotation','0 90 0');
 		replayBtn.setAttribute('class','clickable remove minion');
         replayBtn.addEventListener('click', () => {
