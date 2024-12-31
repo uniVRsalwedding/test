@@ -104,7 +104,6 @@ function parar_telefono() {
 		nextLevelBtn.setAttribute('scale','0.2 0.2 0.2');
 		nextLevelBtn.setAttribute('rotation','0 90 0');
 		nextLevelBtn.setAttribute('class','clickable remove minion');
-		nextLevelBtn.setAttribute('gesture-handler','');
         nextLevelBtn.addEventListener('click', () => {
             window.location.href = 'index2.html';
         });
@@ -119,7 +118,6 @@ function parar_telefono() {
 		replayBtn.setAttribute('scale','0.2 0.2 0.2');
 		replayBtn.setAttribute('rotation','0 90 0');
 		replayBtn.setAttribute('class','clickable remove minion');
-		replayBtn.setAttribute('gesture-handler','');
         replayBtn.addEventListener('click', () => {
 			grabacion.currentTime = 0;
             grabacion.play();
