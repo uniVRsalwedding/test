@@ -79,6 +79,7 @@ AFRAME.registerComponent('shootablewinner', {
 			const sky = document.querySelector('a-sky');
 			
             sky.setAttribute('src','#sky2');
+			sky.setAttribute('position','150 0 0');
 			
 			vid = document.createElement('a-video');
 			vid.setAttribute('src','#video');
@@ -103,10 +104,10 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			vid2 = document.createElement('a-video');
 			vid2.setAttribute('src','#video');
-			vid2.setAttribute('width', '220');
-            vid2.setAttribute('height', '250');
-            vid2.setAttribute('position', '350 80 30');
-			vid2.setAttribute('rotation', '0 -75 0');
+			vid2.setAttribute('width', '110');
+            vid2.setAttribute('height', '130');
+            vid2.setAttribute('position', '350 7.5 30');
+			vid2.setAttribute('rotation', '0 15 0');
 			vid2.setAttribute('shootablevideo','');
 			vid2.setAttribute('class','minion');
 			
