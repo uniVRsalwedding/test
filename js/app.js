@@ -105,7 +105,7 @@ AFRAME.registerComponent('shootablewinner', {
 			vid2.setAttribute('src','#video');
 			vid2.setAttribute('width', '150');
             vid2.setAttribute('height', '175');
-            vid2.setAttribute('position', '-500 100 100');
+            vid2.setAttribute('position', '-200 10 30');
 			vid2.setAttribute('rotation', '0 75 0');
 			vid2.setAttribute('shootablevideo','');
 			vid2.setAttribute('class','minion');
@@ -123,7 +123,7 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			document.querySelector('a-scene').appendChild(vid);
 			document.querySelector('a-scene').appendChild(web);
-			document.querySelector('a-scene').appendChild(vid2);
+			document.querySelector('a-video').appendChild(vid2);
 			document.querySelector('a-scene').appendChild(web2);
 		
 
