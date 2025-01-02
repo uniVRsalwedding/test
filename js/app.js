@@ -85,16 +85,15 @@ AFRAME.registerComponent('shootablewinner', {
 			vid.setAttribute('src','#video');
 			vid.setAttribute('width', '14');
             vid.setAttribute('height', '17');
-            vid.setAttribute('position', '-25 8 30');
-			vid.setAttribute('rotation', '0 -25 0');
+            vid.setAttribute('position', '-27 9 30');
+			vid.setAttribute('rotation', '0 -27 0');
 			vid.setAttribute('shootablevideo','');
 			vid.setAttribute('class','minion');
 			
 			web = document.createElement('a-entity');
 			web.setAttribute('data-raycastable','');
 			web.setAttribute('gltf-model','#web');
-			web.setAttribute('position','-3.5 -3 30');
-			web.setAttribute('scale','0.5 0.5 0.5');
+			web.setAttribute('position','-27 -3 30');
 			web.setAttribute('rotation','0 90 0');
 			web.setAttribute('class','clickable remove minion');
 			web.addEventListener('click', () => {
@@ -104,18 +103,17 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			vid2 = document.createElement('a-video');
 			vid2.setAttribute('src','#video');
-			vid2.setAttribute('width', '25');
-            vid2.setAttribute('height', '30');
-            vid2.setAttribute('position', '52 10 30');
-			vid2.setAttribute('rotation', '0 50 0');
+			vid2.setAttribute('width', '24');
+            vid2.setAttribute('height', '28');
+            vid2.setAttribute('position', '56 13 30');
+			vid2.setAttribute('rotation', '0 53 0');
 			vid2.setAttribute('shootablevideo','');
 			vid2.setAttribute('class','minion');
 			
 			web2 = document.createElement('a-entity');
 			web2.setAttribute('data-raycastable','');
 			web2.setAttribute('gltf-model','#web');
-			web2.setAttribute('position','-600 -3 2');
-			web2.setAttribute('scale','0.5 0.5 0.5');
+			web2.setAttribute('position','56 -3 2');
 			web2.setAttribute('rotation','0 90 0');
 			web2.setAttribute('class','clickable remove minion');
 			web2.addEventListener('click', () => {
