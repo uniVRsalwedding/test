@@ -105,8 +105,8 @@ AFRAME.registerComponent('shootablewinner', {
 			vid2.setAttribute('src','#video');
 			vid2.setAttribute('width', '150');
             vid2.setAttribute('height', '175');
-            vid2.setAttribute('position', '-400 25 -100');
-			vid2.setAttribute('rotation', '0 40 0');
+            vid2.setAttribute('position', '-450 55 -100');
+			vid2.setAttribute('rotation', '0 55 0');
 			vid2.setAttribute('shootablevideo','');
 			vid2.setAttribute('class','minion');
 			
