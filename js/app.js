@@ -83,8 +83,8 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			vid = document.createElement('a-video');
 			vid.setAttribute('src','#video');
-			vid.setAttribute('width', '50');
-            vid.setAttribute('height', '70');
+			vid.setAttribute('width', '70');
+            vid.setAttribute('height', '85');
             vid.setAttribute('position', '-50 10 30');
 			vid.setAttribute('rotation', '0 35 0');
 			vid.setAttribute('shootablevideo','');
