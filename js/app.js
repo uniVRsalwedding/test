@@ -123,7 +123,7 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			document.querySelector('a-scene').appendChild(vid);
 			document.querySelector('a-scene').appendChild(web);
-			document.querySelector('a-video').appendChild(vid2);
+			document.querySelector('a-scene').appendChild(vid2);
 			document.querySelector('a-scene').appendChild(web2);
 		
 
