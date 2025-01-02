@@ -85,7 +85,7 @@ AFRAME.registerComponent('shootablewinner', {
 			vid.setAttribute('src','#video');
 			vid.setAttribute('width', '14');
             vid.setAttribute('height', '17');
-            vid.setAttribute('position', '-25 10 30');
+            vid.setAttribute('position', '-20 10 30');
 			vid.setAttribute('rotation', '0 -25 0');
 			vid.setAttribute('shootablevideo','');
 			vid.setAttribute('class','minion');
@@ -106,7 +106,7 @@ AFRAME.registerComponent('shootablewinner', {
 			vid2.setAttribute('src','#video');
 			vid2.setAttribute('width', '20');
             vid2.setAttribute('height', '25');
-            vid2.setAttribute('position', '45 10 30');
+            vid2.setAttribute('position', '50 10 30');
 			vid2.setAttribute('rotation', '0 10 0');
 			vid2.setAttribute('shootablevideo','');
 			vid2.setAttribute('class','minion');
