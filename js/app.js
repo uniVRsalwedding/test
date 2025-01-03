@@ -125,9 +125,9 @@ AFRAME.registerComponent('shootablewinner', {
 
 
 AFRAME.registerComponent('shootablevideo', {
+	firstClick = true,
     init: function () {
 		const videoEl = document.querySelector('#video');
-		let firstClick = true;
 		
         this.el.addEventListener('click', () => {
 /*
@@ -151,9 +151,9 @@ AFRAME.registerComponent('shootablevideo', {
 			else {*/
 				if (videoEl.paused) {
 					videoEl.play();
-					if (firstClick) {
+					if (this.firstClick) {
 						crearWeb();
-						firstClick = false;
+						this.firstClick = false;
 					}
 				} else {
 					videoEl.pause();
