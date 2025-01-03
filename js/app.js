@@ -127,7 +127,7 @@ AFRAME.registerComponent('shootablevideo', {
 				web.setAttribute('gltf-model','#web');
 				web.setAttribute('position','8 0 30');
 				web.setAttribute('scale', '1.5 1.5 1.5');
-				web.setAttribute('rotation','0 120 0');
+				web.setAttribute('rotation','0 110 0');
 				web.setAttribute('class','clickable remove minion');
 				web.addEventListener('click', () => {
 					window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
