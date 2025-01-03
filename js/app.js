@@ -143,7 +143,7 @@ AFRAME.registerComponent('shootablevideo', {
 				}
 			//}
 		});
-      }
+      },
 	  
 	play: function() {
 		if (firstClick) {
