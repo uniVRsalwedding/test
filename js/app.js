@@ -139,6 +139,10 @@ AFRAME.registerComponent('shootablevideo', {
 			else {*/
 				if (videoEl.paused) {
 					videoEl.play();
+					
+					if (this.firstClick) {
+						this.createWebEntity();
+					}
 				} else {
 					videoEl.pause();
 				}
@@ -146,8 +150,7 @@ AFRAME.registerComponent('shootablevideo', {
 		});
       },
 	  
-	play: function() {
-		if (this.firstClick) {
+	createWebEntity: function() {
 			this.firstClick = false;
 			
 			const web = document.createElement('a-entity');
