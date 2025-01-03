@@ -119,6 +119,7 @@ AFRAME.registerComponent('shootablevideo', {
         this.el.addEventListener('click', () => {
 
 			if (firstClick) {
+				videoEl.currentTime = 0;
 				videoEl.play();
 				firstClick = false;
 				
