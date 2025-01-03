@@ -83,10 +83,10 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			vid = document.createElement('a-video');
 			vid.setAttribute('src','#video');
-			vid.setAttribute('width', '15');
-            vid.setAttribute('height', '18');
+			vid.setAttribute('width', '14');
+            vid.setAttribute('height', '17');
             vid.setAttribute('position', '-25 9 30');
-			vid.setAttribute('rotation', '0 -20 0');
+			vid.setAttribute('rotation', '0 10 0');
 			vid.setAttribute('shootablevideo','');
 			vid.setAttribute('class','minion');
 			
