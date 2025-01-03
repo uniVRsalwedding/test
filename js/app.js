@@ -114,10 +114,10 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
-		let firstClick = true;
+		//let firstClick = true;
 		
         this.el.addEventListener('click', () => {
-
+/*
 			if (firstClick) {
 				videoEl.play();
 				firstClick = false;
@@ -135,13 +135,13 @@ AFRAME.registerComponent('shootablevideo', {
 				document.querySelector('a-scene').appendChild(web);
 			}
 		
-			else {
+			else {*/
 				if (videoEl.paused) {
 					videoEl.play();
 				} else {
 					videoEl.pause();
 				}
-			}
+			//}
 		});
       }
 });
