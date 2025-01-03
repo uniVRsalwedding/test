@@ -117,7 +117,7 @@ AFRAME.registerComponent('shootablewinner', {
 			document.querySelector('a-scene').appendChild(vid);
 			document.querySelector('a-scene').appendChild(vid2);
 		
-
+			document.querySelector('#video').addEventListener('play', crearWeb);
         });
     }
 });
@@ -126,7 +126,6 @@ AFRAME.registerComponent('shootablewinner', {
 
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
-		this.firstClick = true;
 		const videoEl = document.querySelector('#video');
 		
         this.el.addEventListener('click', () => {
@@ -151,10 +150,7 @@ AFRAME.registerComponent('shootablevideo', {
 			else {*/
 				if (videoEl.paused) {
 					videoEl.play();
-					if (this.firstClick) {
-						crearWeb();
-						this.firstClick = false;
-					}
+
 				} else {
 					videoEl.pause();
 				}
