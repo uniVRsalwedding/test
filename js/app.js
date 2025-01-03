@@ -112,9 +112,10 @@ AFRAME.registerComponent('shootablewinner', {
 
 
 AFRAME.registerComponent('shootablevideo', {
+	firstClick = true,
+	
     init: function () {
-		const videoEl = document.querySelector('#video');
-		let firstClick = true;
+		const videoEl = document.querySelector('#video');	
 		
         this.el.addEventListener('click', () => {
 /*
@@ -146,10 +147,10 @@ AFRAME.registerComponent('shootablevideo', {
       },
 	  
 	play: function() {
-		if (firstClick) {
-			firstClick = false;
+		if (this.firstClick) {
+			this.firstClick = false;
 			
-			web = document.createElement('a-entity');
+			const web = document.createElement('a-entity');
 			web.setAttribute('data-raycastable','');
 			web.setAttribute('gltf-model','#web');
 			web.setAttribute('position','8 0 30');
