@@ -58,7 +58,7 @@ function initScene() {
 }
 
 function crearWeb() {
-	web = document.createElement('a-entity');
+	const web = document.createElement('a-entity');
 	web.setAttribute('data-raycastable','');
 	web.setAttribute('gltf-model','#web');
 	web.setAttribute('position','8 0 30');
@@ -125,8 +125,8 @@ AFRAME.registerComponent('shootablewinner', {
 
 
 AFRAME.registerComponent('shootablevideo', {
-	firstClick = true,
     init: function () {
+		this.firstClick = true;
 		const videoEl = document.querySelector('#video');
 		
         this.el.addEventListener('click', () => {
