@@ -90,17 +90,6 @@ AFRAME.registerComponent('shootablewinner', {
 			vid.setAttribute('shootablevideo','');
 			vid.setAttribute('class','minion');
 			
-			web = document.createElement('a-entity');
-			web.setAttribute('data-raycastable','');
-			web.setAttribute('gltf-model','#web');
-			web.setAttribute('position','8 0 30');
-			web.setAttribute('scale', '1.5 1.5 1.5');
-			web.setAttribute('rotation','0 87 0');
-			web.setAttribute('class','clickable remove minion');
-			web.addEventListener('click', () => {
-				window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
-			});
-			
 			
 			vid2 = document.createElement('a-video');
 			vid2.setAttribute('src','#video');
@@ -125,6 +114,7 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
+		let webCreated = false;
 		
         this.el.addEventListener('click', () => {			
 			if (videoEl.paused) {
@@ -132,7 +122,21 @@ AFRAME.registerComponent('shootablevideo', {
 			} else {
 				videoEl.pause();
 			}
-			document.querySelector('a-scene').appendChild(web);
+			
+			if (!webCreated) {
+				web = document.createElement('a-entity');
+				web.setAttribute('data-raycastable','');
+				web.setAttribute('gltf-model','#web');
+				web.setAttribute('position','8 0 30');
+				web.setAttribute('scale', '1.5 1.5 1.5');
+				web.setAttribute('rotation','0 87 0');
+				web.setAttribute('class','clickable remove minion');
+				web.addEventListener('click', () => {
+					window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
+				});
+				document.querySelector('a-scene').appendChild(web);
+				webCreated = true;
+			}
 		});
       }
 });
