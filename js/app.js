@@ -95,7 +95,7 @@ AFRAME.registerComponent('shootablewinner', {
 			web.setAttribute('gltf-model','#web');
 			web.setAttribute('position','8 0 30');
 			web.setAttribute('scale', '1.5 1.5 1.5');
-			web.setAttribute('rotation','0 90 -8');
+			web.setAttribute('rotation','0 87 0');
 			web.setAttribute('class','clickable remove minion');
 			web.addEventListener('click', () => {
 				window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
