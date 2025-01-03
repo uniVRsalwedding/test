@@ -93,7 +93,7 @@ AFRAME.registerComponent('shootablewinner', {
 			web = document.createElement('a-entity');
 			web.setAttribute('data-raycastable','');
 			web.setAttribute('gltf-model','#web');
-			web.setAttribute('position','-27 -3 30');
+			web.setAttribute('position','0 0 0');
 			web.setAttribute('rotation','0 90 0');
 			web.setAttribute('class','clickable remove minion');
 			web.addEventListener('click', () => {
@@ -110,20 +110,10 @@ AFRAME.registerComponent('shootablewinner', {
 			vid2.setAttribute('shootablevideo','');
 			vid2.setAttribute('class','minion');
 			
-			web2 = document.createElement('a-entity');
-			web2.setAttribute('data-raycastable','');
-			web2.setAttribute('gltf-model','#web');
-			web2.setAttribute('position','56 -3 2');
-			web2.setAttribute('rotation','0 90 0');
-			web2.setAttribute('class','clickable remove minion');
-			web2.addEventListener('click', () => {
-				window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
-			});
 			
 			document.querySelector('a-scene').appendChild(vid);
 			document.querySelector('a-scene').appendChild(web);
 			document.querySelector('a-scene').appendChild(vid2);
-			document.querySelector('a-scene').appendChild(web2);
 		
 
         });
