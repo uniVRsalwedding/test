@@ -97,9 +97,8 @@ function parar_telefono() {
     grabacion.addEventListener('playing', () => {
         // Create Next Level button
 		nextLevelBtn = document.createElement('a-entity');
-		nextLevelBtn.setAttribute('id','next-button');
 		nextLevelBtn.setAttribute('data-raycastable','');
-		nextLevelBtn.setAttribute('gltf-model','#button');
+		nextLevelBtn.setAttribute('gltf-model','#minion_button');
 		nextLevelBtn.setAttribute('position','-1.3 -1 5');
 		nextLevelBtn.setAttribute('scale','0.3 0.3 0.3');
 		nextLevelBtn.setAttribute('rotation','0 90 0');
