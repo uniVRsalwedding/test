@@ -69,6 +69,7 @@ function crearWeb() {
 		window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
 	});
 	document.querySelector('a-scene').appendChild(web);
+	document.querySelector('#video').focus();
 }
 
 AFRAME.registerComponent('shootable', {
@@ -116,8 +117,6 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			document.querySelector('a-scene').appendChild(vid);
 			document.querySelector('a-scene').appendChild(vid2);
-		
-			document.querySelector('#video').addEventListener('play', crearWeb);
         });
     }
 });
@@ -126,6 +125,7 @@ AFRAME.registerComponent('shootablewinner', {
 
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
+		this.firstClick = true;
 		const videoEl = document.querySelector('#video');
 		
         this.el.addEventListener('click', () => {
@@ -150,7 +150,11 @@ AFRAME.registerComponent('shootablevideo', {
 			else {*/
 				if (videoEl.paused) {
 					videoEl.play();
-
+					videoEl.focus();
+					if (this.firstClick) {
+						crearWeb();
+						this.firstClick = false;
+					}
 				} else {
 					videoEl.pause();
 				}
