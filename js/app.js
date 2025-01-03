@@ -113,7 +113,6 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			
 			document.querySelector('a-scene').appendChild(vid);
-			document.querySelector('a-scene').appendChild(web);
 			document.querySelector('a-scene').appendChild(vid2);
 		
 
@@ -132,8 +131,8 @@ AFRAME.registerComponent('shootablevideo', {
 				videoEl.play();
 			} else {
 				videoEl.pause();
-			}	
-			
+			}
+			document.querySelector('a-scene').appendChild(web);
 		});
       }
 });
