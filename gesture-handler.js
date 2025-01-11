@@ -76,9 +76,9 @@ window.onload = function () {
 			
 			const cursor = document.createElement('a-cursor');
 			cursor.setAttribute('fuse', 'true');
-			cursor.setAttribute('fuseTimeout', '10');
+			cursor.setAttribute('fuseTimeout', '1');
 			cursor.setAttribute('position', '0 0 -1');
-			cursor.setAttribute('raycaster', 'objects: .minion');
+			cursor.setAttribute('raycaster', 'objects: .minion; interval: 50');
 			cursor.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
 			cursor.setAttribute('material', 'shader: flat');
 			
