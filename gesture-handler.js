@@ -323,12 +323,7 @@ AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		
         this.el.addEventListener('click', () => {
-
-				if (videoEl.played) {
-					videoEl.pause();
-				} else {
-					videoEl.play();
-				}
+			videoEl.play();
 		});
       }
 	  
