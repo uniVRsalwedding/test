@@ -34,11 +34,6 @@ window.onload = function () {
 			nextButton.addEventListener('click', llamar_telefono);
         }
       }
-	  
-function nextScene() {
-	const fondo = document.querySelector('a-sky');
-	fondo.setAttribute('src', '#sky');
-}
       
 	function llamar_telefono() {
 //Eliminar objetos		
@@ -55,11 +50,12 @@ function nextScene() {
 			newCamera.setAttribute('camera', '');
 			newCamera.setAttribute('look-controls', '');
 			
-			const cursor = document.createElement('a-cursor');
-			cursor.setAttribute('fuse', 'true');
-			cursor.setAttribute('fuseTimeout', '10');
+			const cursor = document.createElement('a-entity');
+			cursor.setAttribute('cursor', 'fuse: true; fuseTimeout: 100');
 			cursor.setAttribute('position', '0 0 -1');
-			cursor.setAttribute('raycaster', 'objects: [data-raycastable]');
+			cursor.setAttribute('raycaster', 'objects: .minion');
+			cursor.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
+			cursor.setAttribute('material', 'shader: flat');
 			
 			newCamera.appendChild(cursor);
 			document.querySelector('a-scene').appendChild(newCamera);
@@ -74,14 +70,13 @@ function nextScene() {
 			
 		phone = document.createElement('a-entity')
 		
-		phone.setAttribute('gltf-model', '#phone')
-		phone.setAttribute('data-raycastable','')		
+		phone.setAttribute('gltf-model', '#phone')		
 		phone.setAttribute('scale', '1 1 1')
 		phone.object3D.position.set(0, -5, 5)
 		phone.setAttribute('rotation', '0 180 0')
 		phone.setAttribute('id','cabina')
-		//phone.setAttribute('class','minion')		
- 
+		phone.setAttribute('class','minion')		
+
 		document.querySelector('a-scene').appendChild(phone);
 
 		document.getElementById("audio_phone").loop = true;
@@ -102,8 +97,9 @@ function nextScene() {
 				nextLevelBtn.setAttribute('position','-1.3 -1 5');
 				nextLevelBtn.setAttribute('scale','0.3 0.3 0.3');
 				nextLevelBtn.setAttribute('rotation','0 90 0');
-				nextLevelBtn.setAttribute('class','clickable remove');
-				nextLevelBtn.addEventListener('click', nextScene),
+				nextLevelBtn.setAttribute('class','clickable remove minion');
+				nextLevelBtn.addEventListener('click', () => {
+					window.location.href = 'index2.html';
 				});
 
 				
@@ -115,7 +111,7 @@ function nextScene() {
 				replayBtn.setAttribute('position','0.3 -1 5');
 				replayBtn.setAttribute('scale','0.3 0.3 0.3');
 				replayBtn.setAttribute('rotation','0 90 0');
-				replayBtn.setAttribute('class','clickable remove');
+				replayBtn.setAttribute('class','clickable remove minion');
 				replayBtn.addEventListener('click', () => {
 					grabacion.currentTime = 0;
 					grabacion.play();
@@ -128,9 +124,7 @@ function nextScene() {
 		});
 
 
-
-
-
+}
 /*
 function parar_telefono() {
 	document.getElementById("audio_phone").pause();
@@ -193,7 +187,16 @@ function parar_telefono() {
         clickedMinion2 = true;
         checkAllClicked(); // Verificar si todos los modelos han sido clicados
       });
-     
+      
+
+      // Simular la detección del objeto al cargar la escena
+      document.querySelector('a-scene').addEventListener('loaded', function () {
+
+        minion1.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        minion2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        //plano.setAttribute('visible', 'true');
+      });
 };
 
 

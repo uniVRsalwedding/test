@@ -23,14 +23,6 @@
 		<a-asset-item id="minion_button" src="minion_button.glb"></a-asset-item>
 		<a-asset-item id="replay_button" src="button_reproduce.glb"></a-asset-item>
 		<a-asset-item id="phone" src="london_telephone.glb"></a-asset-item>
-		    <img src="textures/campo.jpeg" id="sky">
-			<img src="textures/gs2.jpg" id="sky2">
-            <a-asset-item id="evil_minion" src="evil_minion.glb"></a-asset-item>
-            <a-asset-item id="minion_banana" src="azafato.glb"></a-asset-item>
-			<a-asset-item id="web" src="web_button2.glb" preload="true"></a-asset-item>
-            <audio id="audio_banana" src="audio/banana.mp3" preload="auto"></audio>
-            <audio id="audio_lengua" src="audio/lengua.mp3" preload="auto"></audio>
-			<video id="video" src="video/video.mp4" preload="auto"></video>
 	    <img src="textures/london.jpg" id="sky-london">
 		<audio id="audio_phone" src="audio/phone.mp3" preload="auto"></audio>
         <audio id="helloAudio" src="audio/hello.mp3" preload="auto"></audio>
@@ -39,9 +31,9 @@
 		<audio id="grabacion" src="audio/grabacion.mp3" preload="auto"></audio>
       </a-assets>
 
-        <a-entity id="minion1-model" data-raycastable gltf-model="#minion1" position="0.5 0 0" scale="0.8 0.8 0.8" class="clickable remove" gesture-handler></a-entity>
-        <a-entity id="kevin-model" data-raycastable gltf-model="#kevin" position="0 0 0" scale="0.02 0.02 0.02" class="clickable remove" gesture-handler></a-entity>
-        <a-entity id="minion2-model" data-raycastable gltf-model="#minion2" position="-0.5 0 0" scale="0.01 0.01 0.01" class="clickable remove" gesture-handler></a-entity>
+        <a-entity id="minion1-model" data-raycastable gltf-model="#minion1" position="0.5 0 0" scale="0.8 0.8 0.8" class="clickable remove" gesture-handler visible="false"></a-entity>
+        <a-entity id="kevin-model" data-raycastable gltf-model="#kevin" position="0 0 0" scale="0.02 0.02 0.02" class="clickable remove" gesture-handler visible="false"></a-entity>
+        <a-entity id="minion2-model" data-raycastable gltf-model="#minion2" position="-0.5 0 0" scale="0.01 0.01 0.01" class="clickable remove" gesture-handler visible="false"></a-entity>
  
 		<a-image src="texto.png" position="0 2 0" id="texto_inicial" class="remove">
         </a-image>
@@ -62,7 +54,7 @@
 -->
 
       <a-entity camera look-controls position="0 1.6 5">
-        <a-cursor raycaster="objects: [data-raycastable]"></a-cursor>
+        <a-cursor fuse="true" fuseTimeout="100" raycaster="objects: [data-raycastable]"></a-cursor>
       </a-entity>
     </a-scene>
 
