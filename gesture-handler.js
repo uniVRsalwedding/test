@@ -229,7 +229,7 @@ function crearWeb() {
 	web.addEventListener('click', () => {
 		window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
 	});
-	document.querySelector('a-scene').appendChild(web);
+	scene.appendChild(web);
 }
 
       // Reproducir audio y actualizar estado al hacer clic en Bowser
@@ -300,6 +300,7 @@ AFRAME.registerComponent('shootablewinner', {
 			vid.setAttribute('rotation', '0 -40 0');
 			vid.setAttribute('shootablevideo','');
 			vid.setAttribute('class','minion');
+			vid.setAttribute('material', 'shader: flat');
 			
 			
 			vid2 = document.createElement('a-video');
@@ -310,6 +311,7 @@ AFRAME.registerComponent('shootablewinner', {
 			vid2.setAttribute('rotation', '0 53 0');
 			vid2.setAttribute('shootablevideo','');
 			vid2.setAttribute('class','minion');
+			vid.setAttribute('material', 'shader: flat');
 
 			
 			scene.appendChild(vid);
@@ -323,7 +325,12 @@ AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		
         this.el.addEventListener('click', () => {
-			videoEl.play();
+
+				if (videoEl.paused) {
+					videoEl.play();
+				} else {
+					videoEl.pause();
+				}
 		});
       }
 	  
