@@ -65,7 +65,7 @@ window.onload = function () {
                 entity.parentNode.removeChild(entity);
         });
 		
-		    /* Remove existing camera
+		    /* Remove existing camera*/
 			const oldCamera = document.querySelector('[camera]');
 			oldCamera.parentNode.removeChild(oldCamera);
 			
@@ -74,15 +74,15 @@ window.onload = function () {
 			newCamera.setAttribute('camera', '');
 			newCamera.setAttribute('look-controls', '');
 			
-			const cursor = document.createElement('a-cursor');
-			cursor.setAttribute('fuse', 'false');
+			const cursor = document.createElement('a-entity');
+			cursor.setAttribute('cursor', 'fuse:false');
 			cursor.setAttribute('position', '0 0 -1');
 			cursor.setAttribute('raycaster', 'objects: .minion; interval: 50');
 			cursor.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
 			cursor.setAttribute('material', 'shader: flat');
 			
 			newCamera.appendChild(cursor);
-			scene.appendChild(newCamera);*/
+			scene.appendChild(newCamera);
 	
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
