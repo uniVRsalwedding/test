@@ -75,8 +75,7 @@ window.onload = function () {
 			newCamera.setAttribute('look-controls', '');
 			
 			const cursor = document.createElement('a-cursor');
-			cursor.setAttribute('fuse', 'true');
-			cursor.setAttribute('fuseTimeout', '1');
+			cursor.setAttribute('fuse', 'false');
 			cursor.setAttribute('position', '0 0 -1');
 			cursor.setAttribute('raycaster', 'objects: .minion; interval: 50');
 			cursor.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
