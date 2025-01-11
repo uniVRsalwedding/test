@@ -52,9 +52,9 @@ window.onload = function () {
 			
 			const cursor = document.createElement('a-cursor');
 			cursor.setAttribute('fuse', 'true');
-			cursor.setAttribute('fuseTimeout', '100');
+			cursor.setAttribute('fuseTimeout', '10');
 			cursor.setAttribute('position', '0 0 -1');
-			cursor.setAttribute('raycaster', 'objects: .minion');
+			cursor.setAttribute('raycaster', 'objects: [data-raycastable]');
 			
 			newCamera.appendChild(cursor);
 			document.querySelector('a-scene').appendChild(newCamera);
@@ -69,12 +69,13 @@ window.onload = function () {
 			
 		phone = document.createElement('a-entity')
 		
-		phone.setAttribute('gltf-model', '#phone')		
+		phone.setAttribute('gltf-model', '#phone')
+		phone.setAttribute('data-raycastable','')		
 		phone.setAttribute('scale', '1 1 1')
 		phone.object3D.position.set(0, -5, 5)
 		phone.setAttribute('rotation', '0 180 0')
 		phone.setAttribute('id','cabina')
-		phone.setAttribute('class','minion')		
+		//phone.setAttribute('class','minion')		
  
 		document.querySelector('a-scene').appendChild(phone);
 
@@ -96,9 +97,8 @@ window.onload = function () {
 				nextLevelBtn.setAttribute('position','-1.3 -1 5');
 				nextLevelBtn.setAttribute('scale','0.3 0.3 0.3');
 				nextLevelBtn.setAttribute('rotation','0 90 0');
-				nextLevelBtn.setAttribute('class','clickable remove minion');
-				nextLevelBtn.addEventListener('click', () => {
-					window.location.href = 'index2.html';
+				nextLevelBtn.setAttribute('class','clickable remove');
+				nextLevelBtn.addEventListener('click', nextScene),
 				});
 
 				
@@ -110,7 +110,7 @@ window.onload = function () {
 				replayBtn.setAttribute('position','0.3 -1 5');
 				replayBtn.setAttribute('scale','0.3 0.3 0.3');
 				replayBtn.setAttribute('rotation','0 90 0');
-				replayBtn.setAttribute('class','clickable remove minion');
+				replayBtn.setAttribute('class','clickable remove');
 				replayBtn.addEventListener('click', () => {
 					grabacion.currentTime = 0;
 					grabacion.play();
@@ -123,6 +123,11 @@ window.onload = function () {
 		});
 
 
+}
+
+function nextScene() {
+	const fondo = document.querySelector('a-sky');
+	fondo.setAttribute('src', '#sky');
 }
 /*
 function parar_telefono() {
