@@ -284,10 +284,10 @@ AFRAME.registerComponent('shootablewinner', {
             });
             document.getElementById("audio_banana").play();
 			
-			const sky = document.querySelector('a-sky');
+			const sky_gs = document.querySelector('a-sky');
 			
-            sky.setAttribute('src','#sky2');
-			sky.setAttribute('rotation','0 100 0');
+            sky_gs.setAttribute('src','#sky2');
+			sky_gs.setAttribute('rotation','0 100 0');
 			
 			vid = document.createElement('a-video');
 			vid.setAttribute('src','#video');
@@ -309,8 +309,8 @@ AFRAME.registerComponent('shootablewinner', {
 			vid2.setAttribute('class','minion');
 			
 			
-			document.querySelector('a-scene').appendChild(vid);
-			document.querySelector('a-scene').appendChild(vid2);
+			scene.appendChild(vid);
+			scene.appendChild(vid2);
         });
     }
 });
