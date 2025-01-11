@@ -12,6 +12,7 @@ window.onload = function () {
       const yeehAudio = document.getElementById("yeehAudio");
       const textoInicial = document.getElementById("texto_inicial");
       const textoAvanzar = document.getElementById("texto_avanzar");
+	  const grabacion = document.getElementById("grabacion");
 
       // Función para verificar si todos los modelos han sido clicados
       function checkAllClicked() {
@@ -75,7 +76,7 @@ window.onload = function () {
 		phone.object3D.position.set(0, -5, 5)
 		phone.setAttribute('rotation', '0 180 0')
 		phone.setAttribute('id','cabina')
-		phone.setAttribute('class','minion')		
+		phone.setAttribute('class','minion remove')		
 
 		document.querySelector('a-scene').appendChild(phone);
 
@@ -85,7 +86,7 @@ window.onload = function () {
 		phone.addEventListener('click', () => {
 			document.getElementById("audio_phone").pause();
 	
-			const grabacion = document.getElementById("grabacion");
+
 			grabacion.play();
 			
 			// Wait for the recording to end before showing buttons
@@ -125,6 +126,11 @@ window.onload = function () {
 }
 
 function nextScene(){
+	//Eliminar objetos		
+		document.querySelectorAll('.remove').forEach(entity => {
+                entity.parentNode.removeChild(entity);
+        });
+	grabacion.pause();
 	const fondo = document.querySelector('a-sky');
 	fondo.setAttribute('src','#sky');
 }
