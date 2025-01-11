@@ -67,6 +67,7 @@ window.onload = function () {
 		
 		    // Remove existing camera
 			const oldCamera = document.querySelector('[camera]');
+			oldCamera.setAttribute('position','0 0 0'); /*
 			oldCamera.parentNode.removeChild(oldCamera);
 			
 			// Create new camera with exact same setup as index2.html
@@ -83,7 +84,7 @@ window.onload = function () {
 			cursor.setAttribute('material', 'shader: flat');
 			
 			newCamera.appendChild(cursor);
-			scene.appendChild(newCamera);
+			scene.appendChild(newCamera);*/
 	
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
