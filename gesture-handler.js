@@ -14,7 +14,7 @@ window.onload = function () {
       const textoInicial = document.getElementById("texto_inicial");
       const textoAvanzar = document.getElementById("texto_avanzar");
 	  const grabacion = document.getElementById("grabacion");
-	  const videoEl = document.querySelector('#video');
+
 	  
 	  const minions = [
     { x: 0, y: 0, z: -30 },
@@ -253,7 +253,7 @@ function crearWeb() {
         checkAllClicked(); // Verificar si todos los modelos han sido clicados
       });
 	  
-	  videoEl.addEventListener('ended', crearWeb);
+
       
 
       // Simular la detección del objeto al cargar la escena
@@ -325,12 +325,14 @@ AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		
         this.el.addEventListener('click', () => {
+			const videoEl = document.querySelector('#video');
 			console.log("Ha clicado en el video");
 				if (videoEl.paused) {
 					videoEl.play();
 				} else {
 					videoEl.pause();
 				}
+			videoEl.addEventListener('ended', crearWeb);
 		});
       }
 	  
