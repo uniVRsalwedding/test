@@ -4,6 +4,7 @@ window.onload = function () {
       let clickedMinion2 = false;
       
       // Obtener el modelo y el audio
+	  const scene = document.querySelector('a-scene');
       const minion1 = document.getElementById('minion1-model');
       const minion2 = document.getElementById('minion2-model');
       const kevin = document.getElementById('kevin-model');
@@ -30,7 +31,7 @@ window.onload = function () {
 			nextButton.setAttribute('gesture-handler','');
 			//nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
 
-		    document.querySelector('a-scene').appendChild(nextButton);
+		    scene.appendChild(nextButton);
 			
 			nextButton.addEventListener('click', llamar_telefono);
         }
@@ -59,14 +60,14 @@ window.onload = function () {
 			cursor.setAttribute('material', 'shader: flat');
 			
 			newCamera.appendChild(cursor);
-			document.querySelector('a-scene').appendChild(newCamera);
+			scene.appendChild(newCamera);
 	
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
 		sky.setAttribute('src' ,'#sky-london')
 		sky.setAttribute('position', '0 0 0')
 		
-		document.querySelector('a-scene').appendChild(sky);
+		scene.appendChild(sky);
 		
 			
 		phone = document.createElement('a-entity')
@@ -78,7 +79,7 @@ window.onload = function () {
 		phone.setAttribute('id','cabina')
 		phone.setAttribute('class','minion remove')		
 
-		document.querySelector('a-scene').appendChild(phone);
+		scene.appendChild(phone);
 
 		document.getElementById("audio_phone").loop = true;
 		document.getElementById("audio_phone").play();
@@ -117,8 +118,8 @@ window.onload = function () {
 				});
 
 				
-				document.querySelector('a-scene').appendChild(nextLevelBtn);
-				document.querySelector('a-scene').appendChild(replayBtn);
+				scene.appendChild(nextLevelBtn);
+				scene.appendChild(replayBtn);
 			});
 		});
 
@@ -133,6 +134,33 @@ function nextScene(){
 	grabacion.pause();
 	const fondo = document.querySelector('a-sky');
 	fondo.setAttribute('src','#sky');
+	
+	// Crea las órbitas con las propiedades indicadas
+	createOrbit('0 -30 0', '0 0 0', 'property: rotation; to: 0 360 360; loop: true; dur: 40000; easing: linear');
+	createOrbit('0 0 0', '0 0 -45', 'property: rotation; to: 0 -360 0; loop: true; dur: 30000; easing: linear');
+	createOrbit('0 -3 0', '0 0 -90', 'property: rotation; to: 0 360 360; loop: true; dur: 50000; easing: linear');
+	createOrbit('0 0 0', '0 0 -120', 'property: rotation; to: 360 -360 0; loop: true; dur: 60000; easing: linear');
+}
+
+// Función para crear una entidad "orbit"
+function createOrbit(position, rotation, animationProps) {
+  // Crea una entidad
+  const entity = document.createElement('a-entity');
+  
+  // Añade la clase "orbit"
+  entity.classList.add('orbit');
+  
+  // Establece la posición
+  entity.setAttribute('position', position);
+  
+  // Establece la rotación
+  entity.setAttribute('rotation', rotation);
+  
+  // Establece la animación
+  entity.setAttribute('animation', animationProps);
+  
+  // Añade la entidad a la escena
+  scene.appendChild(entity);
 }
 
       // Reproducir audio y actualizar estado al hacer clic en Bowser
@@ -158,7 +186,7 @@ function nextScene(){
       
 
       // Simular la detección del objeto al cargar la escena
-      document.querySelector('a-scene').addEventListener('loaded', function () {
+      scene.addEventListener('loaded', function () {
 
         minion1.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         minion2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
