@@ -40,9 +40,9 @@
 		<video id="video" src="video/video.mp4" preload="auto"></video>
       </a-assets>
 
-        <a-entity id="minion1-model" data-raycastable gltf-model="#minion1" position="0.5 1.6 5" scale="0.8 0.8 0.8" class="clickable remove" gesture-handler visible="false"></a-entity>
-        <a-entity id="kevin-model" data-raycastable gltf-model="#kevin" position="0 1.6 5" scale="0.02 0.02 0.02" class="clickable remove" gesture-handler visible="false"></a-entity>
-        <a-entity id="minion2-model" data-raycastable gltf-model="#minion2" position="-0.5 1.6 5" scale="0.01 0.01 0.01" class="clickable remove" gesture-handler visible="false"></a-entity>
+        <a-entity id="minion1-model" data-raycastable gltf-model="#minion1" position="0.5 0 0" scale="0.8 0.8 0.8" class="clickable remove" gesture-handler visible="false"></a-entity>
+        <a-entity id="kevin-model" data-raycastable gltf-model="#kevin" position="0 0 0" scale="0.02 0.02 0.02" class="clickable remove" gesture-handler visible="false"></a-entity>
+        <a-entity id="minion2-model" data-raycastable gltf-model="#minion2" position="-0.5 0 0" scale="0.01 0.01 0.01" class="clickable remove" gesture-handler visible="false"></a-entity>
  
 		<a-image src="texto.png" position="0 2 0" id="texto_inicial" class="remove">
         </a-image>
@@ -62,7 +62,7 @@
       </a-entity>
 -->
 
-      <a-entity camera look-controls>
+      <a-entity camera look-controls position="0 1.6 5">
 		<a-entity cursor="fuse: true; fuseTimeout: 100" position="0 0 -1" raycaster="objects: [data-raycastable]"
                 geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="shader: flat"></a-entity>
        <!-- <a-cursor fuse="false" raycaster="objects: [data-raycastable]; interval: 50"></a-cursor>-->
