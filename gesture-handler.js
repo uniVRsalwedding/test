@@ -14,6 +14,7 @@ window.onload = function () {
       const textoInicial = document.getElementById("texto_inicial");
       const textoAvanzar = document.getElementById("texto_avanzar");
 	  const grabacion = document.getElementById("grabacion");
+	  const videoEl = document.querySelector('#video');
 	  
 	  const minions = [
     { x: 0, y: 0, z: -30 },
@@ -311,15 +312,27 @@ AFRAME.registerComponent('shootablewinner', {
 			
 			scene.appendChild(vid);
 			scene.appendChild(vid2);
+			
+			videoEl.addEventListener('ended', crearWeb);
+			let videos = document.querySelectorAll('shootablevideo')
+			
+			videos.addEventListener('click', () => {
+
+				if (videoEl.paused) {
+					videoEl.play();
+				} else {
+					videoEl.pause();
+				}
+				});
         });
     }
 });
 
 
-
+/*
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
-		const videoEl = document.querySelector('#video');
+
 		
 		videoEl.addEventListener('ended', crearWeb);
 		
@@ -333,7 +346,7 @@ AFRAME.registerComponent('shootablevideo', {
 		});
       }
 	  
-});
+});*/
 
 AFRAME.registerComponent("gesture-handler", {
   schema: {
