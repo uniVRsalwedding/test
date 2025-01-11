@@ -252,6 +252,8 @@ function crearWeb() {
         clickedMinion2 = true;
         checkAllClicked(); // Verificar si todos los modelos han sido clicados
       });
+	  
+	  videoEl.addEventListener('ended', crearWeb);
       
 
       // Simular la detección del objeto al cargar la escena
@@ -319,8 +321,6 @@ AFRAME.registerComponent('shootablewinner', {
 
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
-
-		videoEl.addEventListener('ended', crearWeb);
 		
         this.el.addEventListener('click', () => {
 
