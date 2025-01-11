@@ -122,13 +122,13 @@ window.onload = function () {
 			});
 		});
 
-
-}
-
 function nextScene() {
 	const fondo = document.querySelector('a-sky');
 	fondo.setAttribute('src', '#sky');
 }
+}
+
+
 /*
 function parar_telefono() {
 	document.getElementById("audio_phone").pause();
