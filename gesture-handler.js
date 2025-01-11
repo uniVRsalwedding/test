@@ -14,6 +14,27 @@ window.onload = function () {
       const textoInicial = document.getElementById("texto_inicial");
       const textoAvanzar = document.getElementById("texto_avanzar");
 	  const grabacion = document.getElementById("grabacion");
+	  
+	  const minions = [
+    { x: 0, y: 0, z: -30 },
+    { x: 0, y: 0, z: 30 },
+    { x: 30, y: 0, z: 0 },
+    { x: -30, y: 0, z: 0 },
+    { x: 20, y: 0, z: 20 },
+    { x: 20, y: 0, z: -20 },
+    { x: -20, y: 0, z: -20 },
+    { x: -20, y: 0, z: 20 }
+	]
+
+	const randomX = Math.floor(Math.random() * 61) - 30;
+	const randomY = Math.floor(Math.random() * 61) - 30;
+	const randomZ = Math.floor(Math.random() * 61) - 30;
+	const possibleValues = [360, 0, -360]
+	const possibleValuesY = [360, 0, -360]
+
+	const toX = possibleValues[Math.floor(Math.random() * possibleValues.length)];
+	const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
+	const toY = possibleValuesY[Math.floor(Math.random() * possibleValues.length)];
 
       // Función para verificar si todos los modelos han sido clicados
       function checkAllClicked() {
@@ -140,6 +161,39 @@ function nextScene(){
 	createOrbit('0 0 0', '0 0 -45', 'property: rotation; to: 0 -360 0; loop: true; dur: 30000; easing: linear');
 	createOrbit('0 -3 0', '0 0 -90', 'property: rotation; to: 0 360 360; loop: true; dur: 50000; easing: linear');
 	createOrbit('0 0 0', '0 0 -120', 'property: rotation; to: 360 -360 0; loop: true; dur: 60000; easing: linear');
+	
+	let orbits = document.querySelectorAll('.orbit')
+
+    orbits.forEach(orbit => {
+
+        minions.forEach(pos => {
+
+            minion = document.createElement('a-entity')
+            minion.setAttribute('gltf-model', '#evil_minion')
+					
+            minion.setAttribute('scale', '3 3 3')
+
+            minion.setAttribute('class', 'minion')
+            minion.object3D.position.set(pos.x, pos.y, pos.z)
+
+            minion.setAttribute('shootable', '')
+
+            orbit.appendChild(minion)
+        })
+    })
+
+		
+	
+    minion_winner = document.createElement('a-entity');
+    minion_winner.setAttribute('gltf-model', '#minion_banana');
+	minion_winner.setAttribute('scale', '2 2 2')
+    minion_winner.setAttribute('class', 'minion')
+    minion_winner.object3D.position.set(randomX, randomY, randomZ)
+
+    minion_winner.setAttribute('shootablewinner', '')
+    minion_winner.setAttribute('animation', 'property: rotation; to: '+toX+' '+toY+' '+toZ+'; loop: true; dur: 10000; easing: linear');
+        // Añadir la entidad a la escena
+    scene.appendChild(minion_winner);
 }
 
 // Función para crear una entidad "orbit"
@@ -161,6 +215,8 @@ function createOrbit(position, rotation, animationProps) {
   
   // Añade la entidad a la escena
   scene.appendChild(entity);
+  
+  
 }
 
       // Reproducir audio y actualizar estado al hacer clic en Bowser
