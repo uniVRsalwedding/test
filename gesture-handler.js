@@ -300,6 +300,14 @@ AFRAME.registerComponent('shootablewinner', {
 			vid.setAttribute('rotation', '0 -40 0');
 			vid.setAttribute('shootablevideo','');
 			vid.setAttribute('class','minion');
+			vid.addEventListener('click', () => {
+
+				if (videoEl.paused) {
+					videoEl.play();
+				} else {
+					videoEl.pause();
+				}
+			});
 			
 			
 			vid2 = document.createElement('a-video');
@@ -310,7 +318,14 @@ AFRAME.registerComponent('shootablewinner', {
 			vid2.setAttribute('rotation', '0 53 0');
 			vid2.setAttribute('shootablevideo','');
 			vid2.setAttribute('class','minion');
-			
+			vid2.addEventListener('click', () => {
+
+				if (videoEl.paused) {
+					videoEl.play();
+				} else {
+					videoEl.pause();
+				}
+			});
 			
 			scene.appendChild(vid);
 			scene.appendChild(vid2);
@@ -318,7 +333,7 @@ AFRAME.registerComponent('shootablewinner', {
         });
     }
 });
-
+/*
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		
@@ -332,7 +347,7 @@ AFRAME.registerComponent('shootablevideo', {
 		});
       }
 	  
-});
+});*/
 
 AFRAME.registerComponent("gesture-handler", {
   schema: {
