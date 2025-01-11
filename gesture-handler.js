@@ -50,12 +50,11 @@ window.onload = function () {
 			newCamera.setAttribute('camera', '');
 			newCamera.setAttribute('look-controls', '');
 			
-			const cursor = document.createElement('a-entity');
-			cursor.setAttribute('cursor', 'fuse: true; fuseTimeout: 100');
+			const cursor = document.createElement('a-cursor');
+			cursor.setAttribute('fuse', 'true');
+			cursor.setAttribute('fuseTimeout', '100');
 			cursor.setAttribute('position', '0 0 -1');
 			cursor.setAttribute('raycaster', 'objects: .minion');
-			cursor.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
-			cursor.setAttribute('material', 'shader: flat');
 			
 			newCamera.appendChild(cursor);
 			document.querySelector('a-scene').appendChild(newCamera);
@@ -76,7 +75,7 @@ window.onload = function () {
 		phone.setAttribute('rotation', '0 180 0')
 		phone.setAttribute('id','cabina')
 		phone.setAttribute('class','minion')		
-
+ 
 		document.querySelector('a-scene').appendChild(phone);
 
 		document.getElementById("audio_phone").loop = true;
