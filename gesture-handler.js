@@ -34,6 +34,11 @@ window.onload = function () {
 			nextButton.addEventListener('click', llamar_telefono);
         }
       }
+	  
+function nextScene() {
+	const fondo = document.querySelector('a-sky');
+	fondo.setAttribute('src', '#sky');
+}
       
 	function llamar_telefono() {
 //Eliminar objetos		
@@ -122,10 +127,7 @@ window.onload = function () {
 			});
 		});
 
-function nextScene() {
-	const fondo = document.querySelector('a-sky');
-	fondo.setAttribute('src', '#sky');
-}
+
 }
 
 
@@ -191,16 +193,7 @@ function parar_telefono() {
         clickedMinion2 = true;
         checkAllClicked(); // Verificar si todos los modelos han sido clicados
       });
-      
-
-      // Simular la detección del objeto al cargar la escena
-      document.querySelector('a-scene').addEventListener('loaded', function () {
-
-        minion1.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        minion2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        //plano.setAttribute('visible', 'true');
-      });
+     
 };
 
 
