@@ -74,11 +74,11 @@ window.onload = function () {
 			newCamera.setAttribute('camera', '');
 			newCamera.setAttribute('look-controls', '');
 			
-			const cursor = document.createElement('a-entity');
-			cursor.setAttribute('cursor', 'fuse: true; fuseTimeout: 100');
+			const cursor = document.createElement('a-cursor');
+			cursor.setAttribute('fuse', 'true');
+			cursor.setAttribute('fuseTimeout', '100');
 			cursor.setAttribute('position', '0 0 -1');
 			cursor.setAttribute('raycaster', 'objects: .minion');
-			cursor.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
 			cursor.setAttribute('material', 'shader: flat');
 			
 			newCamera.appendChild(cursor);
@@ -325,7 +325,7 @@ AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		
         this.el.addEventListener('click', () => {
-
+			console.log("Ha clicado en el video");
 				if (videoEl.paused) {
 					videoEl.play();
 				} else {
