@@ -313,27 +313,13 @@ AFRAME.registerComponent('shootablewinner', {
 			scene.appendChild(vid);
 			scene.appendChild(vid2);
 			
-			videoEl.addEventListener('ended', crearWeb);
-			let videos = document.querySelectorAll('shootablevideo')
-			
-			videos.addEventListener('click', () => {
-
-				if (videoEl.paused) {
-					videoEl.play();
-				} else {
-					videoEl.pause();
-				}
-				});
         });
     }
 });
 
-
-/*
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 
-		
 		videoEl.addEventListener('ended', crearWeb);
 		
         this.el.addEventListener('click', () => {
@@ -346,7 +332,7 @@ AFRAME.registerComponent('shootablevideo', {
 		});
       }
 	  
-});*/
+});
 
 AFRAME.registerComponent("gesture-handler", {
   schema: {
