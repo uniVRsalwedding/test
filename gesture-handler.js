@@ -148,7 +148,7 @@ function createOrbit(position, rotation, animationProps) {
   const entity = document.createElement('a-entity');
   
   // Añade la clase "orbit"
-  entity.classList.add('orbit');
+  entity.setAttribute('class','orbit');
   
   // Establece la posición
   entity.setAttribute('position', position);
