@@ -65,7 +65,7 @@ window.onload = function () {
                 entity.parentNode.removeChild(entity);
         });
 		
-		    // Remove existing camera
+		    /* Remove existing camera
 			const oldCamera = document.querySelector('[camera]');
 			oldCamera.parentNode.removeChild(oldCamera);
 			
@@ -82,7 +82,7 @@ window.onload = function () {
 			cursor.setAttribute('material', 'shader: flat');
 			
 			newCamera.appendChild(cursor);
-			scene.appendChild(newCamera);
+			scene.appendChild(newCamera);*/
 	
 		sky = document.createElement('a-sky')
 		sky.setAttribute('rotation', '0 30 0')
