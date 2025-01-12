@@ -74,8 +74,8 @@ window.onload = function () {
 			newCamera.setAttribute('camera', '');
 			newCamera.setAttribute('look-controls', '');
 			
-			const cursor = document.createElement('a-entity');
-			cursor.setAttribute('cursor', 'fuse:false');
+			const cursor = document.createElement('a-cursor');
+			cursor.setAttribute('fuse', 'false');
 			cursor.setAttribute('position', '0 0 -1');
 			cursor.setAttribute('raycaster', 'objects: .minion; interval: 50');
 			cursor.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
@@ -326,13 +326,13 @@ AFRAME.registerComponent('shootablevideo', {
 		
         this.el.addEventListener('click', () => {
 			const videoEl = document.querySelector('#video');
-			console.log("Ha clicado en el video");
+			videoEl.addEventListener('ended', crearWeb);
+
 				if (videoEl.paused) {
 					videoEl.play();
 				} else {
 					videoEl.pause();
 				}
-			videoEl.addEventListener('ended', crearWeb);
 		});
       }
 	  
