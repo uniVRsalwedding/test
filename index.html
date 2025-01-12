@@ -9,12 +9,12 @@
 
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <!--<script src="gesture-detector.js"></script>-->
+    <script src="gesture-detector.js"></script>
     <script src="gesture-handler.js"></script>
   </head>
 
   <body>
-    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" id="scene">
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" gesture-detector id="scene">
       <a-assets>
         <a-asset-item id="minion1" src="minion_one_eye.glb"></a-asset-item>
         <a-asset-item id="kevin" src="kevin.glb"></a-asset-item>
@@ -40,9 +40,9 @@
 		<video id="video" src="video/video.mp4" preload="auto"></video>
       </a-assets>
 
-        <a-entity id="minion1-model" data-raycastable gltf-model="#minion1" position="0.5 0 0" scale="0.8 0.8 0.8" class="clickable remove" visible="false"></a-entity>
-        <a-entity id="kevin-model" data-raycastable gltf-model="#kevin" position="0 0 0" scale="0.02 0.02 0.02" class="clickable remove" visible="false"></a-entity>
-        <a-entity id="minion2-model" data-raycastable gltf-model="#minion2" position="-0.5 0 0" scale="0.01 0.01 0.01" class="clickable remove" visible="false"></a-entity>
+        <a-entity id="minion1-model" data-raycastable gltf-model="#minion1" position="0.5 0 0" scale="0.8 0.8 0.8" class="clickable remove" gesture-handler visible="false"></a-entity>
+        <a-entity id="kevin-model" data-raycastable gltf-model="#kevin" position="0 0 0" scale="0.02 0.02 0.02" class="clickable remove" gesture-handler visible="false"></a-entity>
+        <a-entity id="minion2-model" data-raycastable gltf-model="#minion2" position="-0.5 0 0" scale="0.01 0.01 0.01" class="clickable remove" gesture-handler visible="false"></a-entity>
  
 		<a-image src="texto.png" position="0 2 0" id="texto_inicial" class="remove">
         </a-image>
