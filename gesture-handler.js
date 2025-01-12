@@ -325,7 +325,7 @@ AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
 		//Crear web
-		videoEl.addEventListener('ended', () => {
+		videoEl.addEventListener('playing', () => {
 			const web = document.createElement('a-entity');
 			web.setAttribute('gltf-model','#web');
 			web.setAttribute('position','8 0 30');
