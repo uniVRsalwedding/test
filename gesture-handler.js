@@ -329,6 +329,7 @@ AFRAME.registerComponent('shootablevideo', {
 
 
         this.el.addEventListener('click', () => {
+			console.log("Ha entrado en el video");
 				if (videoEl.paused) {
 					videoEl.play();
 				} else {
