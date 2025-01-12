@@ -325,7 +325,7 @@ AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
 		
-		videoEl.addEventListener('ended', crearWeb);
+		//videoEl.addEventListener('ended', crearWeb);
 
 
         this.el.addEventListener('click', () => {
