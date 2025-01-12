@@ -324,10 +324,11 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
+		
+		videoEl.addEventListener('ended', crearWeb);
+
 
         this.el.addEventListener('click', () => {
-			videoEl.addEventListener('ended', crearWeb);
-
 				if (videoEl.paused) {
 					videoEl.play();
 				} else {
