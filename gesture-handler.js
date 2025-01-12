@@ -49,7 +49,7 @@ window.onload = function () {
 			nextButton.setAttribute('position','0 1.3 2');
 			nextButton.setAttribute('scale','0.1 0.1 0.1');
 			nextButton.setAttribute('rotation','0 -90 0');
-			nextButton.setAttribute('class','clickable remove');
+			nextButton.setAttribute('class','remove');
 			nextButton.setAttribute('gesture-handler','');
 			//nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
 
@@ -116,24 +116,24 @@ window.onload = function () {
 			grabacion.addEventListener('playing', () => {
 				// Create Next Level button
 				nextLevelBtn = document.createElement('a-entity');
-				nextLevelBtn.setAttribute('data-raycastable','');
+				//nextLevelBtn.setAttribute('data-raycastable','');
 				nextLevelBtn.setAttribute('gltf-model','#minion_button');
 				nextLevelBtn.setAttribute('position','-1.3 -1 5');
 				nextLevelBtn.setAttribute('scale','0.3 0.3 0.3');
 				nextLevelBtn.setAttribute('rotation','0 90 0');
-				nextLevelBtn.setAttribute('class','clickable remove minion');
+				nextLevelBtn.setAttribute('class','remove minion');
 				nextLevelBtn.addEventListener('click', nextScene);
 
 				
 				// Create Replay button
 				replayBtn = document.createElement('a-entity');
 				replayBtn.setAttribute('id','replay-button');
-				replayBtn.setAttribute('data-raycastable','');
+				//replayBtn.setAttribute('data-raycastable','');
 				replayBtn.setAttribute('gltf-model','#replay_button');
 				replayBtn.setAttribute('position','0.3 -1 5');
 				replayBtn.setAttribute('scale','0.3 0.3 0.3');
 				replayBtn.setAttribute('rotation','0 90 0');
-				replayBtn.setAttribute('class','clickable remove minion');
+				replayBtn.setAttribute('class','remove minion');
 				replayBtn.addEventListener('click', () => {
 					grabacion.currentTime = 0;
 					grabacion.play();
@@ -324,8 +324,21 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
+		//Crear web
+		videoEl.addEventListener('ended', () => {
+			const web = document.createElement('a-entity');
+			web.setAttribute('gltf-model','#web');
+			web.setAttribute('position','8 0 30');
+			web.setAttribute('scale', '1.5 1.5 1.5');
+			web.setAttribute('rotation','0 95 0');
+			web.setAttribute('class','minion');
+			web.addEventListener('click', () => {
+				window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
+			});
+			scene.appendChild(web);
+		}
 		
-		//videoEl.addEventListener('ended', crearWeb);
+		);
 
 
         this.el.addEventListener('click', () => {
