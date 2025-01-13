@@ -50,7 +50,6 @@ window.onload = function () {
 			nextButton.setAttribute('scale','0.1 0.1 0.1');
 			nextButton.setAttribute('rotation','0 -90 0');
 			nextButton.setAttribute('class','remove');
-			nextButton.setAttribute('gesture-handler','');
 			//nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
 
 		    scene.appendChild(nextButton);
@@ -352,7 +351,7 @@ AFRAME.registerComponent('shootablevideo', {
       }
 	  
 });
-
+/*
 AFRAME.registerComponent("gesture-handler", {
   schema: {
     enabled: { default: true },
@@ -376,7 +375,7 @@ AFRAME.registerComponent("gesture-handler", {
     this.el.sceneEl.addEventListener("markerLost", (e) => {
       this.isVisible = false;
     });*/
-  },
+ /* },
 
   update: function () {
     if (this.data.enabled) {
@@ -417,6 +416,6 @@ AFRAME.registerComponent("gesture-handler", {
       this.el.object3D.scale.z = this.scaleFactor * this.initialScale.z;
    // }
   },
-});
+});*/
 
 
