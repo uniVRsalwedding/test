@@ -111,36 +111,37 @@ window.onload = function () {
 
 			grabacion.play();
 			
+			// Wait for the recording to end before showing buttons
+			grabacion.addEventListener('playing', () => {
+				// Create Next Level button
+				nextLevelBtn = document.createElement('a-entity');
+				//nextLevelBtn.setAttribute('data-raycastable','');
+				nextLevelBtn.setAttribute('gltf-model','#minion_button');
+				nextLevelBtn.setAttribute('position','-1.3 -1 5');
+				nextLevelBtn.setAttribute('scale','0.3 0.3 0.3');
+				nextLevelBtn.setAttribute('rotation','0 90 0');
+				nextLevelBtn.setAttribute('class','remove minion');
+				nextLevelBtn.addEventListener('click', nextScene);
 
-			// Create Next Level button
-			nextLevelBtn = document.createElement('a-entity');
-			//nextLevelBtn.setAttribute('data-raycastable','');
-			nextLevelBtn.setAttribute('gltf-model','#minion_button');
-			nextLevelBtn.setAttribute('position','-1.3 -1 5');
-			nextLevelBtn.setAttribute('scale','0.3 0.3 0.3');
-			nextLevelBtn.setAttribute('rotation','0 90 0');
-			nextLevelBtn.setAttribute('class','remove minion');
-			nextLevelBtn.addEventListener('click', nextScene);
+				
+				// Create Replay button
+				replayBtn = document.createElement('a-entity');
+				replayBtn.setAttribute('id','replay-button');
+				//replayBtn.setAttribute('data-raycastable','');
+				replayBtn.setAttribute('gltf-model','#replay_button');
+				replayBtn.setAttribute('position','0.3 -1 5');
+				replayBtn.setAttribute('scale','0.3 0.3 0.3');
+				replayBtn.setAttribute('rotation','0 90 0');
+				replayBtn.setAttribute('class','remove minion');
+				replayBtn.addEventListener('click', () => {
+					grabacion.currentTime = 0;
+					grabacion.play();
+				});
 
-			
-			// Create Replay button
-			replayBtn = document.createElement('a-entity');
-			replayBtn.setAttribute('id','replay-button');
-			//replayBtn.setAttribute('data-raycastable','');
-			replayBtn.setAttribute('gltf-model','#replay_button');
-			replayBtn.setAttribute('position','0.3 -1 5');
-			replayBtn.setAttribute('scale','0.3 0.3 0.3');
-			replayBtn.setAttribute('rotation','0 90 0');
-			replayBtn.setAttribute('class','remove minion');
-			replayBtn.addEventListener('click', () => {
-				grabacion.currentTime = 0;
-				grabacion.play();
+				
+				scene.appendChild(nextLevelBtn);
+				scene.appendChild(replayBtn);
 			});
-
-			
-			scene.appendChild(nextLevelBtn);
-			scene.appendChild(replayBtn);
-
 		});
 
 
