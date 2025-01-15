@@ -321,7 +321,7 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
-		//Crear web
+		/*Crear web
 		videoEl.addEventListener('playing', () => {
 			const web = document.createElement('a-entity');
 			web.setAttribute('gltf-model','#web');
@@ -335,11 +335,11 @@ AFRAME.registerComponent('shootablevideo', {
 			scene.appendChild(web);
 		}
 		
-		);
+		);*/
 
 
         this.el.addEventListener('click', () => {
-			console.log("Ha entrado en el video");
+			crearWeb();
 				if (videoEl.paused) {
 					videoEl.play();
 				} else {
