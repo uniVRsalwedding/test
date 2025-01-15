@@ -262,7 +262,7 @@ function crearWeb() {
 	web.addEventListener('click', () => {
 		window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
 	});
-	scene.appendChild(web);
+	document.querySelector('a-scene').appendChild(web);
 }
 
 AFRAME.registerComponent('shootable', {
