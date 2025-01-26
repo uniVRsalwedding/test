@@ -36,6 +36,16 @@ window.onload = function () {
 	const toX = possibleValues[Math.floor(Math.random() * possibleValues.length)];
 	const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
 	const toY = possibleValuesY[Math.floor(Math.random() * possibleValues.length)];
+	
+	document.body.addEventListener('click', () => {
+
+    grabacion.play().then(() => {
+        grabacion.pause(); // Pausa inmediatamente, pero ya está desbloqueado
+    }).catch((error) => {
+        console.error("Error al desbloquear el audio en iOS:", error);
+    });
+}, { once: true }); // Se ejecuta solo una vez
+
 
       // Función para verificar si todos los modelos han sido clicados
       function checkAllClicked() {
