@@ -1,4 +1,4 @@
-//window.onload = function () {
+window.onload = function () {
       let clickedMinion1 = false;
       let clickedKevin = false;
       let clickedMinion2 = false;
@@ -247,8 +247,8 @@ function createOrbit(position, rotation, animationProps) {
         minion2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         //plano.setAttribute('visible', 'true');
-      });
-};*/
+      });*/
+};
 
 
 /* global AFRAME, THREE */
