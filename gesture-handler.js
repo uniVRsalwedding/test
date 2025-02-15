@@ -240,14 +240,14 @@ function createOrbit(position, rotation, animationProps) {
 
       
 
-      // Simular la detección del objeto al cargar la escena
+      /* Simular la detección del objeto al cargar la escena
       scene.addEventListener('loaded', function () {
 
         minion1.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         minion2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         //plano.setAttribute('visible', 'true');
-      });
+      });*/
 };
 
 
