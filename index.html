@@ -14,8 +14,8 @@
   </head>
 
   <body>
-    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" id="scene">
-      <a-assets>
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" id="scene" loading-screen="enabled: true" scene-handler>
+      <a-assets timeout="10000">
         <a-asset-item id="minion1" src="minion_one_eye.glb" preload="true"></a-asset-item>
         <a-asset-item id="kevin" src="kevin.glb" preload="true"></a-asset-item>
         <a-asset-item id="minion2" src="donny.glb" preload="true"></a-asset-item>
@@ -53,6 +53,20 @@
        <a-cursor fuse="false" raycaster="objects: [data-raycastable]; interval: 50"></a-cursor>
       </a-entity>
     </a-scene>
-
+    <div id="loading-screen" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; background: rgba(0,0,0,0.8); color: white; padding: 20px; border-radius: 5px; display: none;">
+      Loading AR Experience...
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.display = 'block';
+        
+        const scene = document.querySelector('a-scene');
+        scene.addEventListener('loaded', function() {
+          loadingScreen.style.display = 'none';
+        });
+      });
+    </script>
   </body>
 </html>
