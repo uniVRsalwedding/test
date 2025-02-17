@@ -1,25 +1,41 @@
-document.addEventListener('DOMContentLoaded', function () {
-    console.log("DOM completamente cargado, pero esperando a A-Frame...");
-
-    document.querySelector('a-scene').addEventListener('loaded', function () {
-        console.log("A-Frame ha cargado completamente. Ahora sí, inicializando...");
-        iniciarExperiencia();
-    });
-});
-
-function iniciarExperiencia () {
-	 const cursorInicial = document.querySelector('a-cursor');
-	 cursor.setAttribute('raycaster','enabled: true');
-	 
+window.onload = function () {
       let clickedMinion1 = false;
       let clickedKevin = false;
       let clickedMinion2 = false;
+
+        const minion1 = document.createElement('a-entity');
+        minion1.setAttribute('gltf-model', '#minion1');
+        minion1.setAttribute('scale', '0.8 0.8 0.8');
+        minion1.setAttribute('position', '0.5 0 0');
+        minion1.setAttribute('id', 'minion1-model');
+        minion1.setAttribute('data-raycastable', '');
+        minion1.setAttribute('class', 'clickable remove');
+        scene.appendChild(minion1);
+
+        const minion2 = document.createElement('a-entity');
+        minion2.setAttribute('gltf-model', '#minion2');
+        minion2.setAttribute('scale', '0.01 0.01 0.01');
+        minion2.setAttribute('position', '-0.5 0 0');
+        minion2.setAttribute('id', 'minion2-model');
+        minion2.setAttribute('data-raycastable', '');
+        minion2.setAttribute('class', 'clickable remove');
+        scene.appendChild(minion2);
+
+        const kevin = document.createElement('a-entity');
+        kevin.setAttribute('gltf-model', '#kevin');
+        kevin.setAttribute('scale', '0.02 0.02 0.02');
+        kevin.setAttribute('position', '0 0 0');
+        kevin.setAttribute('id', 'kevin-model');
+        kevin.setAttribute('data-raycastable', '');
+        kevin.setAttribute('class', 'clickable remove');
+        scene.appendChild(kevin);
+    
       
       // Obtener el modelo y el audio
 	  const scene = document.querySelector('a-scene');
-      const minion1 = document.getElementById('minion1-model');
+    /*  const minion1 = document.getElementById('minion1-model');
       const minion2 = document.getElementById('minion2-model');
-      const kevin = document.getElementById('kevin-model');
+      const kevin = document.getElementById('kevin-model');*/
       const helloAudio = document.getElementById("helloAudio");
       const ahhAudio = document.getElementById("ahhAudio");
       const yeehAudio = document.getElementById("yeehAudio");
