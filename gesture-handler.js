@@ -1,10 +1,20 @@
-window.onload = function () {
+AFRAME.registerComponent('scene-handler', {
+  init: function() {
+    const scene = this.el;
+    const assets = document.querySelector('a-assets');
+    
+    assets.addEventListener('loaded', () => {
+      this.initializeScene();
+    });
+  },
+
+  initializeScene: function() {
       let clickedMinion1 = false;
       let clickedKevin = false;
       let clickedMinion2 = false;
       
-      // Obtener el modelo y el audio
-	  const scene = document.querySelector('a-scene');
+        // Obtener el modelo y el audio
+      const scene = document.querySelector('a-scene');
       const minion1 = document.getElementById('minion1-model');
       const minion2 = document.getElementById('minion2-model');
       const kevin = document.getElementById('kevin-model');
@@ -13,49 +23,56 @@ window.onload = function () {
       const yeehAudio = document.getElementById("yeehAudio");
       const textoInicial = document.getElementById("texto_inicial");
       const textoAvanzar = document.getElementById("texto_avanzar");
-	  const grabacion = document.getElementById("grabacion");
+      const grabacion = document.getElementById("grabacion");
 
-	  
-	  const minions = [
-    { x: 0, y: 0, z: -30 },
-    { x: 0, y: 0, z: 30 },
-    { x: 30, y: 0, z: 0 },
-    { x: -30, y: 0, z: 0 },
-    { x: 20, y: 0, z: 20 },
-    { x: 20, y: 0, z: -20 },
-    { x: -20, y: 0, z: -20 },
-    { x: -20, y: 0, z: 20 }
-	]
+      
+      const minions = [
+      { x: 0, y: 0, z: -30 },
+      { x: 0, y: 0, z: 30 },
+      { x: 30, y: 0, z: 0 },
+      { x: -30, y: 0, z: 0 },
+      { x: 20, y: 0, z: 20 },
+      { x: 20, y: 0, z: -20 },
+      { x: -20, y: 0, z: -20 },
+      { x: -20, y: 0, z: 20 }
+      ];
 
-	const randomX = Math.floor(Math.random() * 61) - 30;
-	const randomY = Math.floor(Math.random() * 61) - 30;
-	const randomZ = Math.floor(Math.random() * 61) - 30;
-	const possibleValues = [360, 0, -360]
-	const possibleValuesY = [360, 0, -360]
+      const randomX = Math.floor(Math.random() * 61) - 30;
+      const randomY = Math.floor(Math.random() * 61) - 30;
+      const randomZ = Math.floor(Math.random() * 61) - 30;
+      const possibleValues = [360, 0, -360];
+      const possibleValuesY = [360, 0, -360];
 
-	const toX = possibleValues[Math.floor(Math.random() * possibleValues.length)];
-	const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
-	const toY = possibleValuesY[Math.floor(Math.random() * possibleValues.length)];
+      const toX = possibleValues[Math.floor(Math.random() * possibleValues.length)];
+      const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
+      const toY = possibleValuesY[Math.floor(Math.random() * possibleValues.length)];
 
+      // Force update entity positions
+      [minion1, minion2, kevin].forEach(entity => {
+        if (entity && entity.object3D) {
+          const position = entity.getAttribute('position');
+          entity.object3D.position.set(position.x, position.y, position.z);
+          entity.object3D.updateMatrix();
+        }
+      });
 
       // Función para verificar si todos los modelos han sido clicados
       function checkAllClicked() {
         if (clickedMinion1 && clickedKevin && clickedMinion2) {
-            textoInicial.setAttribute('visible', 'false');
-            textoAvanzar.setAttribute('visible', 'true');
-			nextButton = document.createElement('a-entity');
-			nextButton.setAttribute('id','next-level-button');
-			nextButton.setAttribute('data-raycastable','');
-			nextButton.setAttribute('gltf-model','#button');
-			nextButton.setAttribute('position','0 1.3 2');
-			nextButton.setAttribute('scale','0.1 0.1 0.1');
-			nextButton.setAttribute('rotation','0 -90 0');
-			nextButton.setAttribute('class','remove');
-			//nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
+          textoInicial.setAttribute('visible', 'false');
+          textoAvanzar.setAttribute('visible', 'true');
+          
+          const nextButton = document.createElement('a-entity');
+          nextButton.setAttribute('id','next-level-button');
+          nextButton.setAttribute('data-raycastable','');
+          nextButton.setAttribute('gltf-model','#button');
+          nextButton.setAttribute('position','0 1.3 2');
+          nextButton.setAttribute('scale','0.1 0.1 0.1');
+          nextButton.setAttribute('rotation','0 -90 0');
+          nextButton.setAttribute('class','remove');
 
-		    scene.appendChild(nextButton);
-			
-			nextButton.addEventListener('click', llamar_telefono);
+          scene.appendChild(nextButton);
+          nextButton.addEventListener('click', llamar_telefono);
         }
       }
       
@@ -217,54 +234,43 @@ function createOrbit(position, rotation, animationProps) {
 }
 
       // Reproducir audio y actualizar estado al hacer clic en Bowser
+      if (minion1) {
       minion1.addEventListener('click', () => {
         ahhAudio.play();
         clickedMinion1 = true;
         checkAllClicked(); // Verificar si todos los modelos han sido clicados
       });
+    }
 
       // Reproducir audio y actualizar estado al hacer clic en Kevin
+      if (kevin) {
       kevin.addEventListener('click', () => {
         helloAudio.play();
         clickedKevin = true;
         checkAllClicked(); // Verificar si todos los modelos han sido clicados
       });
+    }
 
       // Reproducir audio y actualizar estado al hacer clic en Minion2
+      if (minion2) {
       minion2.addEventListener('click', () => {
         yeehAudio.play();
         clickedMinion2 = true;
         checkAllClicked(); // Verificar si todos los modelos han sido clicados
       });
-	  
+      }
 
-      
-
-      /* Simular la detección del objeto al cargar la escena
-      scene.addEventListener('loaded', function () {
-
-        minion1.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        minion2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
-        //plano.setAttribute('visible', 'true');
-      });*/
-};
+    // Update cursor raycaster
+    const cursor = document.querySelector('a-cursor');
+    if (cursor && cursor.components.raycaster) {
+      cursor.components.raycaster.refreshObjects();
+    }
+  }
+});
 
 
 /* global AFRAME, THREE */
-function crearWeb() {
-	const web = document.createElement('a-entity');
-	web.setAttribute('data-raycastable','');
-	web.setAttribute('gltf-model','#web');
-	web.setAttribute('position','8 0 30');
-	web.setAttribute('scale', '1.5 1.5 1.5');
-	web.setAttribute('rotation','0 95 0');
-	web.setAttribute('class','clickable remove minion');
-	web.addEventListener('click', () => {
-		window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
-	});
-	document.querySelector('a-scene').appendChild(web);
-}
+
 
 AFRAME.registerComponent('shootable', {
     init: function () {
@@ -321,23 +327,6 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
-		/*Crear web
-		videoEl.addEventListener('playing', () => {
-			const web = document.createElement('a-entity');
-			web.setAttribute('gltf-model','#web');
-			web.setAttribute('position','8 0 30');
-			web.setAttribute('scale', '1.5 1.5 1.5');
-			web.setAttribute('rotation','0 95 0');
-			web.setAttribute('class','minion');
-			web.addEventListener('click', () => {
-				window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
-			});
-			scene.appendChild(web);
-		}
-		
-		);*/
-
-
         this.el.addEventListener('click', () => {
 			crearWeb();
 				if (videoEl.paused) {
@@ -349,70 +338,17 @@ AFRAME.registerComponent('shootablevideo', {
       }
 	  
 });
-/*
-AFRAME.registerComponent("gesture-handler", {
-  schema: {
-    enabled: { default: true },
-    rotationFactor: { default: 5 },
-    minScale: { default: 0.3 },
-    maxScale: { default: 8 },
-  },
 
-  init: function () {
-    this.handleScale = this.handleScale.bind(this);
-    this.handleRotation = this.handleRotation.bind(this);
-
-   // this.isVisible = false;
-    this.initialScale = this.el.object3D.scale.clone();
-    this.scaleFactor = 1;
-/*
-    this.el.sceneEl.addEventListener("markerFound", (e) => {
-      this.isVisible = true;
-    });
-
-    this.el.sceneEl.addEventListener("markerLost", (e) => {
-      this.isVisible = false;
-    });*/
- /* },
-
-  update: function () {
-    if (this.data.enabled) {
-      this.el.sceneEl.addEventListener("onefingermove", this.handleRotation);
-      this.el.sceneEl.addEventListener("twofingermove", this.handleScale);
-    } else {
-      this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
-      this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
-    }
-  },
-
-  remove: function () {
-    this.el.sceneEl.removeEventListener("onefingermove", this.handleRotation);
-    this.el.sceneEl.removeEventListener("twofingermove", this.handleScale);
-  },
-
-  handleRotation: function (event) {
-    //if (this.isVisible) {
-      this.el.object3D.rotation.y +=
-        event.detail.positionChange.x * this.data.rotationFactor;
-      this.el.object3D.rotation.x +=
-        event.detail.positionChange.y * this.data.rotationFactor;
-   // }
-  },
-
-  handleScale: function (event) {
-   // if (this.isVisible) {
-      this.scaleFactor *=
-        1 + event.detail.spreadChange / event.detail.startSpread;
-
-      this.scaleFactor = Math.min(
-        Math.max(this.scaleFactor, this.data.minScale),
-        this.data.maxScale
-      );
-
-      this.el.object3D.scale.x = this.scaleFactor * this.initialScale.x;
-      this.el.object3D.scale.y = this.scaleFactor * this.initialScale.y;
-      this.el.object3D.scale.z = this.scaleFactor * this.initialScale.z;
-   // }
-  },
-});*/
-
+function crearWeb() {
+	const web = document.createElement('a-entity');
+	web.setAttribute('data-raycastable','');
+	web.setAttribute('gltf-model','#web');
+	web.setAttribute('position','8 0 30');
+	web.setAttribute('scale', '1.5 1.5 1.5');
+	web.setAttribute('rotation','0 95 0');
+	web.setAttribute('class','clickable remove minion');
+	web.addEventListener('click', () => {
+		window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
+	});
+	document.querySelector('a-scene').appendChild(web);
+}
