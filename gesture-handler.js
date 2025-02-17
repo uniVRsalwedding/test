@@ -1,4 +1,6 @@
 window.onload = function () {
+	      // Obtener el modelo y el audio
+	const scene = document.querySelector('a-scene');
       let clickedMinion1 = false;
       let clickedKevin = false;
       let clickedMinion2 = false;
@@ -31,8 +33,7 @@ window.onload = function () {
         scene.appendChild(kevin);
     
       
-      // Obtener el modelo y el audio
-	  const scene = document.querySelector('a-scene');
+
     /*  const minion1 = document.getElementById('minion1-model');
       const minion2 = document.getElementById('minion2-model');
       const kevin = document.getElementById('kevin-model');*/
