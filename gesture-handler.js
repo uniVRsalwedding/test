@@ -416,4 +416,3 @@ AFRAME.registerComponent("gesture-handler", {
   },
 });*/
 
-
