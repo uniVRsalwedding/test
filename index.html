@@ -2,52 +2,57 @@
 
 <html>
   <head>
-    <title>Gesture Interactions - A-Frame & AR.js</title>
+    <title>Invitación boda Clau & Sergio</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="styles.css">
 
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="gesture-detector.js"></script>
+    <!--<sript src="gesture-detector.js"></script>-->
     <script src="gesture-handler.js"></script>
   </head>
 
   <body>
-    <a-scene
-      arjs
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
-      vr-mode-ui="enabled: false"
-      gesture-detector
-      id="scene"
-    >
+    <a-scene arjs embedded renderer="logarithmicDepthBuffer: true;" vr-mode-ui="enabled: false" id="scene">
       <a-assets>
-        <a-asset-item
-          id="bowser"
-          src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
-        >
-        </a-asset-item>
+        <a-asset-item id="minion1" src="minion_one_eye.glb" preload="true"></a-asset-item>
+        <a-asset-item id="kevin" src="kevin.glb" preload="true"></a-asset-item>
+        <a-asset-item id="minion2" src="donny.glb" preload="true"></a-asset-item>
+		<a-asset-item id="button" src="next_button2.glb"></a-asset-item>
+		<a-asset-item id="minion_button" src="minion_button.glb"></a-asset-item>
+		<a-asset-item id="replay_button" src="button_reproduce.glb"></a-asset-item>
+		<a-asset-item id="phone" src="london_telephone.glb"></a-asset-item>
+	    <img src="textures/london.jpg" id="sky-london">
+		<audio id="audio_phone" src="audio/phone.mp3" preload="auto"></audio>
+        <audio id="helloAudio" src="audio/hello.mp3" preload="auto"></audio>
+        <audio id="ahhAudio" src="audio/ahh.mp3" preload="auto"></audio>
+        <audio id="yeehAudio" src="audio/yeeh.mp3" preload="auto"></audio>
+		<audio id="grabacion" src="audio/grabacion.mp3" preload="auto" playsinline></audio>
+		
+		<img src="textures/campo.jpeg" id="sky">
+		<img src="textures/gs2.jpg" id="sky2">
+		<a-asset-item id="evil_minion" src="evil_minion.glb"></a-asset-item>
+		<a-asset-item id="minion_banana" src="azafato.glb"></a-asset-item>
+		<a-asset-item id="web" src="web_button2.glb" preload="true"></a-asset-item>
+		<audio id="audio_banana" src="audio/banana.mp3" preload="auto"></audio>
+		<audio id="audio_lengua" src="audio/lengua.mp3" preload="auto"></audio>
+		<video id="video" src="video/video.mp4" preload="auto" playsinline></video>
       </a-assets>
 
-      <a-marker
-        preset="hiro"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-      >
-        <a-entity
-          id="bowser-model"
-          gltf-model="#bowser"
-          position="0 0 0"
-          scale="0.05 0.05 0.05"
-          class="clickable"
-          gesture-handler
-        >
-        </a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
+        <a-entity id="minion1-model" data-raycastable gltf-model="#minion1" position="0.5 0 0" scale="0.8 0.8 0.8" class="clickable remove"></a-entity>
+        <a-entity id="kevin-model" data-raycastable gltf-model="#kevin" position="0 0 0" scale="0.02 0.02 0.02" class="clickable remove"></a-entity>
+        <a-entity id="minion2-model" data-raycastable gltf-model="#minion2" position="-0.5 0 0" scale="0.01 0.01 0.01" class="clickable remove"></a-entity>
+ 
+		<a-image src="texto.png" position="0 2 0" id="texto_inicial" class="remove">
+        </a-image>
+        <a-image src="avanzar.png" position="0 2 0" id="texto_avanzar" visible="false" class="remove">
+        </a-image>
+
+      <a-entity camera look-controls position="0 1.6 5">
+       <a-cursor fuse="false" raycaster="objects: [data-raycastable]; interval: 50"></a-cursor>
+      </a-entity>
     </a-scene>
+
   </body>
 </html>
