@@ -1,29 +1,77 @@
 AFRAME.registerComponent('scene-handler', {
   init: function() {
+    // Move these to component scope so they're accessible everywhere
+    this.clickedMinion1 = false;
+    this.clickedKevin = false;
+    this.clickedMinion2 = false;
+    
     const scene = this.el;
     const assets = document.querySelector('a-assets');
+    
+    // Store reference to component
+    const self = this;
     
     assets.addEventListener('loaded', () => {
       this.initializeScene();
     });
+
+    // Add click listeners here instead
+    const minion1 = document.getElementById('minion1-model');
+    const minion2 = document.getElementById('minion2-model');
+    const kevin = document.getElementById('kevin-model');
+
+    minion1.addEventListener('click', () => {
+      document.getElementById("ahhAudio").play();
+      self.clickedMinion1 = true;
+      self.checkAllClicked();
+    });
+
+    kevin.addEventListener('click', () => {
+      document.getElementById("helloAudio").play();
+      self.clickedKevin = true;
+      self.checkAllClicked();
+    });
+
+    minion2.addEventListener('click', () => {
+      document.getElementById("yeehAudio").play();
+      self.clickedMinion2 = true;
+      self.checkAllClicked();
+    });
+  },
+
+  checkAllClicked: function() {
+    if (this.clickedMinion1 && this.clickedKevin && this.clickedMinion2) {
+      const textoInicial = document.getElementById("texto_inicial");
+      const textoAvanzar = document.getElementById("texto_avanzar");
+      textoInicial.setAttribute('visible', 'false');
+      textoAvanzar.setAttribute('visible', 'true');
+      
+      const nextButton = document.createElement('a-entity');
+      nextButton.setAttribute('id', 'next-level-button');
+      nextButton.setAttribute('data-raycastable', '');
+      nextButton.setAttribute('gltf-model', '#button');
+      nextButton.setAttribute('position', '0 1.3 2');
+      nextButton.setAttribute('scale', '0.1 0.1 0.1');
+      nextButton.setAttribute('rotation', '0 -90 0');
+      nextButton.setAttribute('class', 'remove');
+      
+      this.el.appendChild(nextButton);
+      nextButton.addEventListener('click', llamar_telefono);
+    }
   },
 
   initializeScene: function() {
-      let clickedMinion1 = false;
-      let clickedKevin = false;
-      let clickedMinion2 = false;
-      
-        // Obtener el modelo y el audio
-      const scene = document.querySelector('a-scene');
-      const minion1 = document.getElementById('minion1-model');
-      const minion2 = document.getElementById('minion2-model');
-      const kevin = document.getElementById('kevin-model');
-      const helloAudio = document.getElementById("helloAudio");
-      const ahhAudio = document.getElementById("ahhAudio");
-      const yeehAudio = document.getElementById("yeehAudio");
-      const textoInicial = document.getElementById("texto_inicial");
-      const textoAvanzar = document.getElementById("texto_avanzar");
-      const grabacion = document.getElementById("grabacion");
+    // Force update entity positions if needed
+    const entities = document.querySelectorAll('[data-raycastable]');
+    entities.forEach(entity => {
+      if (entity && entity.object3D) {
+        const position = entity.getAttribute('position');
+        entity.object3D.position.set(position.x, position.y, position.z);
+        entity.object3D.updateMatrix();
+      }
+    });
+  }
+});
 
       
       const minions = [
@@ -47,34 +95,6 @@ AFRAME.registerComponent('scene-handler', {
       const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
       const toY = possibleValuesY[Math.floor(Math.random() * possibleValues.length)];
 
-      // Force update entity positions
-      [minion1, minion2, kevin].forEach(entity => {
-        if (entity && entity.object3D) {
-          const position = entity.getAttribute('position');
-          entity.object3D.position.set(position.x, position.y, position.z);
-          entity.object3D.updateMatrix();
-        }
-      });
-
-      // Función para verificar si todos los modelos han sido clicados
-      function checkAllClicked() {
-        if (clickedMinion1 && clickedKevin && clickedMinion2) {
-          textoInicial.setAttribute('visible', 'false');
-          textoAvanzar.setAttribute('visible', 'true');
-          
-          const nextButton = document.createElement('a-entity');
-          nextButton.setAttribute('id','next-level-button');
-          nextButton.setAttribute('data-raycastable','');
-          nextButton.setAttribute('gltf-model','#button');
-          nextButton.setAttribute('position','0 1.3 2');
-          nextButton.setAttribute('scale','0.1 0.1 0.1');
-          nextButton.setAttribute('rotation','0 -90 0');
-          nextButton.setAttribute('class','remove');
-
-          scene.appendChild(nextButton);
-          nextButton.addEventListener('click', llamar_telefono);
-        }
-      }
       
 	function llamar_telefono() {
 //Eliminar objetos		
@@ -232,41 +252,6 @@ function createOrbit(position, rotation, animationProps) {
   // Añade la entidad a la escena
   scene.appendChild(entity);
 }
-
-      // Reproducir audio y actualizar estado al hacer clic en Bowser
-      if (minion1) {
-      minion1.addEventListener('click', () => {
-        ahhAudio.play();
-        clickedMinion1 = true;
-        checkAllClicked(); // Verificar si todos los modelos han sido clicados
-      });
-    }
-
-      // Reproducir audio y actualizar estado al hacer clic en Kevin
-      if (kevin) {
-      kevin.addEventListener('click', () => {
-        helloAudio.play();
-        clickedKevin = true;
-        checkAllClicked(); // Verificar si todos los modelos han sido clicados
-      });
-    }
-
-      // Reproducir audio y actualizar estado al hacer clic en Minion2
-      if (minion2) {
-      minion2.addEventListener('click', () => {
-        yeehAudio.play();
-        clickedMinion2 = true;
-        checkAllClicked(); // Verificar si todos los modelos han sido clicados
-      });
-      }
-
-    // Update cursor raycaster
-    const cursor = document.querySelector('a-cursor');
-    if (cursor && cursor.components.raycaster) {
-      cursor.components.raycaster.refreshObjects();
-    }
-  }
-});
 
 
 /* global AFRAME, THREE */
