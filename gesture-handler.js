@@ -1,12 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const scene = document.querySelector('a-scene');
+    console.log("DOM completamente cargado, pero esperando a A-Frame...");
 
-  scene.addEventListener('loaded', function () {
+    document.querySelector('a-scene').addEventListener('loaded', function () {
+        console.log("A-Frame ha cargado completamente. Ahora sí, inicializando...");
+        iniciarExperiencia();
+    });
+});
+
+function iniciarExperiencia () {
+	 const cursorInicial = document.querySelector('a-cursor');
+	 cursor.setAttribute('raycaster','enabled: true');
+	 
       let clickedMinion1 = false;
       let clickedKevin = false;
       let clickedMinion2 = false;
       
       // Obtener el modelo y el audio
+	  const scene = document.querySelector('a-scene');
       const minion1 = document.getElementById('minion1-model');
       const minion2 = document.getElementById('minion2-model');
       const kevin = document.getElementById('kevin-model');
@@ -39,15 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
 	const toY = possibleValuesY[Math.floor(Math.random() * possibleValues.length)];
 
-        // Ensure entities are visible and positioned correctly
-        [minion1, minion2, kevin].forEach(entity => {
-          if (entity && entity.object3D) {
-              entity.object3D.visible = true;
-              const position = entity.getAttribute('position');
-              entity.object3D.position.set(position.x, position.y, position.z);
-              entity.object3D.updateMatrix();
-          }
-      });
 
       // Función para verificar si todos los modelos han sido clicados
       function checkAllClicked() {
@@ -259,11 +260,24 @@ function createOrbit(position, rotation, animationProps) {
         kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
         //plano.setAttribute('visible', 'true');
       });*/
-    });
-});
+};
 
 
 /* global AFRAME, THREE */
+function crearWeb() {
+	const web = document.createElement('a-entity');
+	web.setAttribute('data-raycastable','');
+	web.setAttribute('gltf-model','#web');
+	web.setAttribute('position','8 0 30');
+	web.setAttribute('scale', '1.5 1.5 1.5');
+	web.setAttribute('rotation','0 95 0');
+	web.setAttribute('class','clickable remove minion');
+	web.addEventListener('click', () => {
+		window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
+	});
+	document.querySelector('a-scene').appendChild(web);
+}
+
 AFRAME.registerComponent('shootable', {
     init: function () {
         this.el.addEventListener('click', () => {
@@ -319,6 +333,21 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
+		/*Crear web
+		videoEl.addEventListener('playing', () => {
+			const web = document.createElement('a-entity');
+			web.setAttribute('gltf-model','#web');
+			web.setAttribute('position','8 0 30');
+			web.setAttribute('scale', '1.5 1.5 1.5');
+			web.setAttribute('rotation','0 95 0');
+			web.setAttribute('class','minion');
+			web.addEventListener('click', () => {
+				window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
+			});
+			scene.appendChild(web);
+		}
+		
+		);*/
 
 
         this.el.addEventListener('click', () => {
@@ -334,16 +363,3 @@ AFRAME.registerComponent('shootablevideo', {
 });
 
 
-function crearWeb() {
-	const web = document.createElement('a-entity');
-	web.setAttribute('data-raycastable','');
-	web.setAttribute('gltf-model','#web');
-	web.setAttribute('position','8 0 30');
-	web.setAttribute('scale', '1.5 1.5 1.5');
-	web.setAttribute('rotation','0 95 0');
-	web.setAttribute('class','clickable remove minion');
-	web.addEventListener('click', () => {
-		window.location.href = 'https://planning.wedding/website/zi6cr1i3g6';
-	});
-	document.querySelector('a-scene').appendChild(web);
-}
