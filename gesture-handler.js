@@ -1,100 +1,74 @@
-AFRAME.registerComponent('scene-handler', {
-  init: function() {
-    // Move these to component scope so they're accessible everywhere
-    this.clickedMinion1 = false;
-    this.clickedKevin = false;
-    this.clickedMinion2 = false;
-    
-    const scene = this.el;
-    const assets = document.querySelector('a-assets');
-    
-    // Store reference to component
-    const self = this;
-    
-    assets.addEventListener('loaded', () => {
-      this.initializeScene();
-    });
+document.addEventListener('DOMContentLoaded', function () {
+  const scene = document.querySelector('a-scene');
 
-    // Add click listeners here instead
-    const minion1 = document.getElementById('minion1-model');
-    const minion2 = document.getElementById('minion2-model');
-    const kevin = document.getElementById('kevin-model');
-
-    minion1.addEventListener('click', () => {
-      document.getElementById("ahhAudio").play();
-      self.clickedMinion1 = true;
-      self.checkAllClicked();
-    });
-
-    kevin.addEventListener('click', () => {
-      document.getElementById("helloAudio").play();
-      self.clickedKevin = true;
-      self.checkAllClicked();
-    });
-
-    minion2.addEventListener('click', () => {
-      document.getElementById("yeehAudio").play();
-      self.clickedMinion2 = true;
-      self.checkAllClicked();
-    });
-  },
-
-  checkAllClicked: function() {
-    if (this.clickedMinion1 && this.clickedKevin && this.clickedMinion2) {
+  scene.addEventListener('loaded', function () {
+      let clickedMinion1 = false;
+      let clickedKevin = false;
+      let clickedMinion2 = false;
+      
+      // Obtener el modelo y el audio
+      const minion1 = document.getElementById('minion1-model');
+      const minion2 = document.getElementById('minion2-model');
+      const kevin = document.getElementById('kevin-model');
+      const helloAudio = document.getElementById("helloAudio");
+      const ahhAudio = document.getElementById("ahhAudio");
+      const yeehAudio = document.getElementById("yeehAudio");
       const textoInicial = document.getElementById("texto_inicial");
       const textoAvanzar = document.getElementById("texto_avanzar");
-      textoInicial.setAttribute('visible', 'false');
-      textoAvanzar.setAttribute('visible', 'true');
-      
-      const nextButton = document.createElement('a-entity');
-      nextButton.setAttribute('id', 'next-level-button');
-      nextButton.setAttribute('data-raycastable', '');
-      nextButton.setAttribute('gltf-model', '#button');
-      nextButton.setAttribute('position', '0 1.3 2');
-      nextButton.setAttribute('scale', '0.1 0.1 0.1');
-      nextButton.setAttribute('rotation', '0 -90 0');
-      nextButton.setAttribute('class', 'remove');
-      
-      this.el.appendChild(nextButton);
-      nextButton.addEventListener('click', llamar_telefono);
-    }
-  },
+	  const grabacion = document.getElementById("grabacion");
 
-  initializeScene: function() {
-    // Force update entity positions if needed
-    const entities = document.querySelectorAll('[data-raycastable]');
-    entities.forEach(entity => {
-      if (entity && entity.object3D) {
-        const position = entity.getAttribute('position');
-        entity.object3D.position.set(position.x, position.y, position.z);
-        entity.object3D.updateMatrix();
+	  
+	  const minions = [
+    { x: 0, y: 0, z: -30 },
+    { x: 0, y: 0, z: 30 },
+    { x: 30, y: 0, z: 0 },
+    { x: -30, y: 0, z: 0 },
+    { x: 20, y: 0, z: 20 },
+    { x: 20, y: 0, z: -20 },
+    { x: -20, y: 0, z: -20 },
+    { x: -20, y: 0, z: 20 }
+	]
+
+	const randomX = Math.floor(Math.random() * 61) - 30;
+	const randomY = Math.floor(Math.random() * 61) - 30;
+	const randomZ = Math.floor(Math.random() * 61) - 30;
+	const possibleValues = [360, 0, -360]
+	const possibleValuesY = [360, 0, -360]
+
+	const toX = possibleValues[Math.floor(Math.random() * possibleValues.length)];
+	const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
+	const toY = possibleValuesY[Math.floor(Math.random() * possibleValues.length)];
+
+        // Ensure entities are visible and positioned correctly
+        [minion1, minion2, kevin].forEach(entity => {
+          if (entity && entity.object3D) {
+              entity.object3D.visible = true;
+              const position = entity.getAttribute('position');
+              entity.object3D.position.set(position.x, position.y, position.z);
+              entity.object3D.updateMatrix();
+          }
+      });
+
+      // Función para verificar si todos los modelos han sido clicados
+      function checkAllClicked() {
+        if (clickedMinion1 && clickedKevin && clickedMinion2) {
+            textoInicial.setAttribute('visible', 'false');
+            textoAvanzar.setAttribute('visible', 'true');
+			nextButton = document.createElement('a-entity');
+			nextButton.setAttribute('id','next-level-button');
+			nextButton.setAttribute('data-raycastable','');
+			nextButton.setAttribute('gltf-model','#button');
+			nextButton.setAttribute('position','0 1.3 2');
+			nextButton.setAttribute('scale','0.1 0.1 0.1');
+			nextButton.setAttribute('rotation','0 -90 0');
+			nextButton.setAttribute('class','remove');
+			//nextButton.setAttribute('onclick',"window.location.href = 'index2.html';");
+
+		    scene.appendChild(nextButton);
+			
+			nextButton.addEventListener('click', llamar_telefono);
+        }
       }
-    });
-  }
-});
-
-      
-      const minions = [
-      { x: 0, y: 0, z: -30 },
-      { x: 0, y: 0, z: 30 },
-      { x: 30, y: 0, z: 0 },
-      { x: -30, y: 0, z: 0 },
-      { x: 20, y: 0, z: 20 },
-      { x: 20, y: 0, z: -20 },
-      { x: -20, y: 0, z: -20 },
-      { x: -20, y: 0, z: 20 }
-      ];
-
-      const randomX = Math.floor(Math.random() * 61) - 30;
-      const randomY = Math.floor(Math.random() * 61) - 30;
-      const randomZ = Math.floor(Math.random() * 61) - 30;
-      const possibleValues = [360, 0, -360];
-      const possibleValuesY = [360, 0, -360];
-
-      const toX = possibleValues[Math.floor(Math.random() * possibleValues.length)];
-      const toZ = possibleValues[Math.floor(Math.random() * possibleValues.length)];
-      const toY = possibleValuesY[Math.floor(Math.random() * possibleValues.length)];
-
       
 	function llamar_telefono() {
 //Eliminar objetos		
@@ -253,10 +227,43 @@ function createOrbit(position, rotation, animationProps) {
   scene.appendChild(entity);
 }
 
+      // Reproducir audio y actualizar estado al hacer clic en Bowser
+      minion1.addEventListener('click', () => {
+        ahhAudio.play();
+        clickedMinion1 = true;
+        checkAllClicked(); // Verificar si todos los modelos han sido clicados
+      });
+
+      // Reproducir audio y actualizar estado al hacer clic en Kevin
+      kevin.addEventListener('click', () => {
+        helloAudio.play();
+        clickedKevin = true;
+        checkAllClicked(); // Verificar si todos los modelos han sido clicados
+      });
+
+      // Reproducir audio y actualizar estado al hacer clic en Minion2
+      minion2.addEventListener('click', () => {
+        yeehAudio.play();
+        clickedMinion2 = true;
+        checkAllClicked(); // Verificar si todos los modelos han sido clicados
+      });
+	  
+
+      
+
+      /* Simular la detección del objeto al cargar la escena
+      scene.addEventListener('loaded', function () {
+
+        minion1.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        minion2.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        kevin.setAttribute('visible', 'true'); // Hacer visible el objeto 3D
+        //plano.setAttribute('visible', 'true');
+      });*/
+    });
+});
+
 
 /* global AFRAME, THREE */
-
-
 AFRAME.registerComponent('shootable', {
     init: function () {
         this.el.addEventListener('click', () => {
@@ -312,6 +319,8 @@ AFRAME.registerComponent('shootablewinner', {
 AFRAME.registerComponent('shootablevideo', {
     init: function () {
 		const videoEl = document.querySelector('#video');
+
+
         this.el.addEventListener('click', () => {
 			crearWeb();
 				if (videoEl.paused) {
@@ -323,6 +332,7 @@ AFRAME.registerComponent('shootablevideo', {
       }
 	  
 });
+
 
 function crearWeb() {
 	const web = document.createElement('a-entity');
